@@ -6,10 +6,10 @@
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:LibrGB.Sys.DigitCasaMatriz.UI.Menu_Principal___Admin"
         mc:Ignorable="d"
-        Title="MenuPrincipal_Admin" Height="714" Width="1395">
+        Title="MenuPrincipal_Admin" WindowState="Maximized">
         
         
-        <Grid Height="697" VerticalAlignment="Top" Margin="0,0,-691,0">
+        <Grid Height="697" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="372*"/>
                 <RowDefinition Height="325*"/>
@@ -121,7 +121,7 @@
                             </MenuItem.Header>
 
                         </MenuItem>
-                        <MenuItem Background="#007aff" Click="Categoria_Click">
+                        <MenuItem Background="#007aff" Click="Categoria_Click" Cursor="Hand">
 
                             <MenuItem.Header>
 
