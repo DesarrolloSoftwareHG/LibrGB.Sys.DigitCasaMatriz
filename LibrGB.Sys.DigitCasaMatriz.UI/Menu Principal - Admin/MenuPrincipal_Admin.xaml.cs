@@ -1,17 +1,9 @@
-﻿using MahApps.Metro.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LibrGB.Sys.DigitCasaMatriz.UI.Categoria;
+using LibrGB.Sys.DigitCasaMatriz.UI.Producto;
+using LibrGB.Sys.DigitCasaMatriz.UI.Proveedor;
+using LibrGB.Sys.DigitCasaMatriz.UI.UnidadDeMedida;
+using MahApps.Metro.Controls;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LibrGB.Sys.DigitCasaMatriz.UI.Menu_Principal___Admin
 {
@@ -23,6 +15,26 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Menu_Principal___Admin
         public MenuPrincipal_Admin()
         {
             InitializeComponent();
+        }
+
+        private void Producto_Click(object sender, RoutedEventArgs e)
+        {
+            FramePrincipal.NavigationService.Navigate(new Buscar_VerProducto());
+        }
+
+        private void Categoria_Click(object sender, RoutedEventArgs e)
+        {
+            FramePrincipal.NavigationService.Navigate(new Buscar_VerCategoria());
+        }
+
+        private void Proveedor_Click(object sender, RoutedEventArgs e)
+        {
+            FramePrincipal.NavigationService.Navigate(new Buscar_VerProveedor());
+        }
+
+        private void UnidadDeMedida_Click(object sender, RoutedEventArgs e)
+        {
+            FramePrincipal.NavigationService.Navigate(new Buscar_VerUnidadDeMedida());
         }
     }
 }
