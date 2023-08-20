@@ -6,7 +6,8 @@
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:LibrGB.Sys.DigitCasaMatriz.UI.Menu_Principal___Admin"
         mc:Ignorable="d"
-        Title="MenuPrincipal_Admin" WindowState="Maximized">
+        Title="Libreria Green Book - Usuario: Adminstrador - Vista Principal"
+        WindowState="Maximized">
 
     <Window.Icon>
         <ImageSource>/Menu Principal - Admin/LogoTipo.png</ImageSource>
