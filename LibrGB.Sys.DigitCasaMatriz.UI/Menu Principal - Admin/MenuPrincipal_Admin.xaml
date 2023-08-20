@@ -6,213 +6,43 @@
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:LibrGB.Sys.DigitCasaMatriz.UI.Menu_Principal___Admin"
         mc:Ignorable="d"
-        Title="Libreria Green Book - Usuario: Adminstrador - Vista Principal"
+        Title="Libreria Green Book - Usuario: Administrador - Vista Principal"
         WindowState="Maximized">
-
     <Window.Icon>
         <ImageSource>/Menu Principal - Admin/LogoTipo.png</ImageSource>
     </Window.Icon>
+    <Grid>
 
-    <Grid Height="697" VerticalAlignment="Top">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="372*"/>
-                <RowDefinition Height="325*"/>
-            </Grid.RowDefinitions>
-            <!--Prueba desde casa-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-            <!--Panel Izquierdo Principal para la Barra de Menu Laterarl-->
-            <StackPanel Background="#007aff"
-                Width="200"
-                Orientation="Vertical"
-                HorizontalAlignment="Left" Cursor="Hand" Grid.RowSpan="2">
+        <!-- Panel Izquierdo Principal para la Barra de Menú Lateral -->
 
-                <!--Panel Superior Para Division del Logo Principal-->
-                <StackPanel Height="90"
-                    Width="200"
-                    Orientation="Horizontal"
-                    VerticalAlignment="Top">
+        <StackPanel Background="#007aff" Width="200" HorizontalAlignment="Left" 
+	            Cursor="Hand">
+            <!-- Contenido de la barra lateral -->
+        </StackPanel>
 
-                    <Image Height="80"  
-                        Width="100" 
-                        StretchDirection="DownOnly" 
-                        Stretch="Fill"
-                        VerticalAlignment="Center" Margin="48,0,0,0" AutomationProperties.IsOffscreenBehavior="Onscreen" HorizontalAlignment="Center" Source="/Menu Principal - Admin/LogoTipo.png"
-                />
+        <!-- Panel Lateral Derecho que muestra el contenido -->
 
-                </StackPanel>
-                <Label Content="Usuario"
-                    Foreground="#fff"
-                    FontSize="22"
-                    HorizontalAlignment="Center" Margin="0,-3                    ,5,0" FontFamily="{DynamicResource MahApps.Fonts.Family.Window.Title}"
-            />
-
-                <Label Content="Administrador"
-                    FontFamily="{DynamicResource MahApps.Fonts.Family.Control}"
-                    Foreground="#fff"
-                    FontSize="22"
-                    HorizontalAlignment="Center" Margin="0,-15,5,0" Focusable="True" FontWeight="Bold"
-            />
-
-                <StackPanel Height="10"/>
-
-                <Menu Background="#4ea7ff" Height="537">
-
-                    <!--Boton para retornar a la vista de Inicio-->
-                    <MenuItem Background="#4ea7ff" Foreground="White"
-                        VerticalAlignment="Center" HorizontalAlignment="Left" 
-                        HorizontalContentAlignment="Left" 
-                        FontFamily="{DynamicResource MahApps.Fonts.Family.ToggleSwitch}" 
-                        FontWeight="Bold" FontSize="22" Cursor="Hand" 
-                        AutomationProperties.IsOffscreenBehavior="Offscreen" SnapsToDevicePixels="False" 
-                        BorderBrush="#FF4EA7FF" Margin="10,5,0,0">
-
-                        <MenuItem.Header>
-
-                            <StackPanel Orientation="Horizontal">
-
-                                <Viewbox Width="25" Height="25" Margin="0,0,15,0" Stretch="Fill">
-
-                                    <Image  Height="25" Width="25" Source="/Menu Principal - Admin/hogar.png"/>
-
-                                </Viewbox>
-
-                                <TextBlock><Run Text="Inicio"/></TextBlock>
-
-                            </StackPanel>
-                        </MenuItem.Header>
-                    </MenuItem>
-
-                    <!--Boton para acceder al submenu de Catalogo-->
-                    <MenuItem Background="#4ea7ff" Foreground="White"
-                        VerticalAlignment="Center" HorizontalAlignment="Left" 
-                        HorizontalContentAlignment="Left" 
-                        FontFamily="{DynamicResource MahApps.Fonts.Family.ToggleSwitch}" 
-                        FontWeight="Bold" FontSize="22" Cursor="Hand" 
-                        AutomationProperties.IsOffscreenBehavior="Offscreen" SnapsToDevicePixels="False" 
-                        BorderBrush="#FF4EA7FF" Margin="10,5,0,0">
-
-                        <MenuItem.Header>
-
-                            <StackPanel Orientation="Horizontal">
-
-                                <Viewbox Width="25" Height="25" Margin="0,0,15,0" Stretch="Fill">
-
-                                    <Image  Height="25" Width="25" Source="/Menu Principal - Admin/catalogo.png"/>
-
-                                </Viewbox>
-
-                                <TextBlock><Run Text="Catalogo"/></TextBlock>
-
-                            </StackPanel>
-                        </MenuItem.Header>
-
-                        <!--sub-menu del MenuItem Principal de Catalogo-->
-                        <MenuItem Background="#007aff" Click="Producto_Click">
-
-                            <MenuItem.Header>
-
-                                <StackPanel Orientation="Horizontal">
-
-                                    <Viewbox Width="25" Height="25" Margin="0,0,15,0" Stretch="Fill">
-
-                                        <Image  Height="25" Width="25" Source="/Menu Principal - Admin/productos.png"/>
-
-                                    </Viewbox>
-
-                                    <TextBlock><Run Text="Productos"/></TextBlock>
-
-                                </StackPanel>
-                            </MenuItem.Header>
-
-                        </MenuItem>
-                        <MenuItem Background="#007aff" Click="Categoria_Click" Cursor="Hand">
-
-                            <MenuItem.Header>
-
-                                <StackPanel Orientation="Horizontal">
-
-                                    <Viewbox Width="25" Height="25" Margin="0,0,15,0" Stretch="Fill">
-
-                                        <Image  Height="25" Width="25" Source="/Menu Principal - Admin/categorias.png"/>
-
-                                    </Viewbox>
-
-                                    <TextBlock><Run Text="Categorias"/></TextBlock>
-
-                                </StackPanel>
-                            </MenuItem.Header>
-
-                        </MenuItem>
-                        <MenuItem Background="#007aff" Click="Proveedor_Click">
-
-                            <MenuItem.Header>
-
-                                <StackPanel Orientation="Horizontal">
-
-                                    <Viewbox Width="25" Height="25" Margin="0,0,15,0" Stretch="Fill">
-
-                                        <Image  Height="25" Width="25" Source="/Menu Principal - Admin/proveedor.png"/>
-
-                                    </Viewbox>
-
-                                    <TextBlock><Run Text="Proveedores"/></TextBlock>
-
-                                </StackPanel>
-                            </MenuItem.Header>
-
-                        </MenuItem>
-                        <MenuItem Background="#007aff" Click="UnidadDeMedida_Click">
-
-                            <MenuItem.Header>
-
-                                <StackPanel Orientation="Horizontal">
-
-                                    <Viewbox Width="25" Height="25" Margin="0,0,15,0" Stretch="Fill">
-
-                                        <Image  Height="25" Width="25" Source="/Menu Principal - Admin/unidad-de-medida.png"/>
-
-                                    </Viewbox>
-
-                                    <TextBlock><Run Text="Unidad de Medida"/></TextBlock>
-
-                                </StackPanel>
-                            </MenuItem.Header>
-
-                        </MenuItem>
-
-                    </MenuItem>
-
-                </Menu>
-
-            </StackPanel>
-
-            <!--Panel lateral derecho el cual mostrara todo el contenido-->
-
-            <StackPanel Background="#aad3ff"
-                Width="1196"
-                Orientation="Vertical"
-                HorizontalAlignment="Left" Cursor="Hand" Margin="200,0,0,0" Grid.RowSpan="2">
+        <StackPanel Background="#aad3ff" HorizontalAlignment="Stretch" Grid.Column="1">
             <Button Click="LimpiarFrame">Limpiar</Button>
 
             <Frame x:Name="FramePrincipal" Margin="0,30,0,0">
-                
+
+                <!-- Contenido principal -->
             </Frame>
-                <!--Logo y Mensaje de Bienvenida al usuario-->
-                <Viewbox Width="175" Height="175" Margin="-35,185,0,0" Stretch="Fill">
+            <!-- Logo y Mensaje de Bienvenida -->
+            <Viewbox Width="175" Height="175" Stretch="Fill">
+                <Image Source="/Menu Principal - Admin/LogoTipo.png" Height="25" Width="25" Opacity="0.85"/>
+            </Viewbox>
 
-                    <Image Source="/Menu Principal - Admin/LogoTipo.png" Height="25" Width="25" Opacity="0.85"/>
+            <Label HorizontalAlignment="Center" FontSize="35" FontWeight="Bold" Content="Libreria Green Book"/>
 
-                </Viewbox>
-
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" 
-                    FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" Foreground="White" 
-                    Opacity="0.85" FontWeight="Bold" Margin="-25,0,0,0" Content="Libreria Green Book"/>
-
-                <!--Mensaje de Bienvenida-->
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" 
-                    FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" Foreground="White" 
-                    Opacity="0.85" FontWeight="Bold" Margin="-25,0,0,0" Content="B I E N V E N I D O / A"/>
+            <!-- Mensaje de Bienvenida -->
+            <Label HorizontalAlignment="Center" FontSize="35" FontWeight="Bold" Content="B I E N V E N I D O / A"/>
         </StackPanel>
-        </Grid>
-
+    </Grid>
 </mah:MetroWindow>
