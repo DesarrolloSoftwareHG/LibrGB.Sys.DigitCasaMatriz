@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LibrGB.Sys.DigitCasaMatriz.DAL\LibrGB.Sys.DigitCasaMatriz.DAL.csproj" />
+    <ProjectReference Include="..\LibrGB.Sys.DigitCasaMatriz.EN\LibrGB.Sys.DigitCasaMatriz.EN.csproj" />
+  </ItemGroup>
+
 </Project>
