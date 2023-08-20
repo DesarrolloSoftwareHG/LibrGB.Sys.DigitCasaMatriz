@@ -7,9 +7,12 @@
         xmlns:local="clr-namespace:LibrGB.Sys.DigitCasaMatriz.UI.Menu_Principal___Admin"
         mc:Ignorable="d"
         Title="MenuPrincipal_Admin" WindowState="Maximized">
-        
-        
-        <Grid Height="697" VerticalAlignment="Top">
+
+    <Window.Icon>
+        <ImageSource>/Menu Principal - Admin/LogoTipo.png</ImageSource>
+    </Window.Icon>
+
+    <Grid Height="697" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="372*"/>
                 <RowDefinition Height="325*"/>
