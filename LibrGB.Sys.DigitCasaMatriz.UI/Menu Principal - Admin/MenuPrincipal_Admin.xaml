@@ -30,7 +30,7 @@
         <StackPanel Background="#aad3ff" HorizontalAlignment="Stretch" Grid.Column="1">
             <Button Click="LimpiarFrame">Limpiar</Button>
 
-            <Frame x:Name="FramePrincipal" Margin="0,30,0,0">
+            <Frame x:Name="FramePrincipal" Margin="0,170,0,0">
 
                 <!-- Contenido principal -->
             </Frame>
@@ -39,10 +39,10 @@
                 <Image Source="/Menu Principal - Admin/LogoTipo.png" Height="25" Width="25" Opacity="0.85"/>
             </Viewbox>
 
-            <Label HorizontalAlignment="Center" FontSize="35" FontWeight="Bold" Content="Libreria Green Book"/>
+            <Label HorizontalAlignment="Center" FontSize="35" Foreground="#fff" FontWeight="Bold" Content="Libreria Green Book" FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"/>
 
             <!-- Mensaje de Bienvenida -->
-            <Label HorizontalAlignment="Center" FontSize="35" FontWeight="Bold" Content="B I E N V E N I D O / A"/>
+            <Label HorizontalAlignment="Center" FontSize="35" Foreground="#fff" FontWeight="Bold" Content="B I E N V E N I D O / A"/>
         </StackPanel>
     </Grid>
 </mah:MetroWindow>
