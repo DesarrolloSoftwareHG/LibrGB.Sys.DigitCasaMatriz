@@ -188,8 +188,9 @@
                 Width="1196"
                 Orientation="Vertical"
                 HorizontalAlignment="Left" Cursor="Hand" Margin="200,0,0,0" Grid.RowSpan="2">
+            <Button Click="LimpiarFrame">Limpiar</Button>
 
-            <Frame x:Name="FramePrincipal" Margin="200,0,0,0">
+            <Frame x:Name="FramePrincipal" Margin="0,30,0,0">
                 
             </Frame>
                 <!--Logo y Mensaje de Bienvenida al usuario-->
@@ -207,8 +208,7 @@
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" 
                     FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" Foreground="White" 
                     Opacity="0.85" FontWeight="Bold" Margin="-25,0,0,0" Content="B I E N V E N I D O / A"/>
-
-            </StackPanel>
+        </StackPanel>
         </Grid>
 
 </mah:MetroWindow>

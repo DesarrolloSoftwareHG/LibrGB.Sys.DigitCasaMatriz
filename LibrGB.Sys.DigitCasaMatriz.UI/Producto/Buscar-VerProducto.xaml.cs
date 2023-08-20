@@ -24,5 +24,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Producto
         {
             InitializeComponent();
         }
+
+        
     }
 }
