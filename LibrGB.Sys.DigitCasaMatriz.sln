@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Logic - BL", "Busi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrGB.Sys.DigitCasaMatriz.BL", "LibrGB.Sys.DigitCasaMatriz.BL\LibrGB.Sys.DigitCasaMatriz.BL.csproj", "{C71471F0-50FD-4D60-8BA0-E32A872048DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrGB.Sys.DigitCasaMatriz.DAL", "LibrGB.Sys.DigitCasaMatriz.DAL\LibrGB.Sys.DigitCasaMatriz.DAL.csproj", "{0A3DFDCD-AF57-4AAB-B1BF-1241DC81BC58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +25,17 @@ Global
 		{C71471F0-50FD-4D60-8BA0-E32A872048DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C71471F0-50FD-4D60-8BA0-E32A872048DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C71471F0-50FD-4D60-8BA0-E32A872048DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A3DFDCD-AF57-4AAB-B1BF-1241DC81BC58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A3DFDCD-AF57-4AAB-B1BF-1241DC81BC58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A3DFDCD-AF57-4AAB-B1BF-1241DC81BC58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A3DFDCD-AF57-4AAB-B1BF-1241DC81BC58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C71471F0-50FD-4D60-8BA0-E32A872048DB} = {F3F64C19-E2BC-4852-B544-7E258A2AA33E}
+		{0A3DFDCD-AF57-4AAB-B1BF-1241DC81BC58} = {B6833550-808D-40BA-813A-B2AE9E465EBA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {64384A74-7DEE-4671-AF55-069F6CA97F9C}
