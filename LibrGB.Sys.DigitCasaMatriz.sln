@@ -11,11 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer - DAL", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Logic - BL", "Business Logic - BL", "{F3F64C19-E2BC-4852-B544-7E258A2AA33E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrGB.Sys.DigitCasaMatriz.BL", "LibrGB.Sys.DigitCasaMatriz.BL\LibrGB.Sys.DigitCasaMatriz.BL.csproj", "{C71471F0-50FD-4D60-8BA0-E32A872048DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibrGB.Sys.DigitCasaMatriz.BL", "LibrGB.Sys.DigitCasaMatriz.BL\LibrGB.Sys.DigitCasaMatriz.BL.csproj", "{C71471F0-50FD-4D60-8BA0-E32A872048DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrGB.Sys.DigitCasaMatriz.DAL", "LibrGB.Sys.DigitCasaMatriz.DAL\LibrGB.Sys.DigitCasaMatriz.DAL.csproj", "{0A3DFDCD-AF57-4AAB-B1BF-1241DC81BC58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibrGB.Sys.DigitCasaMatriz.DAL", "LibrGB.Sys.DigitCasaMatriz.DAL\LibrGB.Sys.DigitCasaMatriz.DAL.csproj", "{0A3DFDCD-AF57-4AAB-B1BF-1241DC81BC58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrGB.Sys.DigitCasaMatriz.EN", "LibrGB.Sys.DigitCasaMatriz.EN\LibrGB.Sys.DigitCasaMatriz.EN.csproj", "{6C7272B3-676D-4C6D-B370-0CA328C2D0FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibrGB.Sys.DigitCasaMatriz.EN", "LibrGB.Sys.DigitCasaMatriz.EN\LibrGB.Sys.DigitCasaMatriz.EN.csproj", "{6C7272B3-676D-4C6D-B370-0CA328C2D0FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrGB.Sys.DigitCasaMatriz.UI", "LibrGB.Sys.DigitCasaMatriz.UI\LibrGB.Sys.DigitCasaMatriz.UI.csproj", "{187E9C8D-319F-4B8A-8F69-F889B882CEC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{6C7272B3-676D-4C6D-B370-0CA328C2D0FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C7272B3-676D-4C6D-B370-0CA328C2D0FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C7272B3-676D-4C6D-B370-0CA328C2D0FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{187E9C8D-319F-4B8A-8F69-F889B882CEC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{187E9C8D-319F-4B8A-8F69-F889B882CEC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{187E9C8D-319F-4B8A-8F69-F889B882CEC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{187E9C8D-319F-4B8A-8F69-F889B882CEC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +49,7 @@ Global
 		{C71471F0-50FD-4D60-8BA0-E32A872048DB} = {F3F64C19-E2BC-4852-B544-7E258A2AA33E}
 		{0A3DFDCD-AF57-4AAB-B1BF-1241DC81BC58} = {B6833550-808D-40BA-813A-B2AE9E465EBA}
 		{6C7272B3-676D-4C6D-B370-0CA328C2D0FC} = {EBCDC33E-E180-4AE5-9139-0F078563FABA}
+		{187E9C8D-319F-4B8A-8F69-F889B882CEC1} = {536E762C-E1BC-4808-A54D-B31AADA27EF4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {64384A74-7DEE-4671-AF55-069F6CA97F9C}
