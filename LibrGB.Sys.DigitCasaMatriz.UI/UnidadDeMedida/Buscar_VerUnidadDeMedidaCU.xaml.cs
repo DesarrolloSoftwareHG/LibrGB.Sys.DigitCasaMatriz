@@ -16,13 +16,18 @@ using System.Windows.Shapes;
 namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidadDeMedida
 {
     /// <summary>
-    /// Lógica de interacción para Buscar_VerUnidadDeMedida.xaml
+    /// Lógica de interacción para Buscar_VerUnidadDeMedidaCU.xaml
     /// </summary>
-    public partial class Buscar_VerUnidadDeMedida : Page
+    public partial class Buscar_VerUnidadDeMedidaCU : UserControl
     {
-        public Buscar_VerUnidadDeMedida()
+        public Buscar_VerUnidadDeMedidaCU()
         {
             InitializeComponent();
+        }
+
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            Visibility = Visibility.Collapsed;
         }
     }
 }
