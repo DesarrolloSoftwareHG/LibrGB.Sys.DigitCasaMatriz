@@ -6,12 +6,7 @@
              xmlns:local="clr-namespace:LibrGB.Sys.DigitCasaMatriz.UI.Categoria"
              mc:Ignorable="d" 
              >
-    <Grid Background="#aad3ff">
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+    <Grid Background="#aad3ff" Height="726" Width="1002">
 
         <!--Panel para el encavezado de la pagina-->
         <StackPanel Width="925" Height="80" VerticalAlignment="Top" 
@@ -79,12 +74,12 @@
         </StackPanel>
 
         <!--Panel para datagrid view con los datos existentes en el sistema-->
-        <StackPanel Background="Transparent" Width="910" Height="400" Margin="0,250,0,0">
+        <StackPanel Background="Transparent" Width="910" Margin="46,288,46,75">
 
-            <DataGrid Height="400" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+            <DataGrid Height="365" d:ItemsSource="{d:SampleData ItemCount=5}"/>
 
         </StackPanel>
-        <Button x:Name="btnCerrar" Content="Exit" HorizontalAlignment="Left" Margin="955,693,0,0" VerticalAlignment="Top" Background="#FFFB1313" Width="44" Click="btnCerrar_Click"/>
+        <Button x:Name="btnCerrar" Content="Exit" HorizontalAlignment="Left" Margin="901,655,0,0" VerticalAlignment="Top" Background="#FFFB1313" Width="44" Click="btnCerrar_Click"/>
 
     </Grid>
 </UserControl>
