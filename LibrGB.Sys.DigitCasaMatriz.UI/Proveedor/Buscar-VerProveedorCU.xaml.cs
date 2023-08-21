@@ -16,13 +16,18 @@ using System.Windows.Shapes;
 namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
 {
     /// <summary>
-    /// Lógica de interacción para Buscar_VerProveedor.xaml
+    /// Lógica de interacción para Buscar_VerProveedorCU.xaml
     /// </summary>
-    public partial class Buscar_VerProveedor : Page
+    public partial class Buscar_VerProveedorCU : UserControl
     {
-        public Buscar_VerProveedor()
+        public Buscar_VerProveedorCU()
         {
             InitializeComponent();
+        }
+
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            Visibility = Visibility.Collapsed;
         }
     }
 }
