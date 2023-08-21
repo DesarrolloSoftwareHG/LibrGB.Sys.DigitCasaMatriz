@@ -22,7 +22,167 @@
 
         <StackPanel Background="#007aff" Width="200" HorizontalAlignment="Left" 
 	            Cursor="Hand">
-            <!-- Contenido de la barra lateral -->
+
+            <!--Panel Superior Para Division del Logo Principal-->
+            <StackPanel Height="90"
+                    Width="200"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Top">
+
+                <Image Height="80"  
+                        Width="100" 
+                        StretchDirection="DownOnly" 
+                        Stretch="Fill"
+                        VerticalAlignment="Center" Margin="48,0,0,0" AutomationProperties.IsOffscreenBehavior="Onscreen" HorizontalAlignment="Center" Source="/Menu Principal - Admin/LogoTipo.png"
+                />
+
+            </StackPanel>
+
+            <Label Content="Usuario"
+                    Foreground="#fff"
+                    FontSize="22"
+                    HorizontalAlignment="Center" Margin="0,-3,5,0" FontFamily="{DynamicResource MahApps.Fonts.Family.Window.Title}"
+            />
+
+            <Label Content="Administrador"
+                    FontFamily="{DynamicResource MahApps.Fonts.Family.Control}"
+                    Foreground="#fff"
+                    FontSize="22"
+                    HorizontalAlignment="Center" Margin="0,-15,5,0" Focusable="True" FontWeight="Bold"
+            />
+
+
+            <StackPanel Height="10"/>
+
+            <Menu Background="#4ea7ff" Height="537">
+
+                <!--Boton para retornar a la vista de Inicio-->
+                <MenuItem Background="#4ea7ff" Foreground="White"
+                        VerticalAlignment="Center" HorizontalAlignment="Left" 
+                        HorizontalContentAlignment="Left" 
+                        FontFamily="{DynamicResource MahApps.Fonts.Family.ToggleSwitch}" 
+                        FontWeight="Bold" FontSize="22" Cursor="Hand" 
+                        AutomationProperties.IsOffscreenBehavior="Offscreen" SnapsToDevicePixels="False" 
+                        BorderBrush="#FF4EA7FF" Margin="10,5,0,0">
+
+                    <MenuItem.Header>
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <Viewbox Width="25" Height="25" Margin="0,0,15,0" Stretch="Fill">
+
+                                <Image  Height="25" Width="25" Source="/Menu Principal - Admin/hogar.png"/>
+
+                            </Viewbox>
+
+                            <TextBlock><Run Text="Inicio"/></TextBlock>
+
+                        </StackPanel>
+                    </MenuItem.Header>
+                </MenuItem>
+
+                <!--Boton para acceder al submenu de Catalogo-->
+                <MenuItem Background="#4ea7ff" Foreground="White"
+                        VerticalAlignment="Center" HorizontalAlignment="Left" 
+                        HorizontalContentAlignment="Left" 
+                        FontFamily="{DynamicResource MahApps.Fonts.Family.ToggleSwitch}" 
+                        FontWeight="Bold" FontSize="22" Cursor="Hand" 
+                        AutomationProperties.IsOffscreenBehavior="Offscreen" SnapsToDevicePixels="False" 
+                        BorderBrush="#FF4EA7FF" Margin="10,5,0,0">
+
+                    <MenuItem.Header>
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <Viewbox Width="25" Height="25" Margin="0,0,15,0" Stretch="Fill">
+
+                                <Image  Height="25" Width="25" Source="/Menu Principal - Admin/catalogo.png"/>
+
+                            </Viewbox>
+
+                            <TextBlock><Run Text="Catalogo"/></TextBlock>
+
+                        </StackPanel>
+                    </MenuItem.Header>
+
+                    <!--sub-menu del MenuItem Principal de Catalogo-->
+                    <MenuItem Background="#007aff" Click="Producto_Click">
+
+                        <MenuItem.Header>
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <Viewbox Width="25" Height="25" Margin="0,0,15,0" Stretch="Fill">
+
+                                    <Image  Height="25" Width="25" Source="/Menu Principal - Admin/productos.png"/>
+
+                                </Viewbox>
+
+                                <TextBlock><Run Text="Productos"/></TextBlock>
+
+                            </StackPanel>
+                        </MenuItem.Header>
+
+                    </MenuItem>
+                    <MenuItem Background="#007aff" Click="Categoria_Click" Cursor="Hand">
+
+                        <MenuItem.Header>
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <Viewbox Width="25" Height="25" Margin="0,0,15,0" Stretch="Fill">
+
+                                    <Image  Height="25" Width="25" Source="/Menu Principal - Admin/categorias.png"/>
+
+                                </Viewbox>
+
+                                <TextBlock><Run Text="Categorias"/></TextBlock>
+
+                            </StackPanel>
+                        </MenuItem.Header>
+
+                    </MenuItem>
+                    <MenuItem Background="#007aff" Click="Proveedor_Click">
+
+                        <MenuItem.Header>
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <Viewbox Width="25" Height="25" Margin="0,0,15,0" Stretch="Fill">
+
+                                    <Image  Height="25" Width="25" Source="/Menu Principal - Admin/proveedor.png"/>
+
+                                </Viewbox>
+
+                                <TextBlock><Run Text="Proveedores"/></TextBlock>
+
+                            </StackPanel>
+                        </MenuItem.Header>
+
+                    </MenuItem>
+                    <MenuItem Background="#007aff" Click="UnidadDeMedida_Click">
+
+                        <MenuItem.Header>
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <Viewbox Width="25" Height="25" Margin="0,0,15,0" Stretch="Fill">
+
+                                    <Image  Height="25" Width="25" Source="/Menu Principal - Admin/unidad-de-medida.png"/>
+
+                                </Viewbox>
+
+                                <TextBlock><Run Text="Unidad de Medida"/></TextBlock>
+
+                            </StackPanel>
+                        </MenuItem.Header>
+
+                    </MenuItem>
+
+                </MenuItem>
+
+            </Menu>
+
         </StackPanel>
 
         <!-- Panel Lateral Derecho que muestra el contenido -->
@@ -30,7 +190,7 @@
         <StackPanel Background="#aad3ff" HorizontalAlignment="Stretch" Grid.Column="1">
             <Button Click="LimpiarFrame">Limpiar</Button>
 
-            <Frame x:Name="FramePrincipal" Margin="0,170,0,0">
+            <Frame x:Name="FramePrincipal" Margin="0,1,0,0">
 
                 <!-- Contenido principal -->
             </Frame>
