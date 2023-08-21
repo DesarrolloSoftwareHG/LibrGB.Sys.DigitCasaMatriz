@@ -29,5 +29,11 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
         {
             Visibility = Visibility.Collapsed;
         }
+
+        private void btnAgregarCategoria_Click(object sender, RoutedEventArgs e)
+        {
+            _CategoriaAgregar abrirVentanaAgregar = new _CategoriaAgregar();
+            abrirVentanaAgregar.Show();
+        }
     }
 }

@@ -189,12 +189,12 @@
 
         <StackPanel Background="#aad3ff" HorizontalAlignment="Stretch" Grid.Column="1">
 
-            <Frame x:Name="FramePrincipal" Margin="0,200,0,0" NavigationUIVisibility="Hidden">
+            <Frame x:Name="FramePrincipal" Margin="0,0,0,0" NavigationUIVisibility="Hidden">
 
                 <!-- Contenido principal -->
             </Frame>
             <!-- Logo y Mensaje de Bienvenida -->
-            <Viewbox Width="175" Height="175" Stretch="Fill">
+            <Viewbox Width="175" Height="175" Stretch="Fill" Margin="0,200,0,0">
                 <Image Source="/Menu Principal - Admin/LogoTipo.png" Height="25" Width="25" Opacity="0.85"/>
             </Viewbox>
 
