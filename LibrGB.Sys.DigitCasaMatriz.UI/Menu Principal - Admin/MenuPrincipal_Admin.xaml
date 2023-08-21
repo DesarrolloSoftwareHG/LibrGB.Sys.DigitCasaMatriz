@@ -63,7 +63,7 @@
                         FontFamily="{DynamicResource MahApps.Fonts.Family.ToggleSwitch}" 
                         FontWeight="Bold" FontSize="22" Cursor="Hand" 
                         AutomationProperties.IsOffscreenBehavior="Offscreen" SnapsToDevicePixels="False" 
-                        BorderBrush="#FF4EA7FF" Margin="10,5,0,0">
+                        BorderBrush="#FF4EA7FF" Margin="10,5,0,0" Click="LimpiarFrame">
 
                     <MenuItem.Header>
 
@@ -188,7 +188,6 @@
         <!-- Panel Lateral Derecho que muestra el contenido -->
 
         <StackPanel Background="#aad3ff" HorizontalAlignment="Stretch" Grid.Column="1">
-            <Button Click="LimpiarFrame">Limpiar</Button>
 
             <Frame x:Name="FramePrincipal" Margin="0,1,0,0">
 
