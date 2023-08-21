@@ -75,6 +75,9 @@
     <Compile Include="Categoria\Buscar-VerCategoriaCU.xaml.cs">
       <DependentUpon>Buscar-VerCategoriaCU.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Categoria\_CategoriaAgregar.xaml.cs">
+      <DependentUpon>_CategoriaAgregar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Producto\Buscar-VerProductoCU.xaml.cs">
       <DependentUpon>Buscar-VerProductoCU.xaml</DependentUpon>
     </Compile>
@@ -117,6 +120,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Categoria\Buscar-VerCategoriaCU.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Categoria\_CategoriaAgregar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
