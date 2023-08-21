@@ -76,12 +76,12 @@
         </StackPanel>
 
         <!--Panel para datagrid view con los datos existentes en el sistema-->
-        <StackPanel Background="Transparent" Width="910" Height="400" Margin="0,250,0,0">
+        <StackPanel Background="Transparent" Width="910" Margin="50,289,51,74">
 
-            <DataGrid Height="400" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+            <DataGrid Height="365" d:ItemsSource="{d:SampleData ItemCount=5}"/>
 
         </StackPanel>
-        <Button x:Name="btnCerrar" Content="Exit" HorizontalAlignment="Left" Margin="958,694,0,0" VerticalAlignment="Top" Background="#FFFB1313" Width="43" Click="btnCerrar_Click"/>
+        <Button x:Name="btnCerrar" Content="Exit" HorizontalAlignment="Left" Margin="901,663,0,0" VerticalAlignment="Top" Background="#FFFB1313" Width="43" Click="btnCerrar_Click"/>
 
 
     </Grid>

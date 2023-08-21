@@ -79,7 +79,7 @@
             <DataGrid Height="365" d:ItemsSource="{d:SampleData ItemCount=5}"/>
 
         </StackPanel>
-        <Button x:Name="btnCerrar" Content="Exit" HorizontalAlignment="Left" Margin="901,655,0,0" VerticalAlignment="Top" Background="#FFFB1313" Width="44" Click="btnCerrar_Click"/>
+        <Button x:Name="btnCerrar" Content="Exit" HorizontalAlignment="Left" Margin="901,663,0,0" VerticalAlignment="Top" Background="#FFFB1313" Width="44" Click="btnCerrar_Click"/>
 
     </Grid>
 </UserControl>
