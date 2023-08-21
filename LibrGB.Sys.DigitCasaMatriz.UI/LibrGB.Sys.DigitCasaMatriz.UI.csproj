@@ -72,22 +72,22 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Proveedor\Buscar-VerProveedor.xaml.cs">
-      <DependentUpon>Buscar-VerProveedor.xaml</DependentUpon>
+    <Compile Include="Categoria\Buscar-VerCategoriaCU.xaml.cs">
+      <DependentUpon>Buscar-VerCategoriaCU.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UnidadDeMedida\Buscar-VerUnidadDeMedida.xaml.cs">
-      <DependentUpon>Buscar-VerUnidadDeMedida.xaml</DependentUpon>
+    <Compile Include="Producto\Buscar-VerProductoCU.xaml.cs">
+      <DependentUpon>Buscar-VerProductoCU.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedor\Buscar-VerProveedorCU.xaml.cs">
+      <DependentUpon>Buscar-VerProveedorCU.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UnidadDeMedida\Buscar_VerUnidadDeMedidaCU.xaml.cs">
+      <DependentUpon>Buscar_VerUnidadDeMedidaCU.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Categoria\Buscar-VerCategoria.xaml.cs">
-      <DependentUpon>Buscar-VerCategoria.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Menu Principal - Admin\MenuPrincipal_Admin.xaml.cs">
       <DependentUpon>MenuPrincipal_Admin.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Producto\Buscar-VerProducto.xaml.cs">
-      <DependentUpon>Buscar-VerProducto.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -116,7 +116,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Categoria\Buscar-VerCategoria.xaml">
+    <Page Include="Categoria\Buscar-VerCategoriaCU.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -124,15 +124,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Producto\Buscar-VerProducto.xaml">
+    <Page Include="Producto\Buscar-VerProductoCU.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Proveedor\Buscar-VerProveedor.xaml">
+    <Page Include="Proveedor\Buscar-VerProveedorCU.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UnidadDeMedida\Buscar-VerUnidadDeMedida.xaml">
+    <Page Include="UnidadDeMedida\Buscar_VerUnidadDeMedidaCU.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

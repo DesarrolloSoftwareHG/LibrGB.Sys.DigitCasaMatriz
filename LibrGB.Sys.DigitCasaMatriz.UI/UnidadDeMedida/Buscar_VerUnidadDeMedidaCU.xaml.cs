@@ -13,16 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
+namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidadDeMedida
 {
     /// <summary>
-    /// Lógica de interacción para Buscar_VerProveedor.xaml
+    /// Lógica de interacción para Buscar_VerUnidadDeMedidaCU.xaml
     /// </summary>
-    public partial class Buscar_VerProveedor : Page
+    public partial class Buscar_VerUnidadDeMedidaCU : UserControl
     {
-        public Buscar_VerProveedor()
+        public Buscar_VerUnidadDeMedidaCU()
         {
             InitializeComponent();
+        }
+
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            Visibility = Visibility.Collapsed;
         }
     }
 }

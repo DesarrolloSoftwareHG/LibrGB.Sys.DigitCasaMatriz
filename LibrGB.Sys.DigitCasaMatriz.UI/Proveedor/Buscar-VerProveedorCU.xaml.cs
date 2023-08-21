@@ -13,16 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
+namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
 {
     /// <summary>
-    /// Lógica de interacción para Buscar_VerCategoria.xaml
+    /// Lógica de interacción para Buscar_VerProveedorCU.xaml
     /// </summary>
-    public partial class Buscar_VerCategoria : Page
+    public partial class Buscar_VerProveedorCU : UserControl
     {
-        public Buscar_VerCategoria()
+        public Buscar_VerProveedorCU()
         {
             InitializeComponent();
+        }
+
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            Visibility = Visibility.Collapsed;
         }
     }
 }

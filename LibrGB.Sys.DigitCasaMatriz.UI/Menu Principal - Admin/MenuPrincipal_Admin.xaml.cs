@@ -20,22 +20,22 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Menu_Principal___Admin
 
         private void Producto_Click(object sender, RoutedEventArgs e)
         {
-            FramePrincipal.NavigationService.Navigate(new Buscar_VerProducto());
+            FramePrincipal.NavigationService.Navigate(new Buscar_VerProductoCU());
         }
 
         private void Categoria_Click(object sender, RoutedEventArgs e)
         {
-            FramePrincipal.NavigationService.Navigate(new Buscar_VerCategoria());
+            FramePrincipal.NavigationService.Navigate(new Buscar_VerCategoriaCU());
         }
 
         private void Proveedor_Click(object sender, RoutedEventArgs e)
         {
-            FramePrincipal.NavigationService.Navigate(new Buscar_VerProveedor());
+            FramePrincipal.NavigationService.Navigate(new Buscar_VerProveedorCU());
         }
 
         private void UnidadDeMedida_Click(object sender, RoutedEventArgs e)
         {
-            FramePrincipal.NavigationService.Navigate(new Buscar_VerUnidadDeMedida());
+            FramePrincipal.NavigationService.Navigate(new Buscar_VerUnidadDeMedidaCU());
         }
 
         //Boton para limpiar el frame ( no cumple con su accion al 100% pero es funcional, quedara por si se llegase a utilizar)
