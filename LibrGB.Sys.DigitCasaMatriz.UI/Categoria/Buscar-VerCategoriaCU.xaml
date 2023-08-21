@@ -6,7 +6,12 @@
              xmlns:local="clr-namespace:LibrGB.Sys.DigitCasaMatriz.UI.Categoria"
              mc:Ignorable="d" 
              >
-    <Grid Background="#aad3ff" Height="726" Width="1002">
+    <Grid Background="#aad3ff">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
         <!--Panel para el encavezado de la pagina-->
         <StackPanel Width="925" Height="80" VerticalAlignment="Top" 
