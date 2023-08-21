@@ -189,7 +189,7 @@
 
         <StackPanel Background="#aad3ff" HorizontalAlignment="Stretch" Grid.Column="1">
 
-            <Frame x:Name="FramePrincipal" Margin="0,1,0,0" NavigationUIVisibility="Hidden">
+            <Frame x:Name="FramePrincipal" Margin="0,200,0,0" NavigationUIVisibility="Hidden">
 
                 <!-- Contenido principal -->
             </Frame>
