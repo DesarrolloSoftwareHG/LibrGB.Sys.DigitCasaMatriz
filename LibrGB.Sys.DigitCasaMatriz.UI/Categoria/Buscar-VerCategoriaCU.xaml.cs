@@ -16,13 +16,18 @@ using System.Windows.Shapes;
 namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 {
     /// <summary>
-    /// Lógica de interacción para Buscar_VerCategoria.xaml
+    /// Lógica de interacción para Buscar_VerCategoriaCU.xaml
     /// </summary>
-    public partial class Buscar_VerCategoria : Page
+    public partial class Buscar_VerCategoriaCU : UserControl
     {
-        public Buscar_VerCategoria()
+        public Buscar_VerCategoriaCU()
         {
             InitializeComponent();
+        }
+
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            Visibility = Visibility.Collapsed;
         }
     }
 }
