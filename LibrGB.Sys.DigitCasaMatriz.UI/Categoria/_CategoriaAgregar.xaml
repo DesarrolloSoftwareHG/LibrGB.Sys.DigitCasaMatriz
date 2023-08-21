@@ -29,8 +29,13 @@
             <Label HorizontalAlignment="Center" Content="Mantenimiento para Categoria" 
                    FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" FontWeight="Bold" 
                    Foreground="#fff"></Label>
-            
+
         </StackPanel>
+        <Label Content="Codigo de la categoria:" HorizontalAlignment="Left" Margin="500,50,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <TextBox Margin="10,76,476,124" Grid.Column="1">
+            
+        </TextBox>
+        <Label Content="Nombre de la categoria:" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
 
     </Grid>
 </mah:MetroWindow>
