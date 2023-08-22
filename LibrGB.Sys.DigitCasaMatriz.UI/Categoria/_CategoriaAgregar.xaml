@@ -6,36 +6,134 @@
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:LibrGB.Sys.DigitCasaMatriz.UI.Categoria"
         mc:Ignorable="d"
-        Title="Mantenimiento de Categoria" WindowState="Normal">
+        Title="Mantenimiento de Categoria" Height="306" Width="669">
 
     <Window.Icon>
         <ImageSource>/Menu Principal - Admin/LogoTipo.png</ImageSource>
     </Window.Icon>
 
-    <Grid Background="#aad3ff">
+    <Grid Background="#aad3ff" Height="306" Width="669">
 
+        <!--Definicion de columnas y filas-->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <Frame x:Name="FramePrincipal" Margin="0,200,0,0" NavigationUIVisibility="Hidden">
+        <!--Panel principal-->
+        <StackPanel Grid.Row="1" Background="#007aff"  Grid.ColumnSpan="7">
 
-            <!-- Contenido principal -->
-        </Frame>
 
-        <StackPanel VerticalAlignment="Top" Grid.Column="1" Background="#007aff">
-
-            <Label HorizontalAlignment="Center" Content="Mantenimiento para Categoria" 
-                   FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" FontWeight="Bold" 
-                   Foreground="#fff"></Label>
-
+            <Label  
+                   HorizontalAlignment="Center"
+                   Content="Mantenimiento para Categoria" 
+                   FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" 
+                   FontWeight="Bold" 
+                   Foreground="#fff"/>
         </StackPanel>
-        <Label Content="Codigo de la categoria:" HorizontalAlignment="Left" Margin="500,50,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <TextBox Margin="10,76,476,124" Grid.Column="1">
-            
-        </TextBox>
-        <Label Content="Nombre de la categoria:" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
 
+        <!--Contenido-->
+        <TextBlock Grid.Row="2" 
+                   Grid.Column="1"
+                   Grid.ColumnSpan="2"
+                   Text="Nombre de la categoria:"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="15"
+                   FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+                   FontWeight="Bold" />
+
+        <TextBox x:Name="txtNombreCategoria" Grid.Row="3" 
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Height="5" Margin="20,2,20,2"
+                 />
+
+        <TextBlock Grid.Row="2" 
+           Grid.Column="4"
+           Grid.ColumnSpan="2"
+           Text="Codigo de la categoria:"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Center"
+           FontSize="15"
+           FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+           FontWeight="Bold"/>
+
+        <TextBox x:Name="txtCodigoCategoria" Grid.Row="3" 
+         Grid.Column="4"
+         Grid.ColumnSpan="2"
+         Height="5" Margin="20,2,20,2"
+         />
+
+        <TextBlock Grid.Row="4" 
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Text="Fecha de creacion:"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center" 
+            FontSize="15"
+            FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+            FontWeight="Bold"/>
+
+        <DatePicker x:Name="dtFechaCreacion" Grid.Row="5" 
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2" Margin="20,0,20,0" 
+         />
+
+        <TextBlock Grid.Row="4" 
+             Grid.Column="4"
+             Grid.ColumnSpan="2"
+             Text="Fecha de Modificacion:"
+             HorizontalAlignment="Center"
+             VerticalAlignment="Center"
+             FontSize="15"
+             FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+             FontWeight="Bold" 
+            />
+
+        <DatePicker x:Name="dtFechaModificacion" Grid.Row="5" 
+            Grid.Column="4"
+            Grid.ColumnSpan="2" Margin="20,0,20,0" />
+
+        <TextBlock Grid.Row="6" 
+                    Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Text="Descripcion de la categoria:"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 FontSize="15"
+                FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+                FontWeight="Bold" />
+
+        <TextBox x:Name="txtDescripcionCategoria" Grid.Row="7" 
+         Grid.Column="1"
+         Grid.ColumnSpan="2" Margin="20,10,20,38" 
+         />
+
+        <!--Texbox para mostrar Id ( esta oculto)-->
+
+        <TextBox x:Name="txtIdCategoria" Grid.Row="3" 
+                Grid.Column="3" Margin="41,1,41,1" Visibility="Hidden" />
+        
+        <!--Boton para agregar-->
+        <Button x:Name="btnAgregarCategoria"
+                Grid.Row="8"
+                Grid.Column="5"
+                Content="Agregar" Margin="38,44,20,38"/>
     </Grid>
 </mah:MetroWindow>
