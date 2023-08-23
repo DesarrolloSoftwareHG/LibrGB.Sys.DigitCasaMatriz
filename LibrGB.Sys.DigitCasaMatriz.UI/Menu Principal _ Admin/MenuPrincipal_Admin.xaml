@@ -8,9 +8,11 @@
         mc:Ignorable="d"
         Title="Libreria Green Book - Usuario: Administrador - Vista Principal"
         WindowState="Maximized">
+
     <Window.Icon>
-        <ImageSource>/Menu Principal - Admin/LogoTipo.png</ImageSource>
+        <ImageSource>/IMG/LogoTipo.png</ImageSource>
     </Window.Icon>
+    
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -33,7 +35,8 @@
                         Width="100" 
                         StretchDirection="DownOnly" 
                         Stretch="Fill"
-                        VerticalAlignment="Center" Margin="48,0,0,0" AutomationProperties.IsOffscreenBehavior="Onscreen" HorizontalAlignment="Center" Source="/Menu Principal - Admin/LogoTipo.png"
+                        VerticalAlignment="Center" Margin="48,0,0,0" AutomationProperties.IsOffscreenBehavior="Onscreen" 
+                       HorizontalAlignment="Center" Source="/IMG/LogoTipo.png"
                 />
 
             </StackPanel>
@@ -71,7 +74,7 @@
 
                             <Viewbox Width="25" Height="25" Margin="0,0,15,0" Stretch="Fill">
 
-                                <Image  Height="25" Width="25" Source="/Menu Principal - Admin/hogar.png"/>
+                                <Image  Height="25" Width="25" Source="/IMG/hogar.png"/>
 
                             </Viewbox>
 
@@ -96,7 +99,7 @@
 
                             <Viewbox Width="25" Height="25" Margin="0,0,15,0" Stretch="Fill">
 
-                                <Image  Height="25" Width="25" Source="/Menu Principal - Admin/catalogo.png"/>
+                                <Image  Height="25" Width="25" Source="/IMG/catalogo.png"/>
 
                             </Viewbox>
 
@@ -114,7 +117,7 @@
 
                                 <Viewbox Width="25" Height="25" Margin="0,0,15,0" Stretch="Fill">
 
-                                    <Image  Height="25" Width="25" Source="/Menu Principal - Admin/productos.png"/>
+                                    <Image  Height="25" Width="25" Source="/IMG/productos.png"/>
 
                                 </Viewbox>
 
@@ -132,7 +135,7 @@
 
                                 <Viewbox Width="25" Height="25" Margin="0,0,15,0" Stretch="Fill">
 
-                                    <Image  Height="25" Width="25" Source="/Menu Principal - Admin/categorias.png"/>
+                                    <Image  Height="25" Width="25" Source="/IMG/categorias.png"/>
 
                                 </Viewbox>
 
@@ -150,7 +153,7 @@
 
                                 <Viewbox Width="25" Height="25" Margin="0,0,15,0" Stretch="Fill">
 
-                                    <Image  Height="25" Width="25" Source="/Menu Principal - Admin/proveedor.png"/>
+                                    <Image  Height="25" Width="25" Source="/IMG/proveedor.png"/>
 
                                 </Viewbox>
 
@@ -168,7 +171,7 @@
 
                                 <Viewbox Width="25" Height="25" Margin="0,0,15,0" Stretch="Fill">
 
-                                    <Image  Height="25" Width="25" Source="/Menu Principal - Admin/unidad-de-medida.png"/>
+                                    <Image  Height="25" Width="25" Source="/IMG/unidad_de_medida.png"/>
 
                                 </Viewbox>
 
@@ -185,6 +188,7 @@
 
         </StackPanel>
 
+
         <!-- Panel Lateral Derecho que muestra el contenido -->
 
         <StackPanel Background="#aad3ff" HorizontalAlignment="Stretch" Grid.Column="1">
@@ -193,9 +197,11 @@
 
                 <!-- Contenido principal -->
             </Frame>
+            
             <!-- Logo y Mensaje de Bienvenida -->
+            
             <Viewbox Width="175" Height="175" Stretch="Fill" Margin="0,200,0,0">
-                <Image Source="/Menu Principal - Admin/LogoTipo.png" Height="25" Width="25" Opacity="0.85"/>
+                <Image Source="/IMG/LogoTipo.png" Height="25" Width="25" Opacity="0.85"/>
             </Viewbox>
 
             <Label HorizontalAlignment="Center" FontSize="35" Foreground="#fff" FontWeight="Bold" Content="Libreria Green Book" FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"/>
@@ -203,5 +209,7 @@
             <!-- Mensaje de Bienvenida -->
             <Label HorizontalAlignment="Center" FontSize="35" Foreground="#fff" FontWeight="Bold" Content="B I E N V E N I D O / A"/>
         </StackPanel>
+
     </Grid>
+    
 </mah:MetroWindow>

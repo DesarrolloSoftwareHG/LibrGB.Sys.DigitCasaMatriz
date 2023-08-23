@@ -6,16 +6,17 @@
              xmlns:local="clr-namespace:LibrGB.Sys.DigitCasaMatriz.UI.Categoria"
              mc:Ignorable="d" 
              >
-    <Grid Background="#aad3ff" Height="726" Width="1002">
+
+    <Grid Background="#aad3ff" Margin="0,0,0,0" Height="728" Width="1011">
 
         <!--Panel para el encavezado de la pagina-->
         <StackPanel Width="925" Height="80" VerticalAlignment="Top" 
-                Margin="0,15,0,0" Background="#007aff" 
-                Effect="{DynamicResource MahApps.DropShadowEffect.Menu}">
+            Margin="0,15,0,0" Background="#007aff" 
+            Effect="{DynamicResource MahApps.DropShadowEffect.Menu}">
 
             <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" 
-                    FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" Foreground="White" 
-                    Opacity="0.85" FontWeight="Bold" Margin="25,10,0,0" Content="Buscar Categoria"/>
+                FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" Foreground="White" 
+                Opacity="0.85" FontWeight="Bold" Margin="25,10,0,0" Content="Buscar Categoria"/>
 
         </StackPanel>
 
@@ -23,20 +24,20 @@
         <StackPanel Width="925" Height="50" Margin="31,119,31,539">
             <Viewbox Width="50" Height="50" Margin="-700,0,0,0" Stretch="Fill">
 
-                <Image Height="10" Width="10" Opacity="0.85" Source="/UnidadDeMedida/recargar.png"/>
+                <Image Height="10" Width="10" Opacity="0.85" Source="/IMG/recargar.png"/>
 
             </Viewbox>
 
             <TextBox TextWrapping="Wrap" Margin="0,-50,0,0" 
-                    Foreground="Black" Height="40" Width="550" 
-                    FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" 
-                    FontWeight="Bold" FontSize="23" 
-                    HorizontalAlignment="Center" VerticalAlignment="Center" 
-                    Cursor="Arrow"/>
+                Foreground="Black" Height="40" Width="550" 
+                FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" 
+                FontWeight="Bold" FontSize="23" 
+                HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Cursor="Arrow"/>
 
             <Viewbox Width="50" Height="50" Margin="700,-50,0,0" Stretch="Fill">
 
-                <Image  Height="10" Width="10" Opacity="0.85" Source="/UnidadDeMedida/buscar.png"/>
+                <Image  Height="10" Width="10" Opacity="0.85" Source="/IMG/buscar.png"/>
 
             </Viewbox>
 
@@ -45,31 +46,31 @@
 
         <!--Panel para los botones segun sea la accion a ejecutar-->
         <StackPanel Width="925" Height="50" Margin="31,190,31,468" 
-                Orientation="Horizontal">
+            Orientation="Horizontal">
 
             <Button x:Name="btnEliminarCategoria" Content="Eliminar" 
-                    VerticalAlignment="Center" 
-                    FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
-                    Background="#007aff" Foreground="White" Height="38" Width="160"
-                    FontSize="18" Margin="74,0,0,0"/>
+                VerticalAlignment="Center" 
+                FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+                Background="#007aff" Foreground="White" Height="38" Width="160"
+                FontSize="18" Margin="74,0,0,0"/>
 
             <Button Content="Modificar" 
-                    VerticalAlignment="Center" 
-                    FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
-                    Background="#007aff" Foreground="White" Height="38" Width="158"
-                    FontSize="18" Margin="50,0,0,0"/>
+                VerticalAlignment="Center" 
+                FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+                Background="#007aff" Foreground="White" Height="38" Width="158"
+                FontSize="18" Margin="50,0,0,0"/>
 
             <Button x:Name="btnAgregarCategoria" Content="Agregar" 
-                    VerticalAlignment="Center" 
-                    FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
-                    Background="#007aff" Foreground="White" Height="38" Width="160"
-                    FontSize="18" Margin="50,0,0,0" Click="btnAgregarCategoria_Click"/>
+                VerticalAlignment="Center" 
+                FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+                Background="#007aff" Foreground="White" Height="38" Width="160"
+                FontSize="18" Margin="50,0,0,0" Click="btnAgregarCategoria_Click" />
 
             <Button Content="Ver" 
-                    VerticalAlignment="Center" 
-                    FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
-                    Background="#007aff" Foreground="White" Height="38" Width="150"
-                    FontSize="18" Margin="50,0,0,0"/>
+                VerticalAlignment="Center" 
+                FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+                Background="#007aff" Foreground="White" Height="38" Width="150"
+                FontSize="18" Margin="50,0,0,0"/>
 
         </StackPanel>
 
@@ -79,7 +80,11 @@
             <DataGrid Height="365" d:ItemsSource="{d:SampleData ItemCount=5}"/>
 
         </StackPanel>
-        <Button x:Name="btnCerrar" Content="Exit" HorizontalAlignment="Left" Margin="901,663,0,0" VerticalAlignment="Top" Background="#FFFB1313" Width="44" Click="btnCerrar_Click"/>
+        <Button x:Name="btnCerrar" Content="Exit" HorizontalAlignment="Left" Margin="901,663,0,0" VerticalAlignment="Top" 
+                Background="#FFFB1313" Width="44" Click="btnCerrar_Click"/>
 
     </Grid>
+
+
+
 </UserControl>

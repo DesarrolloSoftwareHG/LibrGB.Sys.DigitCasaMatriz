@@ -9,7 +9,7 @@
         Title="Mantenimiento de Categoria" Height="513" Width="879">
 
     <Window.Icon>
-        <ImageSource>/Menu Principal - Admin/LogoTipo.png</ImageSource>
+        <ImageSource>/IMG/LogoTipo.png</ImageSource>
     </Window.Icon>
 
     <Grid Background="#aad3ff" Height="656" VerticalAlignment="Top">
@@ -60,7 +60,7 @@
 
         <TextBox x:Name="txtNombreCategoria" Grid.Row="5" 
                  Grid.Column="1"
-                 Grid.ColumnSpan="3" Margin="55,2,156,2" TextChanged="txtNombreCategoria_TextChanged"
+                 Grid.ColumnSpan="3" Margin="55,2,156,2"
                  />
 
         <TextBlock Grid.Row="4" 
@@ -144,4 +144,5 @@
                 Grid.Column="4"
                 Content="Agregar" Margin="70,223,160,207" Grid.ColumnSpan="2" FontSize="14"/>
     </Grid>
+
 </mah:MetroWindow>

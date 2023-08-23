@@ -1,175 +1,43 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{187E9C8D-319F-4B8A-8F69-F889B882CEC1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>LibrGB.Sys.DigitCasaMatriz.UI</RootNamespace>
-    <AssemblyName>LibrGB.Sys.DigitCasaMatriz.UI</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="ControlzEx, Version=4.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
-      <HintPath>..\packages\ControlzEx.4.4.0\lib\net462\ControlzEx.dll</HintPath>
-    </Reference>
-    <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
-      <HintPath>..\packages\MahApps.Metro.2.4.10\lib\net47\MahApps.Metro.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.19\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
+    <None Remove="IMG\buscar.png" />
+    <None Remove="IMG\catalogo.png" />
+    <None Remove="IMG\categorias.png" />
+    <None Remove="IMG\hogar.png" />
+    <None Remove="IMG\LogoTipo.png" />
+    <None Remove="IMG\productos.png" />
+    <None Remove="IMG\proveedor.png" />
+    <None Remove="IMG\recargar.png" />
+    <None Remove="IMG\unidad_de_medida.png" />
   </ItemGroup>
+
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Categoria\Buscar-VerCategoriaCU.xaml.cs">
-      <DependentUpon>Buscar-VerCategoriaCU.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Categoria\_CategoriaAgregar.xaml.cs">
-      <DependentUpon>_CategoriaAgregar.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Producto\Buscar-VerProductoCU.xaml.cs">
-      <DependentUpon>Buscar-VerProductoCU.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Proveedor\Buscar-VerProveedorCU.xaml.cs">
-      <DependentUpon>Buscar-VerProveedorCU.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UnidadDeMedida\Buscar_VerUnidadDeMedidaCU.xaml.cs">
-      <DependentUpon>Buscar_VerUnidadDeMedidaCU.xaml</DependentUpon>
-    </Compile>
+    <PackageReference Include="MahApps.Metro" Version="2.4.10" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Menu Principal - Admin\MenuPrincipal_Admin.xaml.cs">
-      <DependentUpon>MenuPrincipal_Admin.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
+    <ProjectReference Include="..\LibrGB.Sys.DigitCasaMatriz.BL\LibrGB.Sys.DigitCasaMatriz.BL.csproj" />
+    <ProjectReference Include="..\LibrGB.Sys.DigitCasaMatriz.EN\LibrGB.Sys.DigitCasaMatriz.EN.csproj" />
   </ItemGroup>
+
   <ItemGroup>
-    <None Include="App.config" />
+    <Resource Include="IMG\buscar.png" />
+    <Resource Include="IMG\catalogo.png" />
+    <Resource Include="IMG\categorias.png" />
+    <Resource Include="IMG\hogar.png" />
+    <Resource Include="IMG\LogoTipo.png" />
+    <Resource Include="IMG\productos.png" />
+    <Resource Include="IMG\proveedor.png" />
+    <Resource Include="IMG\recargar.png" />
+    <Resource Include="IMG\unidad_de_medida.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Page Include="Categoria\Buscar-VerCategoriaCU.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Categoria\_CategoriaAgregar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Menu Principal - Admin\MenuPrincipal_Admin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Producto\Buscar-VerProductoCU.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Proveedor\Buscar-VerProveedorCU.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UnidadDeMedida\Buscar_VerUnidadDeMedidaCU.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Menu Principal - Admin\LogoTipo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Menu Principal - Admin\hogar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Menu Principal - Admin\catalogo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Menu Principal - Admin\productos.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Menu Principal - Admin\categorias.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Menu Principal - Admin\proveedor.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Menu Principal - Admin\unidad-de-medida.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="UnidadDeMedida\buscar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="UnidadDeMedida\recargar.png" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>

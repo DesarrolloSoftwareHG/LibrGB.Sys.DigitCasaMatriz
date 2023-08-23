@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidadDeMedida
+namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
 {
     /// <summary>
     /// Lógica de interacción para Buscar_VerUnidadDeMedidaCU.xaml
@@ -27,7 +27,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidadDeMedida
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
-            Visibility = Visibility.Collapsed;
+
         }
     }
 }

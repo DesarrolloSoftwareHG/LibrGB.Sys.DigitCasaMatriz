@@ -25,15 +25,14 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
             InitializeComponent();
         }
 
-        private void btnCerrar_Click(object sender, RoutedEventArgs e)
-        {
-            Visibility = Visibility.Collapsed;
-        }
-
         private void btnAgregarCategoria_Click(object sender, RoutedEventArgs e)
         {
-            _CategoriaAgregar abrirVentanaAgregar = new _CategoriaAgregar();
-            abrirVentanaAgregar.Show();
+
+        }
+
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

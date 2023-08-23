@@ -27,7 +27,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
-            Visibility = Visibility.Collapsed;
+
         }
     }
 }

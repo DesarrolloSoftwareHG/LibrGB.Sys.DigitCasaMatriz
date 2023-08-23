@@ -4,10 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LibrGB.Sys.DigitCasaMatriz.UI.Proveedor"
-             mc:Ignorable="d" 
-             >
-    
-    <Grid Background="#aad3ff" Margin="0,0,0,0" Height="731" Width="1007">
+             mc:Ignorable="d">
+
+    <Grid Background="#aad3ff" Margin="0,0,0,0" Height="728" Width="1011">
 
         <!--Panel para el encavezado de la pagina-->
         <StackPanel Width="925" Height="80" VerticalAlignment="Top" 
@@ -24,7 +23,7 @@
         <StackPanel Width="925" Height="50" Margin="31,119,31,539">
             <Viewbox Width="50" Height="50" Margin="-700,0,0,0" Stretch="Fill">
 
-                <Image Height="10" Width="10" Opacity="0.85" Source="/UnidadDeMedida/recargar.png"/>
+                <Image Height="10" Width="10" Opacity="0.85" Source="/IMG/recargar.png"/>
 
             </Viewbox>
 
@@ -37,7 +36,7 @@
 
             <Viewbox Width="50" Height="50" Margin="700,-50,0,0" Stretch="Fill">
 
-                <Image  Height="10" Width="10" Opacity="0.85" Source="/UnidadDeMedida/buscar.png"/>
+                <Image  Height="10" Width="10" Opacity="0.85" Source="/IMG/buscar.png"/>
 
             </Viewbox>
 
@@ -75,12 +74,13 @@
         </StackPanel>
 
         <!--Panel para datagrid view con los datos existentes en el sistema-->
-        <StackPanel Background="Transparent" Width="910" Height="400" Margin="0,250,0,0">
+        <StackPanel Background="Transparent" Width="910" Margin="46,288,46,75">
 
-            <DataGrid Height="400" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+            <DataGrid Height="365" d:ItemsSource="{d:SampleData ItemCount=5}"/>
 
         </StackPanel>
-        <Button x:Name="btnCerrar" Content="Exit" HorizontalAlignment="Left" Margin="954,696,0,0" VerticalAlignment="Top" Background="#FFFB1313" Width="43" Click="btnCerrar_Click"/>
+        <Button x:Name="btnCerrar" Content="Exit" HorizontalAlignment="Left" Margin="901,663,0,0"
+                VerticalAlignment="Top" Background="#FFFB1313" Width="44" Click="btnCerrar_Click"/>
 
     </Grid>
 

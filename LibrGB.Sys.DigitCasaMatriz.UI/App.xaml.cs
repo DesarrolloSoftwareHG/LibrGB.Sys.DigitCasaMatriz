@@ -9,7 +9,7 @@ using System.Windows;
 namespace LibrGB.Sys.DigitCasaMatriz.UI
 {
     /// <summary>
-    /// Lógica de interacción para App.xaml
+    /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {

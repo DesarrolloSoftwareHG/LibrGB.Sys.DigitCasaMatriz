@@ -24,10 +24,5 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
         {
             InitializeComponent();
         }
-
-        private void txtNombreCategoria_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 }
