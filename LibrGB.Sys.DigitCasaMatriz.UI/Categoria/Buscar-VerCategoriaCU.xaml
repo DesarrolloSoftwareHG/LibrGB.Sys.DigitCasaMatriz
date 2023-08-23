@@ -83,8 +83,11 @@
         <Button x:Name="btnCerrar" Content="Exit" HorizontalAlignment="Left" Margin="901,663,0,0" VerticalAlignment="Top" 
                 Background="#FFFB1313" Width="44" Click="btnCerrar_Click"/>
 
+
+        <!--Texbox para mostrar Id ( esta oculto)-->
+
+        <TextBox x:Name="txtIdCategoria" Margin="692,40,277,658" Visibility="Hidden" />
+
     </Grid>
-
-
 
 </UserControl>
