@@ -144,13 +144,13 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Categoria
                 ObjCategoria.Codigo = reader.GetString(2);
                 // Asignar el valor de cadena del tercer campo (índice 2) al Codigo de ObjCategoria.
 
-                ObjCategoria.Descripcion = reader.GetString(5);
+                ObjCategoria.Descripcion = reader.GetString(3);
                 // Asignar el valor de cadena del sexto campo (índice 5) a Descripcion de ObjCategoria.
 
-                ObjCategoria.FechaCreacion = reader.GetDateTime(3);
+                ObjCategoria.FechaCreacion = reader.GetDateTime(4);
                 // Asignar el valor de fecha y hora del cuarto campo (índice 3) a FechaCreacion de ObjCategoria.
 
-                ObjCategoria.FechaModificacion = reader.GetDateTime(4);
+                ObjCategoria.FechaModificacion = reader.GetDateTime(5);
                 // Asignar el valor de fecha y hora del quinto campo (índice 4) a FechaModificacion de ObjCategoria.
 
                 listaCategoria.Add(ObjCategoria);
