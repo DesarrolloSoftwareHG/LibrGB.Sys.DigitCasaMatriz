@@ -33,7 +33,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Visibility = Visibility.Collapsed;
         }
     }
 }

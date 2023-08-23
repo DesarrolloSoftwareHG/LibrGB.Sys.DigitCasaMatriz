@@ -30,5 +30,10 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
             _ProveedorAgregar AgregarProveedor = new _ProveedorAgregar();
             AgregarProveedor.Show();
         }
+
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
+        }
     }
 }
