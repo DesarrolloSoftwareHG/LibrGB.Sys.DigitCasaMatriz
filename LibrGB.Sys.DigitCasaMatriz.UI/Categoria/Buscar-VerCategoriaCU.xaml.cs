@@ -27,9 +27,11 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
             InitializeComponent();
 
             ActualizarDataGrid();
+            // Llamamos el Metodo ActualizarGrid para que se ejecute al nomas inicie el Control de Usuario
         }
 
         CategoriaBL ObjCategoriaBL = new CategoriaBL();
+        // Crea una instancia de la clase CategoriaBL y la asigna a la variable ObjCategoriaBL.
 
         private void btnAgregarCategoria_Click(object sender, RoutedEventArgs e)
         {
@@ -46,9 +48,12 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 
         public void ActualizarDataGrid()
         {
+            // Se establece la fuente de datos del DataGridView (dgvMostrar_Categorias) como nula para limpiar los datos actuales.
             dgvMostrar_Categorias.ItemsSource = null;
 
+            // Se asigna la fuente de datos del DataGridView (dgvMostrar_Categorias) con la lista de categorías obtenidas a través de ObjCategoriaBL.ObtenerCategoria().
             dgvMostrar_Categorias.ItemsSource = ObjCategoriaBL.ObtenerCategoria();
+
         }
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
