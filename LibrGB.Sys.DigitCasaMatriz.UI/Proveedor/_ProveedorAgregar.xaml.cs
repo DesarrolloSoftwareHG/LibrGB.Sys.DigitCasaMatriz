@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,25 +11,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
 {
     /// <summary>
-    /// Lógica de interacción para Buscar_VerProveedorCU.xaml
+    /// Lógica de interacción para _ProveedorAgregar.xaml
     /// </summary>
-    public partial class Buscar_VerProveedorCU : UserControl
+    public partial class _ProveedorAgregar : MetroWindow
     {
-        public Buscar_VerProveedorCU()
+        public _ProveedorAgregar()
         {
             InitializeComponent();
         }
 
-        private void btnAgregarProveedor_Click(object sender, RoutedEventArgs e)
-        {
-            _ProveedorAgregar AgregarProveedor = new _ProveedorAgregar();
-            AgregarProveedor.Show();
-        }
     }
 }
