@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static LibrGB.Sys.DigitCasaMatriz.EN.Acciones;
 
 namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 {
@@ -27,7 +28,8 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 
         private void btnAgregarCategoria_Click(object sender, RoutedEventArgs e)
         {
-            _CategoriaAgregar VerFormulario = new _CategoriaAgregar();
+            var accion = (byte)AccionEnum.Crear;
+            _CategoriaAgregar VerFormulario = new _CategoriaAgregar(null,accion);
             VerFormulario.Show();
         }
 
