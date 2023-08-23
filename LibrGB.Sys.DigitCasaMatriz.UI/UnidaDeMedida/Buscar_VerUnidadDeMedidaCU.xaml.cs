@@ -27,7 +27,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Visibility = Visibility.Collapsed;
         }
     }
 }

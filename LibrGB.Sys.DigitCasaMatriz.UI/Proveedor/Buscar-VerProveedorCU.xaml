@@ -80,7 +80,7 @@
 
         </StackPanel>
         <Button x:Name="btnCerrar" Content="Exit" HorizontalAlignment="Left" Margin="901,663,0,0"
-                VerticalAlignment="Top" Background="#FFFB1313" Width="44"  />
+                VerticalAlignment="Top" Background="#FFFB1313" Width="44" Click="btnCerrar_Click"  />
 
     </Grid>
 
