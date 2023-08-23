@@ -6,7 +6,7 @@
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:LibrGB.Sys.DigitCasaMatriz.UI.Categoria"
         mc:Ignorable="d"
-        Title="Mantenimiento de Categoria" Height="513" Width="879">
+        Title="Mantenimiento de Categoria" Height="513" Width="879" WindowStartupLocation="CenterScreen">
 
     <Window.Icon>
         <ImageSource>/IMG/LogoTipo.png</ImageSource>

@@ -27,7 +27,8 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 
         private void btnAgregarCategoria_Click(object sender, RoutedEventArgs e)
         {
-
+            _CategoriaAgregar VerFormulario = new _CategoriaAgregar();
+            VerFormulario.Show();
         }
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
