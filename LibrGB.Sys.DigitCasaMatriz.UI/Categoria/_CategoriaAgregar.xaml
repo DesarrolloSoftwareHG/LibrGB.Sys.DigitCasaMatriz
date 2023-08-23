@@ -39,7 +39,7 @@
         <StackPanel Grid.Row="1" Background="#007aff"  Grid.ColumnSpan="5" Grid.RowSpan="3" Margin="20,16,20,24" Grid.Column="1">
 
 
-            <Label  
+            <Label x:Name="lblNameForm"
                    HorizontalAlignment="Center"
                    Content="Mantenimiento para Categoria" 
                    FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" 
@@ -102,7 +102,7 @@
 
         <DatePicker x:Name="dtFechaCreacion" Grid.Row="7" 
                     Grid.Column="1"
-                    Grid.ColumnSpan="3" Margin="55,151,156,289" 
+                    Grid.ColumnSpan="3" Margin="55,151,156,289" AutomationProperties.IsOffscreenBehavior="Offscreen" 
          />
 
         <TextBlock Grid.Row="7" 
@@ -130,19 +130,24 @@
         <Button x:Name="btnEliminarCategoria"
                 Grid.Row="7"
                 Grid.Column="2"
-                Content="Eliminar" Margin="24,223,34,207" FontSize="14"/>
+                Content="Eliminar" Margin="24,223,34,207" FontSize="14" Click="btnEliminarCategoria_Click"/>
 
         <!--Boton para modificar-->
         <Button x:Name="btnModificarCategoria"
                 Grid.Row="7"
                 Grid.Column="3"
-                Content="Modificar" Margin="52,223,5,207" FontSize="14"/>
+                Content="Modificar" Margin="52,223,5,207" FontSize="14" Click="btnModificarCategoria_Click"/>
 
         <!--Boton para agregar-->
         <Button x:Name="btnAgregarCategoria"
                 Grid.Row="7"
                 Grid.Column="4"
-                Content="Agregar" Margin="70,223,160,207" Grid.ColumnSpan="2" FontSize="14"/>
+                Content="Agregar" Margin="70,223,160,207" Grid.ColumnSpan="2" FontSize="14" Click="btnAgregarCategoria_Click"/>
+
+        <Label Grid.Column="5" Content="*" Foreground="Red" FontSize="18"
+               HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" 
+               Margin="64,26,0,0" Grid.RowSpan="2" Visibility="Hidden"/>
+
     </Grid>
 
 </mah:MetroWindow>
