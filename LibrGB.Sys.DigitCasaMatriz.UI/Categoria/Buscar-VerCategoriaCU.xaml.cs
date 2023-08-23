@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibrGB.Sys.DigitCasaMatriz.BL.Catalogo_BL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,13 +25,30 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
         public Buscar_VerCategoriaCU()
         {
             InitializeComponent();
+
+            ActualizarDataGrid();
         }
+
+        CategoriaBL ObjCategoriaBL = new CategoriaBL();
 
         private void btnAgregarCategoria_Click(object sender, RoutedEventArgs e)
         {
+            // Se define la acción que se realizará, en este caso, se establece la acción como "Crear".
             var accion = (byte)AccionEnum.Crear;
-            _CategoriaAgregar VerFormulario = new _CategoriaAgregar(null,accion);
+
+            // Se crea una instancia del formulario _CategoriaAgregar pasando null como parámetro y la acción definida.
+            _CategoriaAgregar VerFormulario = new _CategoriaAgregar(null, accion);
+
+            // Se muestra el formulario recién creado.
             VerFormulario.Show();
+
+        }
+
+        public void ActualizarDataGrid()
+        {
+            dgvMostrar_Categorias.ItemsSource = null;
+
+            dgvMostrar_Categorias.ItemsSource = ObjCategoriaBL.ObtenerCategoria();
         }
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
