@@ -102,7 +102,7 @@
 
         <DatePicker x:Name="dtFechaCreacion" Grid.Row="7" 
                     Grid.Column="1"
-                    Grid.ColumnSpan="3" Margin="55,151,156,289" AutomationProperties.IsOffscreenBehavior="Offscreen" 
+                    Grid.ColumnSpan="3" Margin="55,151,156,289" IsEnabled="False" 
          />
 
         <TextBlock Grid.Row="7" 
@@ -118,7 +118,7 @@
 
         <DatePicker x:Name="dtFechaModificacion" Grid.Row="7" 
             Grid.Column="3"
-            Grid.ColumnSpan="3" Margin="169,151,42,289" />
+            Grid.ColumnSpan="3" Margin="169,151,42,289" IsEnabled="False" />
 
 
         <!--Texbox para mostrar Id ( esta oculto)-->

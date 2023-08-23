@@ -49,9 +49,11 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 
                 // Se establece la fecha de creación y modificación a la fecha y hora actual.
                 dtFechaCreacion.SelectedDate = DateTime.Now; // Establece la fecha de creación actual.
+                dtFechaCreacion.SelectedDateFormat = DatePickerFormat.Long;
                 dtFechaCreacion.IsEnabled = false;
 
                 dtFechaModificacion.SelectedDate = DateTime.Now; // Establece la fecha de modificación actual.
+                dtFechaModificacion.SelectedDateFormat = DatePickerFormat.Long;
                 dtFechaModificacion.IsEnabled = false;
 
                 // Se ocultan los botones de eliminar y modificar categoría.
@@ -96,7 +98,10 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 
                     // Se establecen las fechas de creación y modificación en los campos de fecha.
                     dtFechaCreacion.SelectedDate = categoria.FechaCreacion;
+                    dtFechaCreacion.SelectedDateFormat = DatePickerFormat.Long;
+
                     dtFechaModificacion.SelectedDate = categoria.FechaModificacion;
+                    dtFechaModificacion.SelectedDateFormat = DatePickerFormat.Long;
 
                     // Se ocultan los botones de agregar y modificar categoría.
                     btnAgregarCategoria.Visibility = Visibility.Collapsed; // Oculta el botón de agregar categoría.
@@ -120,9 +125,11 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 
                     // Se establece la fecha de creación en el campo de fecha.
                     dtFechaCreacion.SelectedDate = categoria.FechaCreacion;
+                    dtFechaCreacion.SelectedDateFormat = DatePickerFormat.Long;
 
                     // Se establece la fecha de modificación en el campo de fecha.
                     dtFechaModificacion.SelectedDate = DateTime.Now;
+                    dtFechaModificacion.SelectedDateFormat = DatePickerFormat.Long;
 
                     // Se establece la descripción de la categoría en el campo de texto.
                     txtDescripcionCategoria.Text = categoria.Descripcion;
@@ -246,7 +253,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
                 ActualizarDataGrid();
                 // Se llama a la función 'ActualizarDataGrid' para actualizar los datos en la cuadrícula
 
-                Close();
+                return;
                 // Se cierra la ventana actual
             }
         }
