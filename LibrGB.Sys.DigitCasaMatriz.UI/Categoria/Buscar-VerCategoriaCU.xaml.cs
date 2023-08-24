@@ -51,10 +51,10 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
             var accion = (byte)AccionEnum.Crear;
 
             // Se crea una instancia del formulario _CategoriaAgregar pasando null como parámetro y la acción definida.
-            _CategoriaAgregar VerFormulario = new _CategoriaAgregar(null, accion);
+            _CategoriaAgregar AgregFormulario = new _CategoriaAgregar(null, accion);
 
             // Se muestra el formulario recién creado.
-            VerFormulario.Show();
+            AgregFormulario.Show();
 
         }
 
@@ -124,10 +124,10 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
                 int idCategoria = categoriaSeleccionada.Id;
 
                 // Crear una instancia de _CategoriaAgregar y pasar el Id y la acción
-                _CategoriaAgregar ElimCategoria = new _CategoriaAgregar(idCategoria, pAccion);
+                _CategoriaAgregar VerCategoria = new _CategoriaAgregar(idCategoria, pAccion);
 
                 // Mostrar la ventana _CategoriaAgregar
-                ElimCategoria.Show();
+                VerCategoria.Show();
             }
             else
             {
