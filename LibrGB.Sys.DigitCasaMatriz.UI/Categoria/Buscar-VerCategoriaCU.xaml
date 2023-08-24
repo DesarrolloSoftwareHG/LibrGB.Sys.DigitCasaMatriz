@@ -37,7 +37,7 @@
 
             <Viewbox Width="50" Height="50" Margin="700,-50,0,0" Stretch="Fill">
 
-                <Image  Height="10" Width="10" Opacity="0.85" Source="/IMG/buscar.png"/>
+                <Image  Height="10" Width="10" Opacity="0.85" Source="/IMG/buscar.png" RenderTransformOrigin="2.5,2.5"/>
 
             </Viewbox>
 
@@ -52,13 +52,13 @@
                 VerticalAlignment="Center" 
                 FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
                 Background="#007aff" Foreground="White" Height="38" Width="160"
-                FontSize="18" Margin="74,0,0,0"/>
+                FontSize="18" Margin="74,0,0,0" Click="btnEliminarCategoria_Click"/>
 
-            <Button Content="Modificar" 
+            <Button Content="Modificar" x:Name="btnModificarCategoria"
                 VerticalAlignment="Center" 
                 FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
                 Background="#007aff" Foreground="White" Height="38" Width="158"
-                FontSize="18" Margin="50,0,0,0"/>
+                FontSize="18" Margin="50,0,0,0" Click="btnModificarCategoria_Click"/>
 
             <Button x:Name="btnAgregarCategoria" Content="Agregar" 
                 VerticalAlignment="Center" 

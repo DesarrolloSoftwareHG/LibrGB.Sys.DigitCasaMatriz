@@ -1,6 +1,8 @@
 ﻿using LibrGB.Sys.DigitCasaMatriz.BL.Catalogo_BL;
+using LibrGB.Sys.DigitCasaMatriz.EN.Catalogo.Categoria;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +32,16 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
             // Llamamos el Metodo ActualizarGrid para que se ejecute al nomas inicie el Control de Usuario
         }
 
+        public void ActualizarDataGrid()
+        {
+            // Se establece la fuente de datos del DataGridView (dgvMostrar_Categorias) como nula para limpiar los datos actuales.
+            dgvMostrar_Categorias.ItemsSource = null;
+
+            // Se asigna la fuente de datos del DataGridView (dgvMostrar_Categorias) con la lista de categorías obtenidas a través de ObjCategoriaBL.ObtenerCategoria().
+            dgvMostrar_Categorias.ItemsSource = ObjCategoriaBL.ObtenerCategoria();
+
+        }
+
         CategoriaBL ObjCategoriaBL = new CategoriaBL();
         // Crea una instancia de la clase CategoriaBL y la asigna a la variable ObjCategoriaBL.
 
@@ -46,14 +58,54 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 
         }
 
-        public void ActualizarDataGrid()
+        private void btnModificarCategoria_Click(object sender, RoutedEventArgs e)
         {
-            // Se establece la fuente de datos del DataGridView (dgvMostrar_Categorias) como nula para limpiar los datos actuales.
-            dgvMostrar_Categorias.ItemsSource = null;
+            if (dgvMostrar_Categorias.SelectedItem != null)
+            {
+                // Si hay una fila seleccionada en el DataGridView (dgvMostrar_Categorias), continúa con el proceso de modificación.
 
-            // Se asigna la fuente de datos del DataGridView (dgvMostrar_Categorias) con la lista de categorías obtenidas a través de ObjCategoriaBL.ObtenerCategoria().
-            dgvMostrar_Categorias.ItemsSource = ObjCategoriaBL.ObtenerCategoria();
+                // Obtener la categoría seleccionada del enlace de datos del DataGridView.
+                CategoriaEN categoriaSeleccionada = (CategoriaEN)dgvMostrar_Categorias.SelectedItem;
 
+                // Obtener el ID de la categoría seleccionada.
+                int idCategoria = categoriaSeleccionada.Id;
+
+                // Crear una nueva instancia del formulario de modificación de categoría (_CategoriaAgregar) y pasar el ID de la categoría seleccionada.
+                _CategoriaAgregar ModifCategoria = new _CategoriaAgregar(idCategoria);
+
+                // Mostrar el formulario de modificación de categoría.
+                ModifCategoria.Show();
+            }
+            else
+            {
+                // Si no hay ninguna fila seleccionada en el DataGridView, mostrar un mensaje de error.
+                MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Modificar", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void btnEliminarCategoria_Click(object sender, RoutedEventArgs e)
+        {
+            // Definir el valor de la acción como byte usando el enumerado AccionEnum
+            byte pAccion = (byte)AccionEnum.Eliminar;
+
+            if (dgvMostrar_Categorias.SelectedItem != null)
+            {
+                // Obtener el objeto seleccionado del DataGrid (cambia "Categoria" por el tipo correcto)
+                CategoriaEN categoriaSeleccionada = (CategoriaEN)dgvMostrar_Categorias.SelectedItem;
+
+                // Obtener el valor de Id del objeto seleccionado (ajusta esto según la estructura de tus objetos)
+                int idCategoria = categoriaSeleccionada.Id;
+
+                // Crear una instancia de _CategoriaAgregar y pasar el Id y la acción
+                _CategoriaAgregar ElimCategoria = new _CategoriaAgregar(idCategoria, pAccion);
+
+                // Mostrar la ventana _CategoriaAgregar
+                ElimCategoria.Show();
+            }
+            else
+            {
+                MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Eliminar", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
