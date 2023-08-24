@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida"
              mc:Ignorable="d">
 
-    <Grid Background="#aad3ff"  Height="728" Width="1011">
+    <Grid Background="#aad3ff" Margin="0,0,0,0" Height="728" Width="1011">
 
         <!--Panel para el encavezado de la pagina-->
         <StackPanel Width="925" Height="80" VerticalAlignment="Top" 
@@ -15,35 +15,35 @@
 
             <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" 
                 FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" Foreground="White" 
-                Opacity="0.85" FontWeight="Bold" Margin="25,10,0,0" Content="Buscar Unidad De Medida"/>
+                Opacity="0.85" FontWeight="Bold" Margin="25,10,0,0" Content="Buscar Categoria"/>
 
         </StackPanel>
 
         <!--panel del boton buscar y recargar junto con la barra de busqueda-->
         <StackPanel Width="925" Height="50" Margin="31,119,31,539">
             <Button x:Name="btnRecargarUDM"  BorderBrush="Transparent" 
-                    Margin="-700,0,0,0" Width="50" Height="50" Click="btnRecargarCategoria_Click">
+                    Margin="-700,0,0,0" Width="50" Height="50" Click="btnRecargarUDM_Click">
 
                 <Button.Background>
                     <ImageBrush ImageSource="/IMG/recargar.png" Stretch="Uniform"/>
                 </Button.Background>
 
-                </Button>
+            </Button>
 
-                <TextBox x:Name="txtBuscarUDM" TextWrapping="Wrap" Margin="0,-50,0,0" 
+            <TextBox x:Name="txtBuscarUDM" TextWrapping="Wrap" Margin="0,-50,0,0" 
                 Foreground="Black" Height="40" Width="550" 
                 FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" FontSize="23" 
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Cursor="Arrow" TextChanged="btnBuscarCategoria_Click"/>
+                Cursor="Arrow" TextChanged="btnBuscarUDM_Click"/>
 
-                <Button x:Name="btnBuscarUDM" Click="btnBuscarCategoria_Click" BorderBrush="Transparent" 
+            <Button x:Name="btnBuscarUDM" Click="btnBuscarUDM_Click" BorderBrush="Transparent" 
                     Margin="700,-50,0,0" Width="50" Height="50">
 
-                    <Button.Background>
-                        <ImageBrush ImageSource="/IMG/buscar.png" Stretch="Uniform"/>
-                    </Button.Background>
+                <Button.Background>
+                    <ImageBrush ImageSource="/IMG/buscar.png" Stretch="Uniform"/>
+                </Button.Background>
 
-                </Button>
+            </Button>
 
         </StackPanel>
 
@@ -52,29 +52,29 @@
         <StackPanel Width="925" Height="50" Margin="31,190,31,468" 
             Orientation="Horizontal">
 
-            <Button Content="Eliminar" x:Name="btnEliminarUDM"
+            <Button x:Name="btnEliminarUDM" Content="Eliminar" 
                 VerticalAlignment="Center" 
                 FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
                 Background="#007aff" Foreground="White" Height="38" Width="160"
-                FontSize="18" Margin="74,0,0,0"/>
+                FontSize="18" Margin="74,0,0,0" Click="btnEliminarUDM_Click"/>
 
             <Button Content="Modificar" x:Name="btnModificarUDM"
                 VerticalAlignment="Center" 
                 FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
                 Background="#007aff" Foreground="White" Height="38" Width="158"
-                FontSize="18" Margin="50,0,0,0"/>
+                FontSize="18" Margin="50,0,0,0" Click="btnModificarUDM_Click"/>
 
-            <Button Content="Agregar" x:Name="btnAgregarUDM"
+            <Button x:Name="btnAgregarUDM" Content="Agregar" 
                 VerticalAlignment="Center" 
                 FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
                 Background="#007aff" Foreground="White" Height="38" Width="160"
-                FontSize="18" Margin="50,0,0,0"/>
+                FontSize="18" Margin="50,0,0,0" Click="btnAgregarUDM_Click" />
 
             <Button Content="Ver" x:Name="btnVerUDM"
                 VerticalAlignment="Center" 
                 FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
                 Background="#007aff" Foreground="White" Height="38" Width="150"
-                FontSize="18" Margin="50,0,0,0" />
+                FontSize="18" Margin="50,0,0,0" Click="btnVerUDM_Click"/>
 
         </StackPanel>
 
@@ -86,6 +86,7 @@
         </StackPanel>
         <Button x:Name="btnCerrar" Content="Exit" HorizontalAlignment="Left" Margin="901,663,0,0" VerticalAlignment="Top" 
                 Background="#FFFB1313" Width="44" Click="btnCerrar_Click"/>
+
 
         <!--Texbox para mostrar Id ( esta oculto)-->
 
