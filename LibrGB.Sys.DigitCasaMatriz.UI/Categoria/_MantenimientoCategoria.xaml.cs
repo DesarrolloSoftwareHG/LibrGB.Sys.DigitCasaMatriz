@@ -214,6 +214,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
                     // Se establece el enfoque en el cuadro de texto txtNombreCategoria para que el usuario pueda corregir el error.
                     txtNombreCategoria.Focus();
 
+
                     // Se detiene la ejecución del código actual.
                     return;
                 }
@@ -261,9 +262,8 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 
                     // Se establece el enfoque en el cuadro de texto txtCodigoCategoria para que el usuario pueda corregir el error.
                     txtCodigoCategoria.Focus();
-
-                    // Se hace visible el control lblNameForm, que parece estar relacionado con la validación.
-                    lblNameForm.Visibility = Visibility.Visible;
+                    lblAlert.Visibility = Visibility.Visible;
+                    return;
                 }
                 else
                 {
