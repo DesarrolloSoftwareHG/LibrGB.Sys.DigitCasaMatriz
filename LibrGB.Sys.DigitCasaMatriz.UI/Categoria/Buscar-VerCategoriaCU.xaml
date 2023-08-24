@@ -71,7 +71,7 @@
                 Background="#007aff" Foreground="White" Height="38" Width="160"
                 FontSize="18" Margin="50,0,0,0" Click="btnAgregarCategoria_Click" />
 
-            <Button Content="Ver" 
+            <Button Content="Ver" x:Name="btnVerCategoria"
                 VerticalAlignment="Center" 
                 FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
                 Background="#007aff" Foreground="White" Height="38" Width="150"
