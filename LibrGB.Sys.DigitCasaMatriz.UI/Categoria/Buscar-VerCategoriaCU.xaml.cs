@@ -136,5 +136,31 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
             ActualizarDataGrid();
             //Llamamos el metodo ActualizarDataGrid para actualizar el DGV al precionarlo
         }
+
+        private void btnVerCategoria_Click(object sender, RoutedEventArgs e)
+        {
+            // Definir el valor de la acción como byte usando el enumerado AccionEnum
+            byte pAccion = (byte)AccionEnum.Ver;
+
+            if (dgvMostrar_Categorias.SelectedItem != null)
+            {
+                // Obtener el objeto seleccionado del DataGrid (cambia "Categoria" por el tipo correcto)
+                CategoriaEN categoriaSeleccionada = (CategoriaEN)dgvMostrar_Categorias.SelectedItem;
+
+                // Obtener el valor de Id del objeto seleccionado (ajusta esto según la estructura de tus objetos)
+                int idCategoria = categoriaSeleccionada.Id;
+
+                // Crear una instancia de _CategoriaAgregar y pasar el Id y la acción
+                _CategoriaAgregar ElimCategoria = new _CategoriaAgregar(idCategoria, pAccion);
+
+                // Mostrar la ventana _CategoriaAgregar
+                ElimCategoria.Show();
+            }
+            else
+            {
+                MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error En La Previsualizacion", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            ActualizarDataGrid();
+        }
     }
 }
