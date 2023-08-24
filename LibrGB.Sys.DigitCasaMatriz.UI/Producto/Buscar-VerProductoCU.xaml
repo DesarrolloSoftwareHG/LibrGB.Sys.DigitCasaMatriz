@@ -47,7 +47,7 @@
         <StackPanel Width="925" Height="50" Margin="31,190,31,468" 
                 Orientation="Horizontal">
 
-            <Button Content="Eliminar" 
+            <Button x:Name="___Sin_nombre_" Content="Eliminar" 
                     VerticalAlignment="Center" 
                     FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
                     Background="#007aff" Foreground="White" Height="38" Width="160"
