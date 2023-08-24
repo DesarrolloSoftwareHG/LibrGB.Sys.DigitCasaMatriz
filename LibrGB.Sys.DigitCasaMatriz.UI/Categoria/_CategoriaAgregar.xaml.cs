@@ -60,7 +60,6 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
                 btnEliminarCategoria.Visibility = Visibility.Collapsed; // Oculta el botón de eliminar categoría.
                 btnModificarCategoria.Visibility = Visibility.Collapsed; // Oculta el botón de modificar categoría.
             }
-
         }
 
 
@@ -74,7 +73,41 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 
             if (categoria != null)
             {
-                if (pAccion == (byte)AccionEnum.Eliminar)
+                if (pAccion == (byte)AccionEnum.Ver)
+                {
+                    // Si la acción es "Eliminar" (AccionEnum.Ver), se realiza lo siguiente:
+
+                    // Se establece el contenido de la etiqueta de título a "Visualizacion Categoria".
+                    lblNameForm.Content = "Visualizacion Categoria";
+
+                    // Se muestra el identificador de la categoría en el campo de texto.
+                    txtIdCategoria.Text = Convert.ToString(categoria.Id);
+
+                    // Se establece el nombre de la categoría en el campo de texto y se deshabilita la edición.
+                    txtNombreCategoria.Text = categoria.Nombre;
+                    txtNombreCategoria.IsEnabled = false;
+
+                    // Se establece el código de la categoría en el campo de texto y se deshabilita la edición.
+                    txtCodigoCategoria.Text = categoria.Codigo;
+                    txtCodigoCategoria.IsEnabled = false;
+
+                    // Se establece la descripción de la categoría en el campo de texto y se deshabilita la edición.
+                    txtDescripcionCategoria.Text = categoria.Descripcion;
+                    txtDescripcionCategoria.IsEnabled = false;
+
+                    // Se establecen las fechas de creación y modificación en los campos de fecha.
+                    dtFechaCreacion.SelectedDate = categoria.FechaCreacion;
+                    dtFechaCreacion.SelectedDateFormat = DatePickerFormat.Long;
+
+                    dtFechaModificacion.SelectedDate = categoria.FechaModificacion;
+                    dtFechaModificacion.SelectedDateFormat = DatePickerFormat.Long;
+
+                    // Se ocultan los botones de agregar y modificar categoría.
+                    btnAgregarCategoria.Visibility = Visibility.Collapsed; // Oculta el botón de agregar categoría.
+                    btnModificarCategoria.Visibility = Visibility.Collapsed; // Oculta el botón de modificar categoría.
+                    btnEliminarCategoria.Visibility = Visibility.Collapsed; // Oculta el botón de Eliminar categoría.
+                }
+                else if (pAccion == (byte)AccionEnum.Eliminar)
                 {
                     // Si la acción es "Eliminar" (AccionEnum.Eliminar), se realiza lo siguiente:
 
