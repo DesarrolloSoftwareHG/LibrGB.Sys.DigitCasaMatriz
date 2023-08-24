@@ -22,24 +22,29 @@
 
         <!--panel del boton buscar y recargar junto con la barra de busqueda-->
         <StackPanel Width="925" Height="50" Margin="31,119,31,539">
-            <Viewbox Width="50" Height="50" Margin="-700,0,0,0" Stretch="Fill">
+            <Button x:Name="btnRecargarCategoria"  BorderBrush="Transparent" 
+                    Margin="-700,0,0,0" Width="50" Height="50" Click="btnRecargarCategoria_Click">
 
-                <Image Height="10" Width="10" Opacity="0.85" Source="/IMG/recargar.png"/>
+                <Button.Background>
+                    <ImageBrush ImageSource="/IMG/recargar.png" Stretch="Uniform"/>
+                </Button.Background>
 
-            </Viewbox>
+            </Button>
 
-            <TextBox TextWrapping="Wrap" Margin="0,-50,0,0" 
+            <TextBox x:Name="txtBuscarCategoria" TextWrapping="Wrap" Margin="0,-50,0,0" 
                 Foreground="Black" Height="40" Width="550" 
-                FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" 
-                FontWeight="Bold" FontSize="23" 
+                FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" FontSize="23" 
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Cursor="Arrow"/>
+                Cursor="Arrow" TextChanged="btnBuscarCategoria_Click"/>
 
-            <Viewbox Width="50" Height="50" Margin="700,-50,0,0" Stretch="Fill">
+            <Button x:Name="btnBuscarCategoria" Click="btnBuscarCategoria_Click" BorderBrush="Transparent" 
+                    Margin="700,-50,0,0" Width="50" Height="50">
 
-                <Image  Height="10" Width="10" Opacity="0.85" Source="/IMG/buscar.png" RenderTransformOrigin="2.5,2.5"/>
+                <Button.Background>
+                    <ImageBrush ImageSource="/IMG/buscar.png" Stretch="Uniform"/>
+                </Button.Background>
 
-            </Viewbox>
+            </Button>
 
         </StackPanel>
 
