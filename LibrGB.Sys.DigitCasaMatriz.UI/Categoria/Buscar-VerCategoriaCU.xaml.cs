@@ -51,7 +51,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
             var accion = (byte)AccionEnum.Crear;
 
             // Se crea una instancia del formulario _CategoriaAgregar pasando null como parámetro y la acción definida.
-            _CategoriaAgregar AgregFormulario = new _CategoriaAgregar(null, accion);
+            _MantenimientoCategoria AgregFormulario = new _MantenimientoCategoria(null, accion);
 
             // Se muestra el formulario recién creado.
             AgregFormulario.Show();
@@ -71,7 +71,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
                 int idCategoria = categoriaSeleccionada.Id;
 
                 // Crear una nueva instancia del formulario de modificación de categoría (_CategoriaAgregar) y pasar el ID de la categoría seleccionada.
-                _CategoriaAgregar ModifCategoria = new _CategoriaAgregar(idCategoria);
+                _MantenimientoCategoria ModifCategoria = new _MantenimientoCategoria(idCategoria);
 
                 // Mostrar el formulario de modificación de categoría.
                 ModifCategoria.Show();
@@ -98,7 +98,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
                 int idCategoria = categoriaSeleccionada.Id;
 
                 // Crear una instancia de _CategoriaAgregar y pasar el Id y la acción
-                _CategoriaAgregar ElimCategoria = new _CategoriaAgregar(idCategoria, pAccion);
+                _MantenimientoCategoria ElimCategoria = new _MantenimientoCategoria(idCategoria, pAccion);
 
                 // Mostrar la ventana _CategoriaAgregar
                 ElimCategoria.Show();
@@ -124,7 +124,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
                 int idCategoria = categoriaSeleccionada.Id;
 
                 // Crear una instancia de _CategoriaAgregar y pasar el Id y la acción
-                _CategoriaAgregar VerCategoria = new _CategoriaAgregar(idCategoria, pAccion);
+                _MantenimientoCategoria VerCategoria = new _MantenimientoCategoria(idCategoria, pAccion);
 
                 // Mostrar la ventana _CategoriaAgregar
                 VerCategoria.Show();
