@@ -130,5 +130,11 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
         {
             this.Visibility = Visibility.Collapsed;
         }
+
+        private void btnRecargarCategoria_Click(object sender, RoutedEventArgs e)
+        {
+            ActualizarDataGrid();
+            //Llamamos el metodo ActualizarDataGrid para actualizar el DGV al precionarlo
+        }
     }
 }
