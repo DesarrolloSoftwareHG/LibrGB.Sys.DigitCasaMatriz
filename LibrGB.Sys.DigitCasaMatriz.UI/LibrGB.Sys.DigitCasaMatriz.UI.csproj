@@ -40,4 +40,8 @@
     <Resource Include="IMG\unidad_de_medida.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UnidaDeMedida\" />
+  </ItemGroup>
+
 </Project>
