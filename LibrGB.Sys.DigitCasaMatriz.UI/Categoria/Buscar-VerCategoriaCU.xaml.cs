@@ -81,7 +81,6 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
                 // Si no hay ninguna fila seleccionada en el DataGridView, mostrar un mensaje de error.
                 MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Modificar", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            ActualizarDataGrid();
         }
 
         private void btnEliminarCategoria_Click(object sender, RoutedEventArgs e)
@@ -107,29 +106,6 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
             {
                 MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Eliminar", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            ActualizarDataGrid();
-        }
-
-        private void btnBuscarCategoria_Click(object sender, RoutedEventArgs e)
-        {
-            ActualizarDataGrid();
-
-            string nombre = txtBuscarCategoria.Text;
-
-            if (!string.IsNullOrEmpty(nombre))
-            {
-                var categoriaBl = new CategoriaBL();
-
-                var categorias = categoriaBl.ObtenerCategoriasLike(nombre);
-
-                dgvMostrar_Categorias.ItemsSource = categorias;
-            }
-        }
-
-        private void btnRecargarCategoria_Click(object sender, RoutedEventArgs e)
-        {
-            ActualizarDataGrid();
-            //Llamamos el metodo de actualizarGrid , para que al precionarlo se recarge el DGV
         }
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
