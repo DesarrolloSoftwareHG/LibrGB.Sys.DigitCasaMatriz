@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LibrGB.Sys.DigitCasaMatriz.BL.Catalogo_BL;
+using LibrGB.Sys.DigitCasaMatriz.EN.Catalogo.Categoria;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,20 +14,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using LibrGB.Sys.DigitCasaMatriz.BL.Catalogo_BL;
-using LibrGB.Sys.DigitCasaMatriz.EN.Catalogo.Categoria;
 using MahApps.Metro.Controls;
 using static LibrGB.Sys.DigitCasaMatriz.EN.Acciones;
 
 namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 {
     /// <summary>
-    /// Lógica de interacción para _CategoriaAgregar.xaml
+    /// Lógica de interacción para _MantenimientoCategoria.xaml
     /// </summary>
-    public partial class _CategoriaAgregar : MetroWindow
+    public partial class _MantenimientoCategoria : MetroWindow
     {
-        //Configurar para que reciba parametros cada que se cree una instancia del formulario
-        public _CategoriaAgregar(int? pId = null, byte? pAccion = null  )
+        public _MantenimientoCategoria(int? pId = null, byte? pAccion = null)
         {
             InitializeComponent();
 
