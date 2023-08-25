@@ -222,5 +222,9 @@ CREATE PROCEDURE SPObtenerUnidadDeMedidaLike
 @UDM VARCHAR(MAX) 
 AS
 BEGIN 
-SELECT * FROM UnidadDeMedida WHERE UnidadDeMedida.UDM LIKE '%' + @UDM + '%'
+SELECT u.*, E.Id, E.Nombre 
+FROM UnidadDeMedida as U 
+JOIN Estatus as E 
+ON U.IdEstatus = E.Id
+WHERE U.UDM LIKE '%' + @UDM + '%'
 END
