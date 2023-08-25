@@ -12,7 +12,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.EN.Catalogo.UDM
 
         public string? UDM { get; set; }
 
-        public EstatusEN Estatus { get; set; }
+        public EstatusEN? Estatus { get; set; }
 
         public string? Descripcion { get; set; }
 
