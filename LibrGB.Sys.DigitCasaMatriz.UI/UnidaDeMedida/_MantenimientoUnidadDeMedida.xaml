@@ -140,11 +140,11 @@
         <Button x:Name="btnAgregarUDM"
                 Grid.Row="7"
                 Grid.Column="4"
-                Content="Agregar" Margin="70,223,160,207" Grid.ColumnSpan="2" FontSize="14"/>
+                Content="Agregar" Margin="70,223,160,207" Grid.ColumnSpan="2" FontSize="14" Click="btnAgregarUDM_Click"/>
 
         <Label Grid.Column="5" Content="*" Foreground="Red" FontSize="18" x:Name="lblAlerta"
                HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" 
-               Margin="64,26,0,0" Grid.RowSpan="2" Visibility="Hidden"/>
+               Margin="-370,26,0,0" Grid.RowSpan="2" Visibility="Hidden"/>
         
 
     </Grid>
