@@ -143,7 +143,9 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
                     txtNombreUDM.IsEnabled = false;
 
                     // Se establece el Estatus de la UDM en el campo de texto y se deshabilita la edición.
-                    cbxEstatusUDM.SelectedItem = UDM.Estatus;
+                    cbxEstatusUDM.SelectedValue = UDM.Estatus.Id;
+                    cbxEstatusUDM.DisplayMemberPath = "Nombre";
+                    cbxEstatusUDM.SelectedValuePath = "Id";
                     cbxEstatusUDM.IsEnabled = false;
 
                     // Se establece la descripción de la UDM en el campo de texto y se deshabilita la edición.
@@ -175,7 +177,9 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
                     txtNombreUDM.Text = UDM.UDM;
 
                     // Se establece el Estatus de la UDM en el campo de texto.
-                    cbxEstatusUDM.SelectedItem = UDM.Estatus;
+                    cbxEstatusUDM.SelectedValue = UDM.Estatus.Id;
+                    cbxEstatusUDM.DisplayMemberPath = "Nombre";
+                    cbxEstatusUDM.SelectedValuePath = "Id";
 
                     // Se establece la descripción de la UDM en el campo de texto.
                     txtDescripcionUDM.Text = UDM.Descripcion;
