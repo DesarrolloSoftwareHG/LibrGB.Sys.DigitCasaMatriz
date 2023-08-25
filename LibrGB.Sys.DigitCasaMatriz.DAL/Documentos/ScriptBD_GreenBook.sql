@@ -199,16 +199,23 @@ END
 CREATE PROCEDURE SPMostrarUnidadDeMedida
 AS
 BEGIN
-    SELECT * FROM UnidadDeMedida
+   SELECT u.*, E.Id,E.Nombre FROM UnidadDeMedida as U 
+join Estatus as E 
+ON U.IdEstatus = E.Id
 END
+GO
 
 --OBTENER UNIDAD DE MEDIDA POR ID--
 CREATE PROCEDURE SPObtenerUnidadDeMedidaPorId
 @Id INT
 AS
 BEGIN 
-SELECT * FROM UnidadDeMedida WHERE UnidadDeMedida.Id = @Id
+SELECT u.*, E.Id,E.Nombre FROM UnidadDeMedida as U 
+join Estatus as E 
+ON U.IdEstatus = E.Id
+WHERE U.Id = @Id
 END
+GO
 
 --OBTENER DATOS AL BUSCAR--
 CREATE PROCEDURE SPObtenerUnidadDeMedidaLike
