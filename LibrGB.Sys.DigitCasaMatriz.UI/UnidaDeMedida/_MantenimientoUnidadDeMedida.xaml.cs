@@ -110,8 +110,6 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
                     cbxEstatusUDM.SelectedValuePath = "Id";
                     cbxEstatusUDM.IsEnabled = false;
 
-                    MessageBox.Show(UDM.Estatus.Nombre);
-
                     // Se establece la descripción de la UDM en el campo de texto y se deshabilita la edición.
                     txtDescripcionUDM.Text = UDM.Descripcion;
                     txtDescripcionUDM.IsEnabled = false;
