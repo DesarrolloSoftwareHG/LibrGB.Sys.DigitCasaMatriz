@@ -219,15 +219,10 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.UDM
                 /// Asigna los valores de las columnas leídas del SqlDataReader a las propiedades del objeto UnidadDeMedidaEN.
                 ObjUDM.Id = reader.GetInt32(0);
                 ObjUDM.UDM = reader.GetString(1);
+                ObjUDM.Estatus.Id = reader.GetInt32(2);
                 ObjUDM.Descripcion = reader.GetString(3);
                 ObjUDM.FechaCreacion = reader.GetDateTime(4);
                 ObjUDM.FechaModificacion = reader.GetDateTime(5);
-
-                ObjUDM.Estatus = new EstatusEN
-                {
-                    Id = reader.GetInt32(6),
-                    Nombre = reader.GetString(7)
-                };
 
                 // Agregar el objeto ObjUDM a la lista listaUDM.
                 listaUDM.Add(ObjUDM);
