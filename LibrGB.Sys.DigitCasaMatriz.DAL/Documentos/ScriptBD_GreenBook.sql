@@ -144,3 +144,76 @@ VALUES ('Indefinido', 'Por el Momento No existe estatus Establecido', GETDATE())
 
 
 ----------------------------------------------------------------------------------------------------------------
+
+
+CREATE TABLE UnidadDeMedida(
+Id Int NOT NULL Primary Key Identity(1,1),
+UDM Varchar(MAX) NOT NULL,
+IdEstatus Int NOT NULL Foreign Key References Estatus(Id),
+Descripcion Varchar(MAX) NOT NULL,
+FechaCreacion DateTime NOT NULL,
+FechaModificacion DateTime NULL DEFAULT GETDATE()
+);
+
+-- GUARDAR UNIDAD DE MEDIDA--
+CREATE PROCEDURE SPGuardarUnidadDeMedida
+ @UDM VARCHAR(MAX),
+ @IdEstatus INT,
+ @Descripcion VARCHAR(MAX),
+ @FechaCreacion DATETIME
+ AS
+ BEGIN
+ INSERT INTO UnidadDeMedida(UDM, IdEstatus, Descripcion, FechaCreacion)
+ VALUES (@UDM, @IdEstatus, @Descripcion, @FechaCreacion);
+END
+
+--MODIFICAR UNIDAD DE MEDIDA--
+CREATE PROCEDURE SPModificarUnidadDeMedida
+ @Id INT,
+ @UDM VARCHAR(MAX),
+ @IdEstatus INT,
+ @Descripcion VARCHAR(MAX),
+ @FechaModificacion DATETIME
+AS
+BEGIN
+UPDATE UnidadDeMedida
+		SET
+			UDM = @UDM,
+			IdEstatus = @IdEstatus,
+			Descripcion = @Descripcion,
+			FechaModificacion = @FechaModificacion
+		WHERE
+			Id = @Id;
+END
+
+--ELIMINAR UNIDAD DE MEDIDA--
+CREATE PROCEDURE SPEliminarUnidadDeMedida
+@Id INT
+AS
+BEGIN
+    DELETE FROM UnidadDeMedida
+    WHERE Id = @Id;
+END
+
+--MOSTRAR UNIDAD DE MEDIDA--
+CREATE PROCEDURE SPMostrarUnidadDeMedida
+AS
+BEGIN
+    SELECT * FROM UnidadDeMedida
+END
+
+--OBTENER UNIDAD DE MEDIDA POR ID--
+CREATE PROCEDURE SPObtenerUnidadDeMedidaPorId
+@Id INT
+AS
+BEGIN 
+SELECT * FROM UnidadDeMedida WHERE UnidadDeMedida.Id = @Id
+END
+
+--OBTENER DATOS AL BUSCAR--
+CREATE PROCEDURE SPObtenerUnidadDeMedidaLike
+@UDM VARCHAR(MAX) 
+AS
+BEGIN 
+SELECT * FROM UnidadDeMedida WHERE UnidadDeMedida.UDM LIKE '%' + @UDM + '%'
+END
