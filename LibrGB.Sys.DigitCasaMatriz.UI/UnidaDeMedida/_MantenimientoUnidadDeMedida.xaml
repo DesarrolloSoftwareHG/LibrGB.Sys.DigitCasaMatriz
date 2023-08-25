@@ -128,13 +128,13 @@
         <Button x:Name="btnEliminarUDM"
                 Grid.Row="7"
                 Grid.Column="2"
-                Content="Eliminar" Margin="24,223,34,207" FontSize="14"/>
+                Content="Eliminar" Margin="24,223,34,207" FontSize="14" Click="btnEliminarUDM_Click"/>
 
         <!--Boton para modificar-->
         <Button x:Name="btnModificarUDM"
                 Grid.Row="7"
                 Grid.Column="3"
-                Content="Modificar" Margin="52,223,5,207" FontSize="14"/>
+                Content="Modificar" Margin="52,223,5,207" FontSize="14" Click="btnModificarUDM_Click"/>
 
         <!--Boton para agregar-->
         <Button x:Name="btnAgregarUDM"
