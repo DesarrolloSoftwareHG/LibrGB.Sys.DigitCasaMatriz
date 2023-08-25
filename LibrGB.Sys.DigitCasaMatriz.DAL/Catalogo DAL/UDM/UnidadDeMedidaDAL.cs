@@ -42,7 +42,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.UDM
             command.Parameters.AddWithValue("@UDM", pUDMGuardar.UDM);
             // Agrega un parámetro llamado "@UnidadDeMedida" al objeto SqlCommand "command" y le asigna el valor de la propiedad "UnidadDeMedida" del objeto "pUDMGuardar". Este parámetro será utilizado en un comando SQL para insertar o actualizar datos en la base de datos.
 
-            command.Parameters.AddWithValue("@IdEstatus", pUDMGuardar.Estatus);
+            command.Parameters.AddWithValue("@IdEstatus", pUDMGuardar.Estatus.Id);
             // Agrega un parámetro llamado "@FechaCreacion" al objeto SqlCommand "command" y le asigna el valor de la propiedad "FechaCreacion" del objeto "pUDMGuardar". Este parámetro también será utilizado en el comando SQL para insertar o actualizar datos.
 
             command.Parameters.AddWithValue("@Descripcion", pUDMGuardar.Descripcion);
@@ -74,7 +74,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.UDM
             command.Parameters.AddWithValue("@UDM", pUDModificar.UDM);
             // Agrega un parámetro llamado "UnidadDeMedida" al objeto SqlCommand "command" y le asigna el valor de la propiedad "UnidadDeMedida" del objeto "pUDMModificar". Este parámetro será utilizado en un comando SQL para insertar o actualizar datos en la base de datos.
 
-            command.Parameters.AddWithValue("@IdEstatus", pUDModificar.Estatus);
+            command.Parameters.AddWithValue("@IdEstatus", pUDModificar.Estatus.Id);
             // Agrega un parámetro llamado "@FechaModificacion" al objeto SqlCommand "command" y le asigna el valor de la propiedad "FechaModificacion" del objeto "pUDMModificar". Este parámetro será utilizado en un comando SQL para insertar o actualizar datos en la base de datos.
 
             command.Parameters.AddWithValue("@Descripcion", pUDModificar.Descripcion);
