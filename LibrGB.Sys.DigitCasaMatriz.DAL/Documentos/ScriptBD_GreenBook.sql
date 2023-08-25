@@ -5,7 +5,7 @@ GO
 USE LibreriaGreenBook
 GO
 
-----------CREACION DE TABLAS PARA BD-----------
+-----------------------------------------------------------------------------
 CREATE TABLE Categoria(
 Id Int NOT NULL Primary Key Identity(1,1),
 Nombre Varchar(MAX) NOT NULL,
@@ -80,3 +80,67 @@ AS
 BEGIN 
 SELECT * FROM Categoria WHERE Categoria.Nombre LIKE '%' + @Nombre + '%'
 END
+
+
+-----------------------------------------------------------------------------
+CREATE TABLE Estatus(
+Id Int NOT NULL Primary Key Identity(1,1),
+Nombre Varchar(MAX) NOT NULL,
+Descripcion Varchar(MAX) NOT NULL,
+FechaCreacion DateTime NOT NULL,
+FechaModificacion DateTime NULL DEFAULT GETDATE()
+);
+
+------------ PROCEDIMIENTOS ALMACENADOS PARA ESTATUS--------------
+
+-- GUARDAR ESTATUS --
+CREATE PROCEDURE SPGuardarEstatus
+ @Nombre VARCHAR(MAX),
+ @Descripcion VARCHAR(MAX),
+ @FechaCreacion DATETIME
+ AS
+ BEGIN
+ INSERT INTO Estatus(Nombre, Descripcion, FechaCreacion)
+ VALUES (@Nombre, @Descripcion, @FechaCreacion);
+END
+
+--MODIFICAR ESTATUS--
+CREATE PROCEDURE SPModificarEstatus
+ @Id Int,
+ @Nombre VARCHAR(MAX),
+ @Descripcion VARCHAR(MAX),
+ @FechaModificacion DATETIME
+AS
+BEGIN
+UPDATE Estatus
+		SET
+			Nombre = @Nombre,
+			Descripcion = @Descripcion,
+			FechaModificacion = @FechaModificacion
+		WHERE
+			Id = @Id;
+END
+
+--MOSTRAR ESTATUS--
+CREATE PROCEDURE SPMostrarEstatus
+AS
+BEGIN
+    SELECT * FROM Estatus
+END
+
+--OBTENER ESTATUS POR ID--
+CREATE PROCEDURE SPObtenerEstatusPorId
+@Id INT
+AS
+BEGIN 
+SELECT * FROM Estatus WHERE Estatus.Id = @Id
+END
+
+------ COMANDOS DML PARA DATOS PREDEFINIDOS ------
+INSERT INTO Estatus(Nombre, Descripcion, FechaCreacion)
+VALUES ('Indefinido', 'Por el Momento No existe estatus Establecido', GETDATE()),
+	   ('Disponible', 'El producto o la Unidad de Medida estan Disponibles', GETDATE()),
+       ('No Disponible', 'El producto o la Unidad de Medida no estan Disponibles', GETDATE())
+
+
+----------------------------------------------------------------------------------------------------------------
