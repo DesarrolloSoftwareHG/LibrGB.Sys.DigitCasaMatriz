@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Runtime.Intrinsics.Arm;
 using LibrGB.Sys.DigitCasaMatriz.EN.Catalogo.UDM;
+using LibrGB.Sys.DigitCasaMatriz.EN;
 
 namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.UDM
 {
@@ -132,7 +133,11 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.UDM
                 // Asigna los valores de las columnas leídas del SqlDataReader a las propiedades del objeto UnidadDeMedidaEN.
                 ObjUDM.Id = reader.GetInt32(0);
                 ObjUDM.UDM = reader.GetString(1);
-                ObjUDM.Estatus.Id = reader.GetByte(2);
+                ObjUDM.Estatus = new EstatusEN
+                {
+                    Id = reader.GetInt32(6),
+                    Nombre = reader.GetString(7)
+                };
                 ObjUDM.Descripcion = reader.GetString(3);
                 ObjUDM.FechaCreacion = reader.GetDateTime(4);
                 ObjUDM.FechaModificacion = reader.GetDateTime(5);
@@ -171,10 +176,14 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.UDM
                 // Asigna los valores de las columnas leídas del SqlDataReader a las propiedades del objeto UnidadDeMedidaEN.
                 UDM.Id = reader.GetInt32(0);
                 UDM.UDM = reader.GetString(1);
-                UDM.Estatus.Id = reader.GetByte(2);
                 UDM.Descripcion = reader.GetString(3);
                 UDM.FechaCreacion = reader.GetDateTime(4);
                 UDM.FechaModificacion = reader.GetDateTime(5);
+                UDM.Estatus = new EstatusEN
+                {
+                    Id = reader.GetInt32(6),
+                    Nombre = reader.GetString(7)
+                };
             }
 
             // Devuelve el objeto UDM que contiene los valores leídos del SqlDataReader.
@@ -210,10 +219,15 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.UDM
                 /// Asigna los valores de las columnas leídas del SqlDataReader a las propiedades del objeto UnidadDeMedidaEN.
                 ObjUDM.Id = reader.GetInt32(0);
                 ObjUDM.UDM = reader.GetString(1);
-                ObjUDM.Estatus.Id = reader.GetByte(2);
                 ObjUDM.Descripcion = reader.GetString(3);
                 ObjUDM.FechaCreacion = reader.GetDateTime(4);
                 ObjUDM.FechaModificacion = reader.GetDateTime(5);
+
+                ObjUDM.Estatus = new EstatusEN
+                {
+                    Id = reader.GetInt32(6),
+                    Nombre = reader.GetString(7)
+                };
 
                 // Agregar el objeto ObjUDM a la lista listaUDM.
                 listaUDM.Add(ObjUDM);
