@@ -155,6 +155,9 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
                     // Se establece el código de la categoría en el campo de texto.
                     txtCodigoCategoria.Text = categoria.Codigo;
 
+                    // Se establece la descripción de la categoría en el campo de texto.
+                    txtDescripcionCategoria.Text = categoria.Descripcion;
+
                     // Se establece la fecha de creación en el campo de fecha.
                     dtFechaCreacion.SelectedDate = categoria.FechaCreacion;
                     dtFechaCreacion.SelectedDateFormat = DatePickerFormat.Long;
@@ -162,9 +165,6 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
                     // Se establece la fecha de modificación en el campo de fecha.
                     dtFechaModificacion.SelectedDate = DateTime.Now;
                     dtFechaModificacion.SelectedDateFormat = DatePickerFormat.Long;
-
-                    // Se establece la descripción de la categoría en el campo de texto.
-                    txtDescripcionCategoria.Text = categoria.Descripcion;
 
                     // Se ocultan los botones de agregar y eliminar categoría.
                     btnAgregarCategoria.Visibility = Visibility.Collapsed; // Oculta el botón de agregar categoría.
@@ -214,6 +214,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
                     // Se establece el enfoque en el cuadro de texto txtNombreCategoria para que el usuario pueda corregir el error.
                     txtNombreCategoria.Focus();
 
+
                     // Se detiene la ejecución del código actual.
                     return;
                 }
@@ -261,9 +262,8 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 
                     // Se establece el enfoque en el cuadro de texto txtCodigoCategoria para que el usuario pueda corregir el error.
                     txtCodigoCategoria.Focus();
-
-                    // Se hace visible el control lblNameForm, que parece estar relacionado con la validación.
-                    lblNameForm.Visibility = Visibility.Visible;
+                    lblAlert.Visibility = Visibility.Visible;
+                    return;
                 }
                 else
                 {

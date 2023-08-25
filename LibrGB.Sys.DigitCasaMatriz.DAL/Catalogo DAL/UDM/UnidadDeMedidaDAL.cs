@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Runtime.Intrinsics.Arm;
 using LibrGB.Sys.DigitCasaMatriz.EN.Catalogo.UDM;
+using LibrGB.Sys.DigitCasaMatriz.EN;
 
 namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.UDM
 {
@@ -42,7 +43,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.UDM
             command.Parameters.AddWithValue("@UDM", pUDMGuardar.UDM);
             // Agrega un parámetro llamado "@UnidadDeMedida" al objeto SqlCommand "command" y le asigna el valor de la propiedad "UnidadDeMedida" del objeto "pUDMGuardar". Este parámetro será utilizado en un comando SQL para insertar o actualizar datos en la base de datos.
 
-            command.Parameters.AddWithValue("@IdEstatus", pUDMGuardar.Estatus);
+            command.Parameters.AddWithValue("@IdEstatus", pUDMGuardar.Estatus.Id);
             // Agrega un parámetro llamado "@FechaCreacion" al objeto SqlCommand "command" y le asigna el valor de la propiedad "FechaCreacion" del objeto "pUDMGuardar". Este parámetro también será utilizado en el comando SQL para insertar o actualizar datos.
 
             command.Parameters.AddWithValue("@Descripcion", pUDMGuardar.Descripcion);
@@ -74,7 +75,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.UDM
             command.Parameters.AddWithValue("@UDM", pUDModificar.UDM);
             // Agrega un parámetro llamado "UnidadDeMedida" al objeto SqlCommand "command" y le asigna el valor de la propiedad "UnidadDeMedida" del objeto "pUDMModificar". Este parámetro será utilizado en un comando SQL para insertar o actualizar datos en la base de datos.
 
-            command.Parameters.AddWithValue("@IdEstatus", pUDModificar.Estatus);
+            command.Parameters.AddWithValue("@IdEstatus", pUDModificar.Estatus.Id);
             // Agrega un parámetro llamado "@FechaModificacion" al objeto SqlCommand "command" y le asigna el valor de la propiedad "FechaModificacion" del objeto "pUDMModificar". Este parámetro será utilizado en un comando SQL para insertar o actualizar datos en la base de datos.
 
             command.Parameters.AddWithValue("@Descripcion", pUDModificar.Descripcion);
@@ -132,7 +133,11 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.UDM
                 // Asigna los valores de las columnas leídas del SqlDataReader a las propiedades del objeto UnidadDeMedidaEN.
                 ObjUDM.Id = reader.GetInt32(0);
                 ObjUDM.UDM = reader.GetString(1);
-                ObjUDM.Estatus.Id = reader.GetByte(2);
+                ObjUDM.Estatus = new EstatusEN
+                {
+                    Id = reader.GetInt32(6),
+                    Nombre = reader.GetString(7)
+                };
                 ObjUDM.Descripcion = reader.GetString(3);
                 ObjUDM.FechaCreacion = reader.GetDateTime(4);
                 ObjUDM.FechaModificacion = reader.GetDateTime(5);
@@ -171,10 +176,14 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.UDM
                 // Asigna los valores de las columnas leídas del SqlDataReader a las propiedades del objeto UnidadDeMedidaEN.
                 UDM.Id = reader.GetInt32(0);
                 UDM.UDM = reader.GetString(1);
-                UDM.Estatus.Id = reader.GetByte(2);
                 UDM.Descripcion = reader.GetString(3);
                 UDM.FechaCreacion = reader.GetDateTime(4);
                 UDM.FechaModificacion = reader.GetDateTime(5);
+                UDM.Estatus = new EstatusEN
+                {
+                    Id = reader.GetInt32(6),
+                    Nombre = reader.GetString(7)
+                };
             }
 
             // Devuelve el objeto UDM que contiene los valores leídos del SqlDataReader.
@@ -210,10 +219,15 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.UDM
                 /// Asigna los valores de las columnas leídas del SqlDataReader a las propiedades del objeto UnidadDeMedidaEN.
                 ObjUDM.Id = reader.GetInt32(0);
                 ObjUDM.UDM = reader.GetString(1);
-                ObjUDM.Estatus.Id = reader.GetByte(2);
                 ObjUDM.Descripcion = reader.GetString(3);
                 ObjUDM.FechaCreacion = reader.GetDateTime(4);
                 ObjUDM.FechaModificacion = reader.GetDateTime(5);
+
+                ObjUDM.Estatus = new EstatusEN
+                {
+                    Id = reader.GetInt32(6),
+                    Nombre = reader.GetString(7)
+                };
 
                 // Agregar el objeto ObjUDM a la lista listaUDM.
                 listaUDM.Add(ObjUDM);

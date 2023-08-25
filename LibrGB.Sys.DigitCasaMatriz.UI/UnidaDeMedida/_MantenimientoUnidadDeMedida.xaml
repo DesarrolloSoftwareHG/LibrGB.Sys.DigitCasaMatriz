@@ -6,9 +6,13 @@
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida"
         mc:Ignorable="d"
-        Title="_MantenimientoUnidadDeMedida" >
+        Title="Mantenimiento de Unidad De Medida" Height="513" Width="879" WindowStartupLocation="CenterScreen">
 
-    <Grid Background="#aad3ff" Height="656" VerticalAlignment="Top" Margin="0,0,-79,0">
+    <Window.Icon>
+        <ImageSource>/IMG/LogoTipo.png</ImageSource>
+    </Window.Icon>
+
+    <Grid Background="#aad3ff" Height="656" VerticalAlignment="Top">
 
         <!--Definicion de columnas y filas-->
         <Grid.ColumnDefinitions>
@@ -36,112 +40,112 @@
 
 
             <Label x:Name="lblNameForm"
-                    HorizontalAlignment="Center"
-                    Content="Mantenimiento para Unidad De Medida" 
-                    FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" 
-                    FontWeight="Bold" FontSize="22"
-                    Foreground="#fff" Margin="3,5,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                   HorizontalAlignment="Center"
+                   Content="Mantenimiento para Unidad De Medida" 
+                   FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" 
+                   FontWeight="Bold" FontSize="22"
+                   Foreground="#fff" Margin="3,5,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         </StackPanel>
 
         <!--Contenido-->
         <TextBlock Grid.Row="4" 
-                Grid.Column="1"
-                Grid.ColumnSpan="3"
-                Text="Nombre de la unidad de medida:"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                FontSize="15"
-                FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
-                FontWeight="Bold" Height="20" Width="239" Margin="55,0,0,0" />
+                   Grid.Column="1"
+                   Grid.ColumnSpan="2"
+                   Text="Nombre de Unidad De Medida:"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   FontSize="15"
+                   FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+                   FontWeight="Bold" Height="20" Width="221" Margin="98,0,0,0" />
 
-        <TextBox x:Name="txtNombreUnidadDeMedida" Grid.Row="5" 
-                Grid.Column="1"
-                Grid.ColumnSpan="3" Margin="55,2,156,2"
+        <TextBox x:Name="txtNombreUDM" Grid.Row="5" 
+                 Grid.Column="1"
+                 Grid.ColumnSpan="3" Margin="55,2,156,2"
                  />
 
         <TextBlock Grid.Row="4" 
-                Grid.Column="4"
-                Text="Estatus:"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                FontSize="15"
-                FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
-                FontWeight="Bold" Height="20" Width="163" Margin="7,0,0,0"/>
+           Grid.Column="4"
+           Grid.ColumnSpan="2"
+           Text="Estatus De La UDM:"
+           HorizontalAlignment="Left"
+           VerticalAlignment="Center"
+           FontSize="15"
+           FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+           FontWeight="Bold" Height="20" Width="163" Margin="78,0,0,0"/>
 
-        <TextBox x:Name="txtEstatusUnidadDeMedida" Grid.Row="5" 
-                Grid.Column="3"
-                Grid.ColumnSpan="3" Margin="169,2,42,2"
-         />
+        <ComboBox x:Name="cbxEstatusUDM" Grid.Row="5" Grid.Column="3"
+                  Grid.ColumnSpan="3" Margin="169,2,42,2"/>
 
         <TextBlock
-                Text="Descripcion de la categoria:"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                FontSize="15"
+                Text="Descripcion de la Unidad De Medida:"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 FontSize="15"
                 FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
-                FontWeight="Bold" Margin="55,16,0,0" Height="20" Width="194" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="6" Grid.RowSpan="2" />
+                FontWeight="Bold" Margin="68,16,0,0" Height="20" Width="267" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="6" Grid.RowSpan="2" />
 
-        <TextBox x:Name="txtDescripcionUnidadDeMedida" Grid.Row="7" 
-                Grid.Column="1"
-                Grid.ColumnSpan="5" Margin="55,15,42,359" 
+        <TextBox x:Name="txtDescripcionUDM" Grid.Row="7" 
+         Grid.Column="1"
+         Grid.ColumnSpan="5" Margin="55,15,42,359" 
          />
 
         <TextBlock Grid.Row="7" 
-                Grid.Column="1"
-                Text="Fecha de creacion:"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top" 
-                FontSize="15"
-                FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
-                FontWeight="Bold" Height="20" Width="128" Margin="55,123,0,0" Grid.ColumnSpan="2"/>
+            Grid.Column="1"
+            Text="Fecha de creacion:"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" 
+            FontSize="15"
+            FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+            FontWeight="Bold" Height="20" Width="129" Margin="143,123,0,0" Grid.ColumnSpan="2"/>
 
         <DatePicker x:Name="dtFechaCreacion" Grid.Row="7" 
-                Grid.Column="1"
-                Grid.ColumnSpan="3" Margin="55,151,156,289" IsEnabled="False" 
+                    Grid.Column="1"
+                    Grid.ColumnSpan="3" Margin="55,151,156,289" IsEnabled="False" 
          />
 
         <TextBlock Grid.Row="7" 
-                Grid.Column="4"
-                Grid.ColumnSpan="2"
-                Text="Fecha de Modificacion:"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                FontSize="15"
-                FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
-                FontWeight="Bold" Height="20" Width="162" Margin="10,123,0,0" 
+             Grid.Column="4"
+             Grid.ColumnSpan="2"
+             Text="Fecha de Modificacion:"
+             HorizontalAlignment="Left"
+             VerticalAlignment="Top"
+             FontSize="15"
+             FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+             FontWeight="Bold" Height="20" Width="162" Margin="82,123,0,0" 
             />
 
         <DatePicker x:Name="dtFechaModificacion" Grid.Row="7" 
-                Grid.Column="3"
-                Grid.ColumnSpan="3" Margin="169,151,42,289" IsEnabled="False" />
+            Grid.Column="3"
+            Grid.ColumnSpan="3" Margin="169,151,42,289" IsEnabled="False" />
 
 
         <!--Texbox para mostrar Id ( esta oculto)-->
 
-        <TextBox x:Name="txtIdUnidadDeMedida" Grid.Row="3" 
+        <TextBox x:Name="txtIdUDM" Grid.Row="3" 
                 Grid.Column="3" Margin="41,1,41,1" Visibility="Hidden" />
 
         <!--Boton para modificar-->
-        <Button x:Name="btnEliminarUnidadDeMedida"
+        <Button x:Name="btnEliminarUDM"
                 Grid.Row="7"
                 Grid.Column="2"
-                Content="Eliminar" Margin="24,223,34,207" FontSize="14"/>
+                Content="Eliminar" Margin="24,223,34,207" FontSize="14" Click="btnEliminarUDM_Click"/>
 
         <!--Boton para modificar-->
-        <Button x:Name="btnModificarUnidadDeMedida"
+        <Button x:Name="btnModificarUDM"
                 Grid.Row="7"
                 Grid.Column="3"
-                Content="Modificar" Margin="52,223,5,207" FontSize="14"  />
+                Content="Modificar" Margin="52,223,5,207" FontSize="14" Click="btnModificarUDM_Click"/>
 
         <!--Boton para agregar-->
-        <Button x:Name="btnAgregarUnidadDeMedida"
+        <Button x:Name="btnAgregarUDM"
                 Grid.Row="7"
                 Grid.Column="4"
-                Content="Agregar" Margin="70,223,160,207" Grid.ColumnSpan="2" FontSize="14" />
+                Content="Agregar" Margin="70,223,160,207" Grid.ColumnSpan="2" FontSize="14" Click="btnAgregarUDM_Click"/>
 
-        <Label Grid.Column="5" Content="*" Foreground="Red" FontSize="18"
-                HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" 
-                Margin="64,26,0,0" Grid.RowSpan="2" Visibility="Hidden"/>
+        <Label Grid.Column="5" Content="*" Foreground="Red" FontSize="18" x:Name="lblAlerta"
+               HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" 
+               Margin="-370,26,0,0" Grid.RowSpan="2" Visibility="Hidden"/>
+        
 
     </Grid>
 
