@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using static LibrGB.Sys.DigitCasaMatriz.EN.Acciones;
+using ControlzEx.Standard;
 
 namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 {
@@ -154,6 +155,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 
                     // Se establece el código de la categoría en el campo de texto.
                     txtCodigoCategoria.Text = categoria.Codigo;
+                    txtCodigoCategoria.IsEnabled = false;
 
                     // Se establece la descripción de la categoría en el campo de texto.
                     txtDescripcionCategoria.Text = categoria.Descripcion;
@@ -303,22 +305,51 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
                     FechaModificacion = DateTime.Now
                 };
 
-                if (CategoriaModificar != null)
+                if (CategoriaModificar.Nombre != "" && CategoriaModificar.Descripcion != "")
                 {
-                    var pCategoriaBL = new CategoriaBL();
+                    // Se verifica si el campo 'Nombre' en ObjCategoria contiene números utilizando una expresión regular.
+                    if (Regex.IsMatch(CategoriaModificar.Nombre, @"\d"))
+                    {
+                        // Si se encuentra algún número en el campo 'Nombre', se muestra un mensaje de error al usuario.
+                        MessageBox.Show("El campo 'Nombre' no debe contener números", "Error de validación", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
-                    pCategoriaBL.ModificarCategoria(CategoriaModificar);
+                        // Se establece el enfoque en el cuadro de texto txtNombreCategoria para que el usuario pueda corregir el error.
+                        txtNombreCategoria.Focus();
 
-                    var pCategoriaActulizada = pCategoriaBL.ObtenerCategoria();
 
-                    formCategoria.dgvMostrar_Categorias.ItemsSource = null;
+                        // Se detiene la ejecución del código actual.
+                        return;
+                    }
 
-                    formCategoria.dgvMostrar_Categorias.ItemsSource = pCategoriaActulizada;
+                    if (CategoriaModificar != null)
+                    {
+                        var pCategoriaBL = new CategoriaBL();
 
-                    MessageBox.Show("Categoria Modificada Con Exito", "Modificacion Categoria", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        pCategoriaBL.ModificarCategoria(CategoriaModificar);
+
+                        var pCategoriaActulizada = pCategoriaBL.ObtenerCategoria();
+
+                        formCategoria.dgvMostrar_Categorias.ItemsSource = null;
+
+                        formCategoria.dgvMostrar_Categorias.ItemsSource = pCategoriaActulizada;
+
+                        MessageBox.Show("Categoria Modificada Con Exito", "Modificacion Categoria", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+                        ActualizarDataGrid();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Uno o más campos están vacíos", "Valores Vacíos Detectados", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    // Se muestra un mensaje indicando que uno o más campos están vacíos si alguna de las propiedades del objeto 'ObjCategoria' está vacía
 
                     ActualizarDataGrid();
+                    // Se llama a la función 'ActualizarDataGrid' para actualizar los datos en la cuadrícula
+
+                    return;
+                    // Se cierra la ventana actual
                 }
+
             }
             catch (Exception ex)
             {
