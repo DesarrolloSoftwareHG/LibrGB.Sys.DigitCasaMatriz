@@ -22,7 +22,7 @@
         <!--panel del boton buscar y recargar junto con la barra de busqueda-->
         <StackPanel Width="925" Height="50" Margin="31,119,31,539">
             <Button x:Name="btnRecargarProveedor"  BorderBrush="Transparent" 
-                    Margin="-700,0,0,0" Width="50" Height="50">
+                    Margin="-700,0,0,0" Width="50" Height="50" Click="btnRecargarProveedor_Click">
 
                 <Button.Background>
                     <ImageBrush ImageSource="/IMG/recargar.png" Stretch="Uniform"/>
@@ -37,7 +37,7 @@
                 Cursor="Arrow" TextChanged=""/>
 
             <Button x:Name="btnBuscarProveedor" BorderBrush="Transparent" 
-                    Margin="700,-50,0,0" Width="50" Height="50">
+                    Margin="700,-50,0,0" Width="50" Height="50" Click="btnBuscarProveedor_Click">
 
                 <Button.Background>
                     <ImageBrush ImageSource="/IMG/buscar.png" Stretch="Uniform"/>
@@ -56,13 +56,13 @@
                 VerticalAlignment="Center" 
                 FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
                 Background="#007aff" Foreground="White" Height="38" Width="160"
-                FontSize="18" Margin="74,0,0,0" />
+                FontSize="18" Margin="74,0,0,0" Click="btnEliminarProveedor_Click" />
 
             <Button Content="Modificar" x:Name="btnModificarProveedor"
                 VerticalAlignment="Center" 
                 FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
                 Background="#007aff" Foreground="White" Height="38" Width="158"
-                FontSize="18" Margin="50,0,0,0"/>
+                FontSize="18" Margin="50,0,0,0" Click="btnModificarProveedor_Click"/>
 
             <Button x:Name="btnAgregarProveedor" Content="Agregar" 
                 VerticalAlignment="Center" 
@@ -74,7 +74,7 @@
                 VerticalAlignment="Center" 
                 FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
                 Background="#007aff" Foreground="White" Height="38" Width="150"
-                FontSize="18" Margin="50,0,0,0"/>
+                FontSize="18" Margin="50,0,0,0" Click="btnVerProveedor_Click"/>
 
         </StackPanel>
 
