@@ -91,7 +91,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
             {
                 if (pAccion == (byte)AccionEnum.Ver)
                 {
-                    // Si la acción es "Eliminar" (AccionEnum.Ver), se realiza lo siguiente:
+                    // Si la acción es "Ver" (AccionEnum.Ver), se realiza lo siguiente:
 
                     // Se establece el contenido de la etiqueta de título a "Visualizacion Unidad De Medida".
                     lblNameForm.Content = "Visualizacion Unidad De Medida";
@@ -305,22 +305,50 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
                     FechaModificacion = DateTime.Now
                 };
 
-                if (UdmModificar != null)
+                if (UdmModificar.UDM != "" && UdmModificar.Descripcion != "")
                 {
-                    var pUdnBL = new UnidadDeMedidaBL();
+                    // Se verifica si el campo 'UDM' en ObjUDM contiene números utilizando una expresión regular.
+                    if (Regex.IsMatch(UdmModificar.UDM, @"\d"))
+                    {
+                        // Si se encuentra algún número en el campo 'UDM', se muestra un mensaje de error al usuario.
+                        MessageBox.Show("El campo 'Unidad De Medida' no debe contener números", "Error de validación", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
-                    pUdnBL.ModificarUDM(UdmModificar);
+                        // Se establece el enfoque en el cuadro de texto txtNombreUDM para que el usuario pueda corregir el error.
+                        txtNombreUDM.Focus();
 
-                    var pUdmActulizada = pUdnBL.ObtenerUDM();
+                        // Se detiene la ejecución del código actual.
+                        return;
+                    }
 
-                    formUDM.dgvMostrar_UDM.ItemsSource = null;
+                    if (UdmModificar != null)
+                    {
+                        var pUdnBL = new UnidadDeMedidaBL();
 
-                    formUDM.dgvMostrar_UDM.ItemsSource = pUdmActulizada;
+                        pUdnBL.ModificarUDM(UdmModificar);
 
-                    MessageBox.Show("Unidad De Medida Modificada Con Exito", "Modificacion Unidad de Medida", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        var pUdmActulizada = pUdnBL.ObtenerUDM();
+
+                        formUDM.dgvMostrar_UDM.ItemsSource = null;
+
+                        formUDM.dgvMostrar_UDM.ItemsSource = pUdmActulizada;
+
+                        MessageBox.Show("Unidad De Medida Modificada Con Exito", "Modificacion Unidad de Medida", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+                        ActualizarDataGrid();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Uno o más campos están vacíos", "Valores Vacíos Detectados", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    // Se muestra un mensaje indicando que uno o más campos están vacíos si alguna de las propiedades del objeto 'ObjUDM' está vacía
 
                     ActualizarDataGrid();
+                    // Se llama a la función 'ActualizarDataGrid' para actualizar los datos en la cuadrícula
+
+                    return;
+                    // Se cierra la ventana actual
                 }
+
             }
             catch (Exception ex)
             {
