@@ -181,17 +181,17 @@
         <Button x:Name="btnEliminarProducto"
             Grid.Row="7"
             Grid.Column="1"
-            Content="Eliminar" Margin="58,327,59,57" FontSize="14"/>
+            Content="Eliminar" Margin="58,327,59,57" FontSize="14" Click="btnEliminarProducto_Click"/>
 
         <Button x:Name="btnModificarProducto"
             Grid.Row="7"
             Grid.Column="2"
-            Content="Modificar" Margin="28,327,86,57" FontSize="14"/>
+            Content="Modificar" Margin="28,327,86,57" FontSize="14" Click="btnModificarProducto_Click"/>
 
         <Button x:Name="btnAgregarProducto"
             Grid.Row="7"
             Grid.Column="2"
-            Content="Agregar" Margin="217,327,128,57" FontSize="14" Grid.ColumnSpan="2"/>
+            Content="Agregar" Margin="217,327,128,57" FontSize="14" Grid.ColumnSpan="2" Click="btnAgregarProducto_Click"/>
 
         <!--Texbox para mostrar Id ( esta oculto)-->
 
