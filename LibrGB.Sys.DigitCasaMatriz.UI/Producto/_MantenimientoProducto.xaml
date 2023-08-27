@@ -6,10 +6,199 @@
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:LibrGB.Sys.DigitCasaMatriz.UI.Producto"
         mc:Ignorable="d"
-        Title="_MantenimientoProducto" Height="450" Width="800">
-    
-    <Grid>
-        
+        Title="Mantenimiento de Prodcuto" Height="620" Width="1168" WindowStartupLocation="CenterScreen">
+
+    <Window.Icon>
+        <ImageSource>/IMG/LogoTipo.png</ImageSource>
+    </Window.Icon>
+
+    <Grid  Background="#aad3ff" Height="610" VerticalAlignment="Top">
+
+        <!--Definicion de columnas y filas-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="43"/>
+            <RowDefinition Height="17"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <!--Panel principal-->
+        <StackPanel Grid.Row="1" Background="#007aff"  Grid.ColumnSpan="5" Grid.RowSpan="3" Margin="20,16,20,24" Grid.Column="1">
+
+
+            <Label x:Name="lblNameForm"
+                   HorizontalAlignment="Center"
+                   Content="Mantenimiento para Productos" 
+                   FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" 
+                   FontWeight="Bold" FontSize="22"
+                   Foreground="#fff" Margin="3,5,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+        </StackPanel>
+
+        <TextBlock Grid.Row="3" 
+            Grid.Column="1"
+            Text="Nombre del Producto:"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="15"
+            FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+            FontWeight="Bold" Height="20" Width="160" Margin="83,27,0,0" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+
+        <TextBox x:Name="txtNombreProducto" Grid.Row="4" 
+            Grid.Column="1"
+            Grid.ColumnSpan="2" Margin="20,22,157,12" Grid.RowSpan="2"/>
+
+        <TextBlock Grid.Row="4" 
+            Grid.Column="2"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="15"
+            FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+            FontWeight="Bold" Height="20" Width="161" Margin="182,0,0,0" Grid.ColumnSpan="2" ><Run Text="Codigo"/><Run Language="es-es" Text=" del Producto:"/><LineBreak/><Run Language="es-es"/><Run Text=":"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+
+        <TextBox x:Name="txtCodigoProducto" Grid.Row="4" 
+            Grid.Column="2"
+            Grid.ColumnSpan="2" Margin="109,22,68,12" Grid.RowSpan="2"/>
+
+        <Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Left" Height="184" Margin="200,28,0,0" VerticalAlignment="Top" Width="467" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="3" Grid.RowSpan="5"/>
+
+        <Image x:Name="imgBarraCode" HorizontalAlignment="Left" Height="119" Margin="210,7,0,0" VerticalAlignment="Top" Width="446" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="4" Grid.Row="4"/>
+
+        <Button x:Name="btnGuardaImg" Content="Guardar Imagen" HorizontalAlignment="Left" Margin="153,53,0,0" VerticalAlignment="Top" Click="btnGuardaImg_Click" Grid.Column="4" Grid.Row="7" Width="121" Grid.ColumnSpan="2"/>
+
+        <TextBlock Grid.Row="6" 
+            Grid.Column="1"
+            Text="Categoria del Producto:"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="15"
+            FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+            FontWeight="Bold" Height="20" Width="169" Margin="78,1,0,0" Grid.ColumnSpan="2" />
+
+        <ComboBox x:Name="cbxCategoriaProducto" Grid.Row="6" Grid.Column="1"
+            Grid.ColumnSpan="2" Margin="20,29,157,395" Grid.RowSpan="2"/>
+
+        <TextBlock Grid.Row="6" 
+            Grid.Column="2"
+            Text="Proveedor del Producto:"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="15"
+            FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+            FontWeight="Bold" Height="20" Width="169" Margin="169,2,0,0" Grid.ColumnSpan="2" />
+
+        <ComboBox x:Name="cbxProveedorProducto" Grid.Row="7" Grid.Column="2"
+            Grid.ColumnSpan="2" Margin="109,0,68,394"/>
+
+        <TextBlock Grid.Row="7" 
+            Grid.Column="1"
+            Text="Precio $:"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="15"
+            FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+            FontWeight="Bold" Height="20" Width="75" Margin="70,34,0,0" />
+
+        <TextBox x:Name="txtPrecioProducto" Grid.Row="7" 
+            Grid.Column="1" Margin="20,58,55,336"/>
+
+        <TextBlock Grid.Row="7" 
+            Grid.Column="2"
+            Text="Unidad de Medida:"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="15"
+            FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+            FontWeight="Bold" Height="20" Width="144" Margin="20,35,0,0" />
+
+        <ComboBox x:Name="cbxUnidadDeMedidaProducto" Grid.Row="7" Grid.Column="1" Margin="202,59,38,335" Grid.ColumnSpan="2"/>
+
+        <TextBlock Grid.Row="7" 
+            Grid.Column="3"
+            Text="Estatus:"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="15"
+            FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+            FontWeight="Bold" Height="20" Width="67" Margin="48,35,0,0" />
+
+        <ComboBox x:Name="cbxEstatusProducto" Grid.Row="7" Grid.Column="2" Margin="216,59,68,335" Grid.ColumnSpan="2"/>
+
+        <TextBlock Grid.Row="7" 
+            Grid.Column="1"
+            Text="Descripcion del Producto:"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="15"
+            FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+            FontWeight="Bold" Height="20" Width="196" Margin="38,101,0,0" Grid.ColumnSpan="2" />
+
+        <TextBox x:Name="txtDescripcionProducto" Grid.Row="7" 
+            Grid.Column="1" Margin="20,124,68,194" Grid.ColumnSpan="3"/>
+
+        <TextBlock Grid.Row="7" 
+            Grid.Column="1"
+            Text="Fecha de Creacion:"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="15"
+            FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+            FontWeight="Bold" Height="20" Width="137" Margin="97,240,0,0" Grid.ColumnSpan="2" />
+
+        <DatePicker x:Name="dtFechaCreacion" Grid.Row="7" 
+            Grid.Column="1"
+            Grid.ColumnSpan="2" Margin="20,263,157,131" IsEnabled="False" 
+         />
+
+        <TextBlock Grid.Row="7" 
+            Grid.Column="2"
+            Text="Fecha de Modificacion:"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="15"
+            FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+            FontWeight="Bold" Height="20" Width="165" Margin="185,240,0,0" Grid.ColumnSpan="2" />
+
+        <DatePicker x:Name="dtFechaModificacion" Grid.Row="7" 
+            Grid.Column="2"
+            Grid.ColumnSpan="2" Margin="110,263,67,131" IsEnabled="False" 
+         />
+
+        <Button x:Name="btnEliminarProducto"
+            Grid.Row="7"
+            Grid.Column="1"
+            Content="Eliminar" Margin="58,327,59,57" FontSize="14"/>
+
+        <Button x:Name="btnModificarProducto"
+            Grid.Row="7"
+            Grid.Column="2"
+            Content="Modificar" Margin="28,327,86,57" FontSize="14"/>
+
+        <Button x:Name="btnAgregarProducto"
+            Grid.Row="7"
+            Grid.Column="2"
+            Content="Agregar" Margin="217,327,128,57" FontSize="14" Grid.ColumnSpan="2"/>
+
+        <!--Texbox para mostrar Id ( esta oculto)-->
+
+        <TextBox x:Name="txtIdProducto" Grid.Row="1" 
+                Grid.Column="1" Margin="126,27,185,5" Visibility="Hidden" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+
+
     </Grid>
-    
+
 </mah:MetroWindow>
