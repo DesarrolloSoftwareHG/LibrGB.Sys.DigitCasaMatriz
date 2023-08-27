@@ -228,3 +228,95 @@ JOIN Estatus as E
 ON U.IdEstatus = E.Id
 WHERE U.UDM LIKE '%' + @UDM + '%'
 END
+
+
+-----------------------------------------------------------------------------
+CREATE TABLE Proveedor(
+Id Int NOT NULL Primary Key Identity(1,1),
+Nombre Varchar(MAX) NOT NULL,
+Direccion Varchar(MAX) NOT NULL,
+NumeroTelefono Varchar(8) NOT NULL,
+NumeroCelular Varchar(8) NOT NULL,
+CorreoElectronico Varchar(MAX) NOT NULL,
+SitioWeb Varchar(MAX) NOT NULL,
+Descripcion Varchar(MAX) NOT NULL,
+FechaCreacion DateTime NOT NULL,
+FechaModificacion DateTime NULL DEFAULT GETDATE()
+);
+
+------------ PROCEDIMIENTOS ALMACENADOS PARA PROVEEDOR--------------
+
+-- GUARDAR PROVEEDOR--
+CREATE PROCEDURE SPGuardarProveedor
+ @Nombre VARCHAR(MAX),
+ @Direccion VARCHAR(MAX),
+ @NumeroTelefono VARCHAR(8),
+ @NumeroCelular VARCHAR(8),
+ @CorreoElectronico VARCHAR(MAX),
+ @SitioWeb VARCHAR(MAX),
+ @Descripcion VARCHAR(MAX),
+ @FechaCreacion DATETIME
+ AS
+ BEGIN
+ INSERT INTO Proveedor(Nombre, Direccion, NumeroTelefono, NumeroCelular, CorreoElectronico, SitioWeb, Descripcion, FechaCreacion)
+ VALUES (@Nombre, @Direccion, @NumeroTelefono, @NumeroCelular, @CorreoElectronico, @SitioWeb, @Descripcion, @FechaCreacion);
+END
+
+--MODIFICAR PROVEEDOR--
+CREATE PROCEDURE SPModificarProveedor
+ @Id Int,
+ @Nombre VARCHAR(MAX),
+ @Direccion VARCHAR(MAX),
+ @NumeroTelefono VARCHAR(8),
+ @NumeroCelular VARCHAR(8),
+ @CorreoElectronico VARCHAR(MAX),
+ @SitioWeb VARCHAR(MAX),
+ @Descripcion VARCHAR(MAX),
+ @FechaModificacion DATETIME
+AS
+BEGIN
+UPDATE Proveedor
+		SET
+			Nombre = @Nombre,
+			Direccion = @Direccion,
+			NumeroTelefono = @NumeroTelefono,
+			NumeroCelular = @NumeroCelular,
+			CorreoElectronico = @CorreoElectronico,
+			SitioWeb = @SitioWeb,
+			Descripcion = @Descripcion,
+			FechaModificacion = @FechaModificacion
+		WHERE
+			Id = @Id;
+END
+
+--ELIMINAR PROVEEDOR--
+CREATE PROCEDURE SPEliminarProveedor
+@Id INT
+AS
+BEGIN
+    DELETE FROM Proveedor
+    WHERE Id = @Id;
+END
+
+--MOSTRAR PROVEEDOR--
+CREATE PROCEDURE SPMostrarProveedor
+AS
+BEGIN
+    SELECT * FROM Proveedor
+END
+
+--OBTENER PROVEEDOR POR ID--
+CREATE PROCEDURE SPObtenerProveedorPorId
+@Id INT
+AS
+BEGIN 
+SELECT * FROM Proveedor WHERE Proveedor.Id = @Id
+END
+
+--OBTENER DATOS AL BUSCAR--
+CREATE PROCEDURE SPObtenerProveedorLike
+@Nombre VARCHAR(MAX) 
+AS
+BEGIN 
+SELECT * FROM Proveedor WHERE Proveedor.Nombre LIKE '%' + @Nombre + '%'
+END
