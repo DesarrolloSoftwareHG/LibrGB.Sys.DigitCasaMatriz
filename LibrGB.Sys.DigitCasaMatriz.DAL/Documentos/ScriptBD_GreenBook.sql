@@ -320,3 +320,114 @@ AS
 BEGIN 
 SELECT * FROM Proveedor WHERE Proveedor.Nombre LIKE '%' + @Nombre + '%'
 END
+
+---------------------------------------------------------------------------------------------
+
+
+CREATE TABLE Producto(
+Id Int NOT NULL Primary Key Identity(1,1),
+Nombre Varchar(MAX) NOT NULL,
+Codigo Varchar(MAX) NOT NULL,
+IdEstatus Int NOT NULL Foreign Key References Estatus(Id),
+Precio Decimal(10,2) NOT NULL,
+IdUDM Int NOT NULL Foreign Key References UnidadDeMedida(Id),
+IdCategoria Int NOT NULL Foreign Key References Categoria(Id),
+IdProveedor Int NOT NULL Foreign Key References Proveedor(Id),
+Descripcion Varchar(MAX) NOT NULL,
+FechaCreacion DateTime NOT NULL,
+FechaModificacion DateTime NULL DEFAULT GETDATE()
+);
+
+-------------- CREACION DE PROCEDIMIENTOS ALMACENADOS ----------------
+
+-- GUARDAR PRODUCTO--
+CREATE PROCEDURE SPGuardarProducto
+ @Nombre VARCHAR(MAX),
+ @Codigo VARCHAR(MAX),
+ @IdEstatus INT,
+ @Precio Decimal(10,2),
+ @IdUDM INT,
+ @IdCategoria INT,
+ @IdProveedor INT,
+ @Descripcion VARCHAR(MAX),
+ @FechaCreacion DATETIME
+ AS
+ BEGIN
+ INSERT INTO Producto(Nombre, Codigo, IdEstatus, Precio, IdUDM, IdCategoria, IdProveedor, Descripcion, FechaCreacion)
+ VALUES (@Nombre, @Codigo, @IdEstatus, @Precio, @IdUDM, @IdCategoria, @IdProveedor, @Descripcion, @FechaCreacion);
+END
+
+
+CREATE PROCEDURE SPModificarProducto
+ @Id Int,
+ @Nombre VARCHAR(MAX),
+ @Codigo VARCHAR(MAX),
+ @IdEstatus INT,
+ @Precio Decimal(10,2),
+ @IdUDM INT,
+ @IdCategoria INT,
+ @IdProveedor INT,
+ @Descripcion VARCHAR(MAX),
+ @FechaModificacion DATETIME
+AS
+BEGIN
+UPDATE Producto
+		SET
+			Nombre = @Nombre,
+			Codigo = @Codigo,
+			IdEstatus = @IdEstatus,
+			Precio = @Precio,
+			IdUDM = @IdUDM,
+			IdCategoria = @IdCategoria,
+			IdProveedor = @IdProveedor,
+			Descripcion = @Descripcion,
+			FechaModificacion = @FechaModificacion
+		WHERE
+			Id = @Id;
+END
+
+--ELIMINAR PRODUCTO--
+CREATE PROCEDURE SPEliminarProducto
+@Id INT
+AS
+BEGIN
+    DELETE FROM Producto
+    WHERE Id = @Id;
+END
+
+--MOSTRAR PRODUCTO--
+CREATE PROCEDURE SPMostrarProducto
+AS
+BEGIN
+    SELECT 
+        p.*,
+        c.Id AS CategoriaId, c.Nombre AS CategoriaNombre,
+        pr.Id AS ProveedorId, pr.Nombre AS ProveedorNombre,
+        u.Id AS UnidadDeMedidaId, u.UDM AS UnidadDeMedidaNombre,
+        e.Id AS EstatusId, e.Nombre AS EstatusNombre
+    FROM Producto AS p
+    JOIN Categoria AS c ON p.IdCategoria = c.Id
+    JOIN Proveedor AS pr ON p.IdProveedor = pr.Id
+    JOIN UnidadDeMedida AS u ON p.IdUDM = u.Id
+    JOIN Estatus AS e ON p.IdEstatus = e.Id;
+END
+
+
+--OBTENER PRODUCTO POR ID--
+CREATE PROCEDURE SPObtenerProductoPorId
+@Id INT
+AS
+BEGIN 
+SELECT 
+        p.*,
+        c.Id AS CategoriaId, c.Nombre AS CategoriaNombre,
+        pr.Id AS ProveedorId, pr.Nombre AS ProveedorNombre,
+        u.Id AS UnidadDeMedidaId, u.UDM AS UnidadDeMedidaNombre,
+        e.Id AS EstatusId, e.Nombre AS EstatusNombre
+    FROM Producto AS p
+    JOIN Categoria AS c ON p.IdCategoria = c.Id
+    JOIN Proveedor AS pr ON p.IdProveedor = pr.Id
+    JOIN UnidadDeMedida AS u ON p.IdUDM = u.Id
+    JOIN Estatus AS e ON p.IdEstatus = e.Id
+    WHERE p.Id = @Id;
+END
