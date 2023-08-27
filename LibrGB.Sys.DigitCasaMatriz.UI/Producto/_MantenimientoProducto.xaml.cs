@@ -505,8 +505,8 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Producto
             barcode.IncludeLabel = true;
             barcode.Alignment = AlignmentPositions.Center;
             //Dimensiones de la imagen
-            int width = 500;
-            int height = 280;
+            int width = 446;
+            int height = 119;
 
             // Si el texto ingresado contiene caracteres especiales, tildes, espacios o la letra "ñ"
             if (codigo != cleanedCodigo)
