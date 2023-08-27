@@ -12,7 +12,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL
     public class ComunBD
     {
         //---Se coloca el link de conexion en una constante
-        const string StrConexion = @"";
+        const string StrConexion = @"Data Source=localhost;Initial Catalog=LibreriaGreenBook;Integrated Security=True";
         //----Establecemos la conexion con SQL
 
         private static SqlConnection ObtenerConexion()
