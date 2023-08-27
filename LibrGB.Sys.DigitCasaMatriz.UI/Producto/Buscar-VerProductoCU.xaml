@@ -81,7 +81,7 @@
         <!--Panel para datagrid view con los datos existentes en el sistema-->
         <StackPanel Background="Transparent" Width="910" Margin="46,288,46,75">
 
-            <DataGrid x:Name="dgvMostrar_UDM" AutoGenerateColumns="False" Height="365"  ColumnWidth="*">
+            <DataGrid x:Name="dgvMostrar_Producto" AutoGenerateColumns="False" Height="365"  ColumnWidth="*">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="" Binding="{Binding}"/>
                     <DataGridTextColumn Header="" Binding="{Binding}"/>
