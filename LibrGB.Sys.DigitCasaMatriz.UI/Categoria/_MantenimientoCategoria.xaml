@@ -58,6 +58,8 @@
                    FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
                    FontWeight="Bold" Height="20" Width="170" Margin="120,0,0,0" />
 
+        <Label Content="*" Foreground="Red" FontSize="18" Visibility="Visible" Margin="119,25,34,3" Grid.Column="2" Grid.Row="3" Grid.RowSpan="2"/>
+
         <TextBox x:Name="txtNombreCategoria" Grid.Row="5" 
                  Grid.Column="1"
                  Grid.ColumnSpan="3" Margin="55,2,156,2"
@@ -146,7 +148,8 @@
 
         <Label Grid.Column="5" Content="*" Foreground="Red" FontSize="18" x:Name="lblAlert"
                HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" 
-               Margin="64,26,0,0" Grid.RowSpan="2" Visibility="Hidden"/>
+               Margin="64,26,0,0" Grid.RowSpan="2" Visibility="Visible"/>
+        <Label Content="*" Foreground="Red" FontSize="18" Visibility="Visible" Margin="91,8,62,456" Grid.Column="2" Grid.Row="6" Grid.RowSpan="2"/>
 
     </Grid>
 
