@@ -108,7 +108,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Producto
 
             cbxUnidadDeMedidaProducto.ItemsSource = UnidadDeMedida;
 
-            cbxUnidadDeMedidaProducto.DisplayMemberPath = "Nombre";
+            cbxUnidadDeMedidaProducto.DisplayMemberPath = "UDM";
             cbxUnidadDeMedidaProducto.SelectedValuePath = "Id";
         }
 
