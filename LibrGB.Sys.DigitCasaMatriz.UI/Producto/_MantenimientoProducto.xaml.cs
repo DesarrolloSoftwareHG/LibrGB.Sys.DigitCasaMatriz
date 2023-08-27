@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -20,7 +21,11 @@ using LibrGB.Sys.DigitCasaMatriz.EN.Catalogo.Producto;
 using LibrGB.Sys.DigitCasaMatriz.EN.Catalogo.Proveedor;
 using LibrGB.Sys.DigitCasaMatriz.EN.Catalogo.UDM;
 using MahApps.Metro.Controls;
+using Microsoft.Win32;
+using SkiaSharp;
+using static System.Net.Mime.MediaTypeNames;
 using static LibrGB.Sys.DigitCasaMatriz.EN.Acciones;
+using BarcodeStandard;
 
 namespace LibrGB.Sys.DigitCasaMatriz.UI.Producto
 {
@@ -32,6 +37,8 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Producto
         public _MantenimientoProducto(int? pId = null, byte? pAccion = null)
         {
             InitializeComponent();
+
+            btnGuardaImg.Visibility = Visibility.Collapsed;
 
             ActualizarDataGrid();
 
@@ -481,6 +488,105 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Producto
                 MessageBox.Show("Producto Eliminado Con Exito", "Eliminar Unidad De Medida", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             Close();
+        }
+
+
+
+        private void txtCodigoProducto_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Se obtiene el texto ingresado y se eliminan los espacios en blanco al principio y al final
+            string codigo = txtCodigoProducto.Text.Trim();
+            // Se eliminan los caracteres especiales, tildes, espacios y la letra "ñ"
+            string cleanedCodigo = RemoveSpecialCharacters(codigo);
+
+            // Se crea un objeto Barcode
+            Barcode barcode = new Barcode();
+            //Coniguracion del texto de las barras
+            barcode.IncludeLabel = true;
+            barcode.Alignment = AlignmentPositions.Center;
+            //Dimensiones de la imagen
+            int width = 500;
+            int height = 280;
+
+            // Si el texto ingresado contiene caracteres especiales, tildes, espacios o la letra "ñ"
+            if (codigo != cleanedCodigo)
+            {
+                // Se muestra un mensaje de advertencia en el label "lblWarning" con un color de fuente rojo
+                lblWarning.Visibility = Visibility.Visible;
+                lblWarning.Content = "El texto no debe contener caracteres especiales, tildes, espacios o la letra ñ.";
+                lblWarning.Foreground = new SolidColorBrush(Colors.Red);
+                // Se borra la imagen del código de barras
+                imgBarraCode.Source = null;
+                //Ocultar botón de guardar imagen
+                btnGuardaImg.Visibility = Visibility.Collapsed;
+            }
+            // Si el texto ingresado no contiene caracteres especiales, tildes, espacios o la letra "ñ"
+            else if (!string.IsNullOrEmpty(cleanedCodigo))
+            {
+                // Se genera un código de barras Code 128 con el texto ingresado y se muestra en la imagen "imgBarraCode"
+                SKImage barcodeImage = barcode.Encode(BarcodeStandard.Type.Code128, cleanedCodigo, width, height);
+                imgBarraCode.Source = ToBitmap(barcodeImage);
+                // Se oculta el label "lblWarning"
+                lblWarning.Visibility = Visibility.Collapsed;
+                //Mostrar botón de guardar imagen
+                btnGuardaImg.Visibility = Visibility.Visible;
+            }
+            // Si el cuadro de texto está vacío
+            else
+            {
+                // Se borra la imagen del código de barras y se muestra un mensaje de advertencia en el label "lblWarning" con un color de fuente negro
+                imgBarraCode.Source = null;
+                lblWarning.Visibility = Visibility.Visible;
+                //Ocultar botón de guardar imagen
+                btnGuardaImg.Visibility = Visibility.Collapsed;
+                lblWarning.Content = "El texto no debe estar vacío.";
+                lblWarning.Foreground = new SolidColorBrush(Colors.Black);
+            }
+        }
+
+        private BitmapSource ToBitmap(SKImage skImage)
+        {
+            using (var data = skImage.Encode()) // Codifica la imagen en formato SKData
+            using (var stream = data.AsStream()) // Convierte SKData a Stream
+            {
+                var bitmapImage = new BitmapImage(); // Crea un nuevo objeto BitmapImage
+                bitmapImage.BeginInit(); // Inicia la inicialización del objeto BitmapImage
+                bitmapImage.CacheOption = BitmapCacheOption.OnLoad; // Establece la opción de caché en OnLoad
+                bitmapImage.StreamSource = stream; // Establece el Stream de origen de la imagen
+                bitmapImage.EndInit(); // Finaliza la inicialización del objeto BitmapImage
+                return bitmapImage; // Devuelve el objeto BitmapImage convertido a BitmapSource
+            }
+        }
+
+        private string RemoveSpecialCharacters(string input)
+        {
+            // Utiliza una expresión regular para reemplazar los caracteres especiales por una cadena vacía
+            return Regex.Replace(input, "[^a-zA-Z0-9.,-]", "");
+        }
+
+        private void GuardarImagen()
+        {
+            // Se crea un cuadro de diálogo para guardar el archivo
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Archivos de imagen (*.png)|*.png";
+            saveFileDialog.FileName = "codigo_de_barras.png";
+
+            // Si el usuario selecciona un archivo y hace clic en "Guardar"
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                // Se guarda la imagen en el archivo seleccionado
+                using (FileStream fileStream = new FileStream(saveFileDialog.FileName, FileMode.Create))
+                {
+                    PngBitmapEncoder encoder = new PngBitmapEncoder();
+                    encoder.Frames.Add(BitmapFrame.Create((BitmapSource)imgBarraCode.Source));
+                    encoder.Save(fileStream);
+                }
+            }
+        }
+
+        private void btnGuardaImg_Click(object sender, RoutedEventArgs e)
+        {
+            GuardarImagen();
         }
     }
 }
