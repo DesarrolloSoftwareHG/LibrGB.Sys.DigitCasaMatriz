@@ -46,7 +46,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
         ProveedorBL ObjProveedorBL = new ProveedorBL();
         // Crea una instancia de la clase CategoriaBL y la asigna a la variable ObjCategoriaBL.
 
-        private void btnAgregarProveedor_Click(object sender, RoutedEventArgs e)
+        private void btnAgregarProveedor_Click_1(object sender, RoutedEventArgs e)
         {
             // Se define la acción que se realizará, en este caso, se establece la acción como "Crear".
             var accion = (byte)AccionEnum.Crear;
@@ -162,5 +162,6 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
             ActualizarDataGrid();
             //Llamamos el metodo ActualizarDataGrid para actualizar el DGV al precionarlo
         }
+
     }
 }
