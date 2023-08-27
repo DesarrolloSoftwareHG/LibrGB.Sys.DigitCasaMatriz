@@ -96,9 +96,11 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
 
                     dtFechaCreacionProveedor.SelectedDate = proveedor.FechaCreacion;
                     dtFechaCreacionProveedor.SelectedDateFormat = DatePickerFormat.Long;
+                    dtFechaCreacionProveedor.IsEnabled = false;
 
                     dtFechaModificacionProveedor.SelectedDate = proveedor.FechaModificacion;
                     dtFechaModificacionProveedor.SelectedDateFormat = DatePickerFormat.Long;
+                    dtFechaModificacionProveedor.IsEnabled = false;
 
                     btnAgregarProveedor.Visibility = Visibility.Collapsed;
                     btnModificarProveedor.Visibility = Visibility.Collapsed;
@@ -133,9 +135,11 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
 
                     dtFechaCreacionProveedor.SelectedDate = proveedor.FechaCreacion;
                     dtFechaCreacionProveedor.SelectedDateFormat = DatePickerFormat.Long;
+                    dtFechaCreacionProveedor.IsEnabled = false;
 
                     dtFechaModificacionProveedor.SelectedDate = proveedor.FechaModificacion;
                     dtFechaModificacionProveedor.SelectedDateFormat = DatePickerFormat.Long;
+                    dtFechaModificacionProveedor.IsEnabled = false;
 
                     btnAgregarProveedor.Visibility = Visibility.Collapsed;
                     btnModificarProveedor.Visibility = Visibility.Collapsed;
@@ -162,9 +166,11 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
 
                     dtFechaCreacionProveedor.SelectedDate = proveedor.FechaCreacion;
                     dtFechaCreacionProveedor.SelectedDateFormat = DatePickerFormat.Long;
+                    dtFechaCreacionProveedor.IsEnabled = false;
 
                     dtFechaModificacionProveedor.SelectedDate = DateTime.Now;
                     dtFechaModificacionProveedor.SelectedDateFormat = DatePickerFormat.Long;
+                    dtFechaModificacionProveedor.IsEnabled = false;
 
                     btnAgregarProveedor.Visibility = Visibility.Collapsed;
                     btnEliminarProveedor.Visibility = Visibility.Collapsed;
