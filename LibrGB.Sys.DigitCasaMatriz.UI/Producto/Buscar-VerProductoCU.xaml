@@ -34,7 +34,7 @@
                 Foreground="Black" Height="40" Width="550" 
                 FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" FontSize="23" 
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Cursor="Arrow" TextChanged=""/>
+                Cursor="Arrow" TextChanged="btnBuscarProducto_Click"/>
 
             <Button x:Name="btnBuscarProducto" BorderBrush="Transparent" 
                     Margin="700,-50,0,0" Width="50" Height="50" Click="btnBuscarProducto_Click">
