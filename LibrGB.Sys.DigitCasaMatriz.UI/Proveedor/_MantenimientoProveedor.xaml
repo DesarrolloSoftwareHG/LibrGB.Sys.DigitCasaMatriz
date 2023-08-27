@@ -38,7 +38,7 @@
         <StackPanel Grid.Row="1" Background="#007aff"  Grid.ColumnSpan="5" Grid.RowSpan="3" Margin="20,16,20,24" Grid.Column="1">
 
 
-            <Label  
+            <Label x:Name="lblNameForm"
                 HorizontalAlignment="Center"
                 Content="Mantenimiento de Proveedor" 
                 FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" 
@@ -173,20 +173,24 @@
         <Button x:Name="btnEliminarProveedor"
             Grid.Row="7"
             Grid.Column="2"
-            Content="Eliminar" Margin="24,338,33,92" FontSize="14"/>
+            Content="Eliminar" Margin="24,338,33,92" FontSize="14" Click="btnEliminarProveedor_Click"/>
 
         <!--Boton para modificar-->
         <Button x:Name="btnModificarProveedor"
             Grid.Row="7"
             Grid.Column="3"
-            Content="Modificar" Margin="53,338,4,92" FontSize="14"/>
+            Content="Modificar" Margin="53,338,4,92" FontSize="14" Click="btnModificarProveedor_Click"/>
 
         <!--Boton para agregar-->
         <Button x:Name="btnAgregarProveedor"
             Grid.Row="7"
             Grid.Column="4"
-            Content="Agregar" Margin="71,338,159,92" Grid.ColumnSpan="2" FontSize="14"/>
+            Content="Agregar" Margin="71,338,159,92" Grid.ColumnSpan="2" FontSize="14" Click="btnAgregarProveedor_Click"/>
 
+        <Label Grid.Column="5" Content="*" Foreground="Red" FontSize="18" x:Name="lblAlert"
+               HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" 
+               Margin="-470,26,0,0" Grid.RowSpan="2" Visibility="Hidden"/>
+        
     </Grid>
 
 </mah:MetroWindow>
