@@ -34,7 +34,7 @@
                 Foreground="Black" Height="40" Width="550" 
                 FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" FontSize="23" 
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Cursor="Arrow" TextChanged=""/>
+                Cursor="Arrow" TextChanged="btnBuscarProveedor_Click"/>
 
             <Button x:Name="btnBuscarProveedor" BorderBrush="Transparent" 
                     Margin="700,-50,0,0" Width="50" Height="50" Click="btnBuscarProveedor_Click">
@@ -68,7 +68,7 @@
                 VerticalAlignment="Center" 
                 FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
                 Background="#007aff" Foreground="White" Height="38" Width="160"
-                FontSize="18" Margin="50,0,0,0"/>
+                FontSize="18" Margin="50,0,0,0" Click="btnAgregarProveedor_Click_1"/>
 
             <Button Content="Ver" x:Name="btnVerProveedor"
                 VerticalAlignment="Center" 
@@ -83,12 +83,12 @@
 
             <DataGrid x:Name="dgvMostrar_Proveedor" AutoGenerateColumns="False" Height="365"  ColumnWidth="*">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Nombre de Proveedor" Binding="{Binding}"/>
-                    <DataGridTextColumn Header="Telefono" Binding="{Binding}"/>
-                    <DataGridTextColumn Header="Celular" Binding="{Binding}"/>
-                    <DataGridTextColumn Header="Correo Electronico" Binding="{Binding}"/>
-                    <DataGridTextColumn Header="Fecha Creacion" Binding="{Binding}"/>
-                    <DataGridTextColumn Header="Fecha Modificacion" Binding="{Binding}"/>
+                    <DataGridTextColumn Header="Nombre de Proveedor" Binding="{Binding Nombre}"/>
+                    <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}"/>
+                    <DataGridTextColumn Header="Celular" Binding="{Binding Celular}"/>
+                    <DataGridTextColumn Header="Correo Electronico" Binding="{Binding CorreoElectronico}"/>
+                    <DataGridTextColumn Header="Fecha Creacion" Binding="{Binding FechaCreacion}"/>
+                    <DataGridTextColumn Header="Fecha Modificacion" Binding="{Binding FechaModificacion}"/>
                 </DataGrid.Columns>
             </DataGrid>
 
