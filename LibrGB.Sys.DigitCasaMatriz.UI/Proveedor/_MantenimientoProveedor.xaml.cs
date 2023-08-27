@@ -295,25 +295,10 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
                         return;
                     }
 
-                    if (Regex.IsMatch(ProveedorModificar.NumeroCelular, "[a-zA-Z]"))
-                    {
-                        MessageBox.Show("El campo 'Número de Celular' no debe contener letras", "Error de validación", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                        txtNumeroCelular.Focus();
-                        return;
-                    }
-
                     if (ProveedorModificar.NumeroTelefono.Length != 8 || !ProveedorModificar.NumeroTelefono.All(char.IsDigit))
                     {
                         MessageBox.Show("El campo 'Número de Teléfono' debe contener exactamente 8 dígitos numéricos", "Error de validación", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                         txtNumeroTelefono.Focus();
-                        lblNameForm.Visibility = Visibility.Visible;
-                        return;
-                    }
-
-                    if (ProveedorModificar.NumeroCelular.Length != 8 || !ProveedorModificar.NumeroCelular.All(char.IsDigit))
-                    {
-                        MessageBox.Show("El campo 'Número de Celular' debe contener exactamente 8 dígitos numéricos", "Error de validación", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                        txtNumeroCelular.Focus();
                         lblNameForm.Visibility = Visibility.Visible;
                         return;
                     }
