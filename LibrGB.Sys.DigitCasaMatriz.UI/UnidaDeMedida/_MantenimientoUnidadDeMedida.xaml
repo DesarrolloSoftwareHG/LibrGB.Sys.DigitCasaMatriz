@@ -73,6 +73,8 @@
            FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
            FontWeight="Bold" Height="20" Width="163" Margin="78,0,0,0"/>
 
+        <Label Content="*" Foreground="Red" Margin="42,24,104,4" Visibility="Visible" FontSize="18" Grid.Column="5" Grid.Row="3" Grid.RowSpan="2"/>
+
         <ComboBox x:Name="cbxEstatusUDM" Grid.Row="5" Grid.Column="3"
                   Grid.ColumnSpan="3" Margin="169,2,42,2"/>
 
@@ -83,6 +85,8 @@
                  FontSize="15"
                 FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
                 FontWeight="Bold" Margin="68,16,0,0" Height="20" Width="267" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="6" Grid.RowSpan="2" />
+
+        <Label Content="*" Foreground="Red" Margin="156,7,161,457" Visibility="Visible" FontSize="18" Grid.Column="2" Grid.Row="6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
 
         <TextBox x:Name="txtDescripcionUDM" Grid.Row="7" 
          Grid.Column="1"
@@ -144,8 +148,8 @@
 
         <Label Grid.Column="5" Content="*" Foreground="Red" FontSize="18" x:Name="lblAlerta"
                HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" 
-               Margin="-370,26,0,0" Grid.RowSpan="2" Visibility="Hidden"/>
-        
+               Margin="-370,26,0,0" Grid.RowSpan="2" Visibility="Visible"/>
+
 
     </Grid>
 
