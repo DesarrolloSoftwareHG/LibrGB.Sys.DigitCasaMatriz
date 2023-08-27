@@ -6,84 +6,98 @@
              xmlns:local="clr-namespace:LibrGB.Sys.DigitCasaMatriz.UI.Producto"
              mc:Ignorable="d" Visibility="Visible">
 
-    <Grid Background="#aad3ff" Margin="0,0,0,0" Height="728" Width="1011">
+    <Grid Background="#aad3ff" Margin="0,0,0,0" Height="728" Width="1011" Cursor="Arrow">
 
         <!--Panel para el encavezado de la pagina-->
         <StackPanel Width="925" Height="80" VerticalAlignment="Top" 
-                Margin="0,15,0,0" Background="#007aff" 
-                Effect="{DynamicResource MahApps.DropShadowEffect.Menu}">
+            Margin="0,15,0,0" Background="#007aff" 
+            Effect="{DynamicResource MahApps.DropShadowEffect.Menu}">
 
             <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" 
-                    FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" Foreground="White" 
-                    Opacity="0.85" FontWeight="Bold" Margin="25,10,0,0" Content="Buscar Producto"/>
+                FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" Foreground="White" 
+                Opacity="0.85" FontWeight="Bold" Margin="25,10,0,0" Content="Buscar Productos"/>
 
         </StackPanel>
 
         <!--panel del boton buscar y recargar junto con la barra de busqueda-->
         <StackPanel Width="925" Height="50" Margin="31,119,31,539">
-            <Viewbox Width="50" Height="50" Margin="-700,0,0,0" Stretch="Fill">
+            <Button x:Name="btnRecargarProducto"  BorderBrush="Transparent" 
+                    Margin="-700,0,0,0" Width="50" Height="50">
 
-                <Image Height="10" Width="10" Opacity="0.85" Source="/IMG/recargar.png"/>
+                <Button.Background>
+                    <ImageBrush ImageSource="/IMG/recargar.png" Stretch="Uniform"/>
+                </Button.Background>
 
-            </Viewbox>
+            </Button>
 
-            <TextBox TextWrapping="Wrap" Margin="0,-50,0,0" 
-                    Foreground="Black" Height="40" Width="550" 
-                    FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" 
-                    FontWeight="Bold" FontSize="23" 
-                    HorizontalAlignment="Center" VerticalAlignment="Center" 
-                    Cursor="Arrow"/>
+            <TextBox x:Name="txtBuscarProducto" TextWrapping="Wrap" Margin="0,-50,0,0" 
+                Foreground="Black" Height="40" Width="550" 
+                FontFamily="{DynamicResource MahApps.Fonts.Family.Button}" FontSize="23" 
+                HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Cursor="Arrow" TextChanged=""/>
 
-            <Viewbox Width="50" Height="50" Margin="700,-50,0,0" Stretch="Fill">
+            <Button x:Name="btnBuscarProducto" BorderBrush="Transparent" 
+                    Margin="700,-50,0,0" Width="50" Height="50">
 
-                <Image  Height="10" Width="10" Opacity="0.85" Source="/IMG/buscar.png"/>
+                <Button.Background>
+                    <ImageBrush ImageSource="/IMG/buscar.png" Stretch="Uniform"/>
+                </Button.Background>
 
-            </Viewbox>
+            </Button>
 
         </StackPanel>
 
 
         <!--Panel para los botones segun sea la accion a ejecutar-->
         <StackPanel Width="925" Height="50" Margin="31,190,31,468" 
-                Orientation="Horizontal">
+            Orientation="Horizontal">
 
-            <Button x:Name="___Sin_nombre_" Content="Eliminar" 
-                    VerticalAlignment="Center" 
-                    FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
-                    Background="#007aff" Foreground="White" Height="38" Width="160"
-                    FontSize="18" Margin="74,0,0,0"/>
+            <Button x:Name="btnEliminarProducto" Content="Eliminar" 
+                VerticalAlignment="Center" 
+                FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+                Background="#007aff" Foreground="White" Height="38" Width="160"
+                FontSize="18" Margin="74,0,0,0"/>
 
-            <Button Content="Modificar" 
-                    VerticalAlignment="Center" 
-                    FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
-                    Background="#007aff" Foreground="White" Height="38" Width="158"
-                    FontSize="18" Margin="50,0,0,0"/>
+            <Button Content="Modificar" x:Name="btnModificarProducto"
+                VerticalAlignment="Center" 
+                FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+                Background="#007aff" Foreground="White" Height="38" Width="158"
+                FontSize="18" Margin="50,0,0,0"/>
 
-            <Button Content="Agregar" 
-                    VerticalAlignment="Center" 
-                    FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
-                    Background="#007aff" Foreground="White" Height="38" Width="160"
-                    FontSize="18" Margin="50,0,0,0"/>
+            <Button x:Name="btnAgregarProducto" Content="Agregar" 
+                VerticalAlignment="Center" 
+                FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+                Background="#007aff" Foreground="White" Height="38" Width="160"
+                FontSize="18" Margin="50,0,0,0"/>
 
-            <Button Content="Ver" 
-                    VerticalAlignment="Center" 
-                    FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
-                    Background="#007aff" Foreground="White" Height="38" Width="150"
-                    FontSize="18" Margin="50,0,0,0" />
+            <Button Content="Ver" x:Name="btnVerProducto"
+                VerticalAlignment="Center" 
+                FontFamily="{DynamicResource MahApps.Fonts.Family.Button}"
+                Background="#007aff" Foreground="White" Height="38" Width="150"
+                FontSize="18" Margin="50,0,0,0"/>
 
         </StackPanel>
 
         <!--Panel para datagrid view con los datos existentes en el sistema-->
         <StackPanel Background="Transparent" Width="910" Margin="46,288,46,75">
 
-            <DataGrid Height="365" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+            <DataGrid x:Name="dgvMostrar_UDM" AutoGenerateColumns="False" Height="365"  ColumnWidth="*">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="" Binding="{Binding}"/>
+                    <DataGridTextColumn Header="" Binding="{Binding}"/>
+                    <DataGridTextColumn Header="" Binding="{Binding}"/>
+                    <DataGridTextColumn Header="" Binding="{Binding}"/>
+                </DataGrid.Columns>
+            </DataGrid>
 
         </StackPanel>
-        <Button x:Name="btnCerrar" Content="Exit" HorizontalAlignment="Left" 
-                Margin="901,663,0,0" VerticalAlignment="Top" Background="#FFFB1313" 
-                Width="44" Click="btnCerrar_Click"/>
+        <Button x:Name="btnCerrar" Content="Exit" HorizontalAlignment="Left" Margin="901,663,0,0" VerticalAlignment="Top" 
+                Background="#FFFB1313" Width="44" Click="btnCerrar_Click"/>
 
 
+        <!--Texbox para mostrar Id ( esta oculto)-->
+
+        <TextBox x:Name="txtIdProducto" Margin="692,40,277,658" Visibility="Hidden" />
 
     </Grid>
 
