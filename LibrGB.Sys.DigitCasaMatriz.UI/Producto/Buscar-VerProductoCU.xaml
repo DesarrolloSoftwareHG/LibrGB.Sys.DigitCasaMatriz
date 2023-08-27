@@ -83,10 +83,11 @@
 
             <DataGrid x:Name="dgvMostrar_Producto" AutoGenerateColumns="False" Height="365"  ColumnWidth="*">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="" Binding="{Binding}"/>
-                    <DataGridTextColumn Header="" Binding="{Binding}"/>
-                    <DataGridTextColumn Header="" Binding="{Binding}"/>
-                    <DataGridTextColumn Header="" Binding="{Binding}"/>
+                    <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+                    <DataGridTextColumn Header="Codigo" Binding="{Binding Codigo}"/>
+                    <DataGridTextColumn Header="Categoria" Binding="{Binding Categoria.Nombre}"/>
+                    <DataGridTextColumn Header="Proveedor" Binding="{Binding Proveedor.Nombre}"/>
+                    <DataGridTextColumn Header="Estatus" Binding="{Binding Estatus.Nombre}"/>
                 </DataGrid.Columns>
             </DataGrid>
 
