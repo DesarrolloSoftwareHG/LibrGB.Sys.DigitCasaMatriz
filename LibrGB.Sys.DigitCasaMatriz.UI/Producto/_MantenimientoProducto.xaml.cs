@@ -98,7 +98,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Producto
             cbxProveedorProducto.ItemsSource = proveedor;
 
             cbxProveedorProducto.DisplayMemberPath = "Nombre";
-            cbxCategoriaProducto.SelectedValuePath = "Id";
+            cbxProveedorProducto.SelectedValuePath = "Id";
         }
 
         private void CargarComboUnidadDeMedida()
