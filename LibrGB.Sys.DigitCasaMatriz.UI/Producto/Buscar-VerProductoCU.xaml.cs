@@ -74,26 +74,46 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Producto
 
         private void btnModificarProducto_Click(object sender, RoutedEventArgs e)
         {
-            if (dgvMostrar_Producto.SelectedItem != null)
+            if (!productoFormAbierto)
             {
-                ProductoEN ProductoSeleccionado = (ProductoEN)dgvMostrar_Producto.SelectedItem;
+                if (dgvMostrar_Producto.SelectedItem != null)
+                {
+                    productoFormAbierto = true;
 
-                int idProducto = ProductoSeleccionado.Id;
+                    // Deshabilitar otros botones mientras se modifica una categoría
+                    btnAgregarProducto.IsEnabled = false;
+                    btnEliminarProducto.IsEnabled = false;
+                    btnVerProducto.IsEnabled = false;
 
-                _MantenimientoProducto ModiFormulario = new _MantenimientoProducto(idProducto);
+                    ProductoEN ProductoSeleccionado = (ProductoEN)dgvMostrar_Producto.SelectedItem;
+                    int idProducto = ProductoSeleccionado.Id;
 
-                // Mostrar el formulario de modificación de UDM.
-                ModiFormulario.Show();
+                    _MantenimientoProducto ModiFormulario = new _MantenimientoProducto(idProducto);
+
+                    ModiFormulario.Closed += (s, args) =>
+                    {
+                        productoFormAbierto = false; // Actualizar el estado cuando se cierre la ventana
+                        btnAgregarProducto.IsEnabled = true; // Restaurar el estado de los botones
+                        btnEliminarProducto.IsEnabled = true;
+                        btnVerProducto.IsEnabled = true;
+                    };
+                    ModiFormulario.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Modificar", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                ActualizarDataGrid();
             }
             else
             {
-                MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Modificar", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No puedes tener 2 Ventanas de Mantenimiento Categoría abiertas al mismo tiempo", "Alerta de Ventana en Ejecución", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-            ActualizarDataGrid();
         }
+    }
 
-        private void btnEliminarProducto_Click(object sender, RoutedEventArgs e)
-        {
+            private void btnEliminarProducto_Click(object sender, RoutedEventArgs e)
+            {
             byte pAccion = (byte)AccionEnum.Eliminar;
 
             if (dgvMostrar_Producto.SelectedItem != null)
