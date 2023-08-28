@@ -221,7 +221,15 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
-            this.Visibility = Visibility.Collapsed;
+            // Verificar si hay una instancia de _MantenimientoCategoria abierta
+            var mantenimientoCategoriaAbierta = Application.Current.Windows.OfType<_MantenimientoCategoria>().SingleOrDefault();
+
+            if (mantenimientoCategoriaAbierta != null)
+            {
+                mantenimientoCategoriaAbierta.Close(); // Cerrar la ventana abierta
+            }
+
+            this.Visibility = Visibility.Collapsed; this.Visibility = Visibility.Collapsed;
         }
 
         private void btnRecargarCategoria_Click(object sender, RoutedEventArgs e)
