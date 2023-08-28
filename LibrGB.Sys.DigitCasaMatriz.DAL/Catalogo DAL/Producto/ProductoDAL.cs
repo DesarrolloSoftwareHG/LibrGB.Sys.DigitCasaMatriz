@@ -272,8 +272,8 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
                 // Crea un nuevo objeto EstatusEN y asigna sus valores.
                 ObjProducto.Estatus = new EstatusEN
                 {
-                    Id = reader.GetInt32(10),
-                    Nombre = reader.GetString(11)
+                    Id = reader.GetInt32(11),
+                    Nombre = reader.GetString(12)
                 };
 
                 ObjProducto.Precio = reader.GetDecimal(4);
@@ -281,27 +281,27 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
                 // Crea un nuevo objeto UnidadDeMedidaEN y asigna sus valores.
                 ObjProducto.UDM = new UnidadDeMedidaEN
                 {
-                    Id = reader.GetInt32(12),
-                    UDM = reader.GetString(13)
+                    Id = reader.GetInt32(13),
+                    UDM = reader.GetString(14)
                 };
 
                 // Crea un nuevo objeto CategoriaEN y asigna sus valores.
                 ObjProducto.Categoria = new CategoriaEN
                 {
-                    Id = reader.GetInt32(14),
-                    Nombre = reader.GetString(15)
+                    Id = reader.GetInt32(15),
+                    Nombre = reader.GetString(16)
                 };
 
                 // Crea un nuevo objeto ProveedorEN y asigna sus valores.
                 ObjProducto.Proveedor = new ProveedorEN
                 {
-                    Id = reader.GetInt32(16),
-                    Nombre = reader.GetString(17)
+                    Id = reader.GetInt32(17),
+                    Nombre = reader.GetString(18)
                 };
 
-                ObjProducto.Descripcion = reader.GetString(7);
-                ObjProducto.FechaCreacion = reader.GetDateTime(8);
-                ObjProducto.FechaModificacion = reader.GetDateTime(9);
+                ObjProducto.Descripcion = reader.GetString(8);
+                ObjProducto.FechaCreacion = reader.GetDateTime(9);
+                ObjProducto.FechaModificacion = reader.GetDateTime(10);
 
                 // Agrega el objeto ProductoEN a la lista de productos.
                 listaProducto.Add(ObjProducto);
