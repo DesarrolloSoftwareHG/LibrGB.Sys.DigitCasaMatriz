@@ -12,74 +12,67 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL
     {
         public List<EstatusEN> ObtenerEstatus()
         {
+            // Crear una lista para almacenar los objetos de EstatusEN
             List<EstatusEN> listaEstatus = new List<EstatusEN>();
-            // Crear una nueva lista de objetos de tipo EstatusEN.
 
+            // Crear un nuevo comando SQL utilizando el método ObtenerComando() de la clase ComunBD
             SqlCommand command = ComunBD.ObtenerComando();
-            // Obtener un SqlCommand a través del método ObtenerComando() de la clase ComunBD.
 
+            // Establecer el tipo de comando como Procedimiento Almacenado
             command.CommandType = System.Data.CommandType.StoredProcedure;
-            // Establecer el tipo de comando como un procedimiento almacenado.
 
+            // Especificar el nombre del Procedimiento Almacenado a ejecutar
             command.CommandText = "SPMostrarEstatus";
-            // Establecer el nombre del procedimiento almacenado a ejecutar.
 
+            // Ejecutar el comando y obtener un lector de datos (DataReader)
             SqlDataReader reader = ComunBD.EjecutarComandoReader(command);
-            // Ejecutar el comando y obtener un SqlDataReader a través del método EjecutarComandoReader() de la clase ComunBD.
 
+            // Iterar a través de las filas del lector de datos
             while (reader.Read())
             {
+                // Crear un objeto de EstatusEN para almacenar la información de la fila actual
                 EstatusEN ObjEstatus = new EstatusEN();
-                // Crear una nueva instancia de la clase CategoriaEN para almacenar los datos de la categoría.
 
-                //----- Nombres de los Campos en el Data Grid ------
-
+                // Asignar los valores de las columnas de la fila actual a las propiedades del objeto
                 ObjEstatus.Id = reader.GetInt32(0);
-                // Asignar el valor entero del primer campo (índice 0) al Id de ObjCategoria.
-
                 ObjEstatus.Nombre = reader.GetString(1);
-                // Asignar el valor de cadena del segundo campo (índice 1) al Nombre de ObjCategoria.
-
                 ObjEstatus.Descripcion = reader.GetString(2);
-                // Asignar el valor de cadena del segundo campo (índice 1) al Nombre de ObjCategoria.
-
                 ObjEstatus.FechaCreacion = reader.GetDateTime(3);
-                // Asignar el valor de cadena del segundo campo (índice 1) al Nombre de ObjCategoria.
-
                 ObjEstatus.FechaModificacion = reader.GetDateTime(4);
-                // Asignar el valor de cadena del segundo campo (índice 1) al Nombre de ObjCategoria.
 
+                // Agregar el objeto de EstatusEN a la lista
                 listaEstatus.Add(ObjEstatus);
-                // Agregar ObjCategoria a la lista de categorías.
             }
+
+            // Devolver la lista de objetos de EstatusEN
             return listaEstatus;
-            // Devolver la lista de categorías.
 
         }
 
         public EstatusEN ObtenerEstatusPorId(int? pId)
         {
-            // Crear un nuevo objeto SqlCommand utilizando el método ObtenerComando() que se encuentra en algún lugar del código.
+            // Crear un nuevo comando SQL utilizando el método ObtenerComando() de la clase ComunBD
             SqlCommand command = ComunBD.ObtenerComando();
 
-            // Especificar el tipo de comando como StoredProcedure para indicar que se ejecutará un procedimiento almacenado.
+            // Establecer el tipo de comando como Procedimiento Almacenado
             command.CommandType = System.Data.CommandType.StoredProcedure;
 
-            // Especificar el nombre del procedimiento almacenado a ejecutar.
+            // Especificar el nombre del Procedimiento Almacenado a ejecutar
             command.CommandText = "SPObtenerEstatusPorId";
 
-            // Agregar un parámetro @Id al comando para pasar el valor del identificador pId.
+            // Agregar un parámetro al comando para el Id del estatus a buscar
             command.Parameters.AddWithValue("@Id", pId);
 
-            // Crear un objeto SqlDataReader para leer los resultados del procedimiento almacenado.
+            // Ejecutar el comando y obtener un lector de datos (DataReader)
             SqlDataReader reader = ComunBD.EjecutarComandoReader(command);
 
-            // Crear una nueva instancia de UnidadDeMedidaEN para almacenar los datos del resultado del procedimiento almacenado.
+            // Crear un objeto de EstatusEN para almacenar la información
             EstatusEN estatus = new EstatusEN();
 
+            // Verificar si el lector de datos contiene filas y leer la primera fila
             if (reader.Read())
             {
-                // Si el SqlDataReader contiene al menos una fila, asigna los valores de las columnas a las propiedades del objeto UDM.
+                // Asignar los valores de las columnas de la fila actual a las propiedades del objeto
                 estatus.Id = reader.GetInt32(0);
                 estatus.Nombre = reader.GetString(1);
                 estatus.Descripcion = reader.GetString(2);
@@ -87,8 +80,9 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL
                 estatus.FechaModificacion = reader.GetDateTime(4);
             }
 
-            // Devuelve el objeto UDM que contiene los valores leídos del SqlDataReader.
+            // Devolver el objeto de estatus encontrado (o un objeto vacío si no se encontró)
             return estatus;
+
         }
     }
 }
