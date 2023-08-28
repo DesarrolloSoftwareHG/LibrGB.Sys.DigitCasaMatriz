@@ -46,42 +46,73 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
         UnidadDeMedidaBL ObjUdmBL = new UnidadDeMedidaBL();
         // Crea una instancia de la clase UnidadDeMedidaBL y la asigna a la variable ObjUdmBL.
 
+        private bool UDMFormAbierto = false;
+
         private void btnAgregarUDM_Click(object sender, RoutedEventArgs e)
         {
-            // Se define la acción que se realizará, en este caso, se establece la acción como "Crear".
-            var accion = (byte)AccionEnum.Crear;
+            if (!UDMFormAbierto)
+            {
+                UDMFormAbierto = true;
 
-            // Se crea una instancia del formulario _AgregarUnidadDeMedida pasando null como parámetro y la acción definida.
-            _MantenimientoUnidadDeMedida AgregFormulario = new _MantenimientoUnidadDeMedida(null, accion);
+                btnModificarUDM.IsEnabled = false;
+                btnEliminarUDM.IsEnabled = false;
+                btnVerUDM.IsEnabled = false;
 
-            // Se muestra el formulario recién creado.
-            AgregFormulario.Show();
+                var accion = (byte)AccionEnum.Crear;
+                _MantenimientoUnidadDeMedida AgregFormulario = new _MantenimientoUnidadDeMedida(null, accion);
+
+                AgregFormulario.Closed += (s, args) =>
+                {
+                    UDMFormAbierto = false; // Actualizar el estado cuando se cierre la ventana
+                    btnModificarUDM.IsEnabled = true; // Restaurar el estado de los botones
+                    btnEliminarUDM.IsEnabled = true;
+                    btnVerUDM.IsEnabled = true;
+                };
+                AgregFormulario.Show();
+            }
+            else
+            {
+                MessageBox.Show("No puedes Tener 2 Ventanas de Mantenimiento Unidad de Medida Abiertas", "Alerta un Ventana en Ejecucion", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
 
         private void btnModificarUDM_Click(object sender, RoutedEventArgs e)
         {
-            if (dgvMostrar_UDM.SelectedItem != null)
+            if (!UDMFormAbierto)
             {
-                // Si hay una fila seleccionada en el DataGridView (dgvMostrar_UDM), continúa con el proceso de modificación.
+                if (dgvMostrar_UDM.SelectedItem != null)
+                {
+                    UDMFormAbierto = true;
 
-                // Obtener la UDM seleccionada del enlace de datos del DataGridView.
-                UnidadDeMedidaEN UDMSeleccionada = (UnidadDeMedidaEN)dgvMostrar_UDM.SelectedItem;
+                    // Deshabilitar otros botones mientras se modifica una categoría
+                    btnAgregarUDM.IsEnabled = false;
+                    btnEliminarUDM.IsEnabled = false;
+                    btnVerUDM.IsEnabled = false;
 
-                // Obtener el ID de la UDM seleccionada.
-                int idUDM = UDMSeleccionada.Id;
+                    UnidadDeMedidaEN UDMSeleccionada = (UnidadDeMedidaEN)dgvMostrar_UDM.SelectedItem;
+                    int idUDM = UDMSeleccionada.Id;
 
-                // Crear una nueva instancia del formulario de modificación de UDM (_AgregarUnidadDeMedida) y pasar el ID de la UDM seleccionada.
-                _MantenimientoUnidadDeMedida ModifUDM = new _MantenimientoUnidadDeMedida(idUDM);
+                    _MantenimientoUnidadDeMedida ModifUDM = new _MantenimientoUnidadDeMedida(idUDM);
 
-                // Mostrar el formulario de modificación de UDM.
-                ModifUDM.Show();
+                    ModifUDM.Closed += (s, args) =>
+                    {
+                        UDMFormAbierto = false; // Actualizar el estado cuando se cierre la ventana
+                        btnAgregarUDM.IsEnabled = true; // Restaurar el estado de los botones
+                        btnEliminarUDM.IsEnabled = true;
+                        btnVerUDM.IsEnabled = true;
+                    };
+                    ModifUDM.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Modificar", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                ActualizarDataGrid();
             }
             else
             {
-                // Si no hay ninguna fila seleccionada en el DataGridView, mostrar un mensaje de error.
-                MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Modificar", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No puedes tener 2 Ventanas de Mantenimiento Unidad de Medida abiertas al mismo tiempo", "Alerta de Ventana en Ejecución", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-            ActualizarDataGrid();
         }
 
         private void btnEliminarUDM_Click(object sender, RoutedEventArgs e)
@@ -89,25 +120,40 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
             // Definir el valor de la acción como byte usando el enumerado AccionEnum
             byte pAccion = (byte)AccionEnum.Eliminar;
 
-            if (dgvMostrar_UDM.SelectedItem != null)
+            if (!UDMFormAbierto)
             {
-                // Obtener el objeto seleccionado del DataGrid (cambia "UDM" por el tipo correcto)
-                UnidadDeMedidaEN UDMSeleccionada = (UnidadDeMedidaEN)dgvMostrar_UDM.SelectedItem;
+                if (dgvMostrar_UDM.SelectedItem != null)
+                {
+                    UDMFormAbierto = true;
 
-                // Obtener el valor de Id del objeto seleccionado (ajusta esto según la estructura de tus objetos)
-                int idUDM = UDMSeleccionada.Id;
+                    btnAgregarUDM.IsEnabled = false;
+                    btnModificarUDM.IsEnabled = false;
+                    btnVerUDM.IsEnabled = false;
 
-                // Crear una instancia de _AgregarUnidadDeMedida y pasar el Id y la acción
-                _MantenimientoUnidadDeMedida ElimUDM = new _MantenimientoUnidadDeMedida(idUDM, pAccion);
+                    UnidadDeMedidaEN UDMSeleccionada = (UnidadDeMedidaEN)dgvMostrar_UDM.SelectedItem;
+                    int idUDM = UDMSeleccionada.Id;
 
-                // Mostrar la ventana _AgregarUnidadDeMedida
-                ElimUDM.Show();
+                    _MantenimientoUnidadDeMedida ElimUDM = new _MantenimientoUnidadDeMedida(idUDM, pAccion);
+
+                    ElimUDM.Closed += (s, args) =>
+                    {
+                        UDMFormAbierto = false;
+                        btnAgregarUDM.IsEnabled = true;
+                        btnModificarUDM.IsEnabled = true;
+                        btnVerUDM.IsEnabled = true;
+                    };
+                    ElimUDM.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Eliminar", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                ActualizarDataGrid();
             }
             else
             {
-                MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Eliminar", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No puedes tener 2 Ventanas de Mantenimiento Unidad de Medida abiertas al mismo tiempo", "Alerta de Ventana en Ejecución", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-            ActualizarDataGrid();
         }
 
         private void btnVerUDM_Click(object sender, RoutedEventArgs e)
@@ -115,25 +161,40 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
             // Definir el valor de la acción como byte usando el enumerado AccionEnum
             byte pAccion = (byte)AccionEnum.Ver;
 
-            if (dgvMostrar_UDM.SelectedItem != null)
+            if (!UDMFormAbierto)
             {
-                // Obtener el objeto seleccionado del DataGrid (cambia "UDM" por el tipo correcto)
-                UnidadDeMedidaEN UDMSeleccionada = (UnidadDeMedidaEN)dgvMostrar_UDM.SelectedItem;
+                if (dgvMostrar_UDM.SelectedItem != null)
+                {
+                    UDMFormAbierto = true;
 
-                // Obtener el valor de Id del objeto seleccionado (ajusta esto según la estructura de tus objetos)
-                int idUDM = UDMSeleccionada.Id;
+                    btnAgregarUDM.IsEnabled = false;
+                    btnModificarUDM.IsEnabled = false;
+                    btnEliminarUDM.IsEnabled = false;
 
-                // Crear una instancia de _CategoriaAgregar y pasar el Id y la acción
-                _MantenimientoUnidadDeMedida VerCategoria = new _MantenimientoUnidadDeMedida(idUDM, pAccion);
+                    UnidadDeMedidaEN UDMSeleccionada = (UnidadDeMedidaEN)dgvMostrar_UDM.SelectedItem;
+                    int idUDM = UDMSeleccionada.Id;
 
-                // Mostrar la ventana _CategoriaAgregar
-                VerCategoria.Show();
+                    _MantenimientoUnidadDeMedida VerUDM = new _MantenimientoUnidadDeMedida(idUDM, pAccion);
+
+                    VerUDM.Closed += (s, args) =>
+                    {
+                        UDMFormAbierto = false;
+                        btnAgregarUDM.IsEnabled = true;
+                        btnModificarUDM.IsEnabled = true;
+                        btnEliminarUDM.IsEnabled = true;
+                    };
+                    VerUDM.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error En La Previsualizacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                ActualizarDataGrid();
             }
             else
             {
-                MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error En La Previsualizacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No puedes tener 2 Ventanas de Mantenimiento Unidad de Medida abiertas al mismo tiempo", "Alerta de Ventana en Ejecución", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-            ActualizarDataGrid();
         }
 
         private void btnBuscarUDM_Click(object sender, RoutedEventArgs e)
@@ -154,6 +215,14 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
+            // Verificar si hay una instancia de _MantenimientoCategoria abierta
+            var mantenimientoUDMAbierta = Application.Current.Windows.OfType<_MantenimientoUnidadDeMedida>().SingleOrDefault();
+
+            if (mantenimientoUDMAbierta != null)
+            {
+                mantenimientoUDMAbierta.Close(); // Cerrar la ventana abierta
+            }
+
             this.Visibility = Visibility.Collapsed;
         }
 
