@@ -431,3 +431,22 @@ SELECT
     JOIN Estatus AS e ON p.IdEstatus = e.Id
     WHERE p.Id = @Id;
 END
+
+
+CREATE PROCEDURE SPObtenerProductoLike
+@Codigo VARCHAR(MAX)
+AS
+BEGIN 
+SELECT 
+        p.*,
+        c.Id AS CategoriaId, c.Nombre AS CategoriaNombre,
+        pr.Id AS ProveedorId, pr.Nombre AS ProveedorNombre,
+        u.Id AS UnidadDeMedidaId, u.UDM AS UnidadDeMedidaNombre,
+        e.Id AS EstatusId, e.Nombre AS EstatusNombre
+    FROM Producto AS p
+    JOIN Categoria AS c ON p.IdCategoria = c.Id
+    JOIN Proveedor AS pr ON p.IdProveedor = pr.Id
+    JOIN UnidadDeMedida AS u ON p.IdUDM = u.Id
+    JOIN Estatus AS e ON p.IdEstatus = e.Id
+    WHERE p.Codigo LIKE '%' + @Codigo + '%';
+END
