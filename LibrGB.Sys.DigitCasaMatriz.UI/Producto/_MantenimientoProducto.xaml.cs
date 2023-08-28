@@ -227,6 +227,8 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Producto
                     dtFechaModificacion.SelectedDateFormat = DatePickerFormat.Long;
                     dtFechaModificacion.IsEnabled = false;
 
+                    btnGuardaImg.IsEnabled = false;
+
                     btnAgregarProducto.Visibility = Visibility.Collapsed;
                     btnModificarProducto.Visibility = Visibility.Collapsed;
                 }
@@ -268,6 +270,8 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Producto
                     dtFechaModificacion.SelectedDate = DateTime.Now;
                     dtFechaModificacion.SelectedDateFormat = DatePickerFormat.Long;
                     dtFechaModificacion.IsEnabled = false;
+
+                    btnGuardaImg.IsEnabled = false;
 
                     btnAgregarProducto.Visibility = Visibility.Collapsed;
                     btnModificarProducto.Visibility = Visibility.Collapsed;
