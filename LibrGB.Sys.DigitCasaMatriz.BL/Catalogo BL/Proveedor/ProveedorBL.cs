@@ -13,73 +13,41 @@ namespace LibrGB.Sys.DigitCasaMatriz.BL.Catalogo_BL
         ProveedorDAL ObjProveedorDAL = new ProveedorDAL();
         // Se crea una instancia del objeto ProveedorDAL y se asigna a la variable ObjProveedorDAL
 
+        // Guarda un nuevo proveedor en la base de datos.
         public int GuardarProveedor(ProveedorEN pProveedorGuardar)
         {
-            // Este método recibe un objeto ProveedorEN llamado pProveedorGuardar como argumento.
-            // Presumiblemente, ProveedorEN es una clase que representa un proveedor con sus propiedades y métodos relacionados.
-
             return ObjProveedorDAL.GuardarProveedor(pProveedorGuardar);
-            // Llama al método GuardarProveedor de ObjProveedorDAL (presumiblemente una clase o componente de acceso a datos) y le pasa el objeto pProveedorGuardar como argumento.
-            // El método GuardarProveedor en el componente de acceso a datos se encarga de guardar el proveedor en la base de datos y retorna un valor entero, que posiblemente representa el ID del proveedor guardado o algún código de éxito o error.
-
-            // Finalmente, el método retorna ese valor entero para que el cliente de este método (otra clase o componente) pueda saber el resultado de la operación de guardado del proveedor.
         }
 
+        // Elimina un proveedor de la base de datos.
         public int EliminarProveedor(ProveedorEN pProveedorELiminar)
         {
-            // Este método recibe un objeto ProveedorEN llamado pProveedorELiminar como argumento.
-            // Presumiblemente, ProveedorEN es una clase que representa un proveedor con sus propiedades y métodos relacionados.
-
             return ObjProveedorDAL.EliminarProveedor(pProveedorELiminar);
-            // Llama al método EliminarProveedor de ObjProveedorDAL (presumiblemente una clase o componente de acceso a datos) y le pasa el objeto pProveedorELiminar como argumento.
-            // El método EliminarProveedor en el componente de acceso a datos se encarga de eliminar el proveedor de la base de datos y retorna un valor entero, que posiblemente representa la cantidad de registros afectados o algún código de éxito o error.
-
-            // Finalmente, el método retorna ese valor entero para que el cliente de este método (otra clase o componente) pueda saber el resultado de la operación de eliminación del proveedor.
         }
 
+        // Modifica un proveedor existente en la base de datos.
         public int ModificarProveedor(ProveedorEN pProveedorModificar)
         {
-            // Este método recibe un objeto ProveedorEN llamado pProveedorModificar como argumento.
-            // Presumiblemente, ProveedorEN es una clase que representa un proveedor con sus propiedades y métodos relacionados.
-
             return ObjProveedorDAL.ModificarProveedor(pProveedorModificar);
-            // Llama al método ModificarProveedor de ObjProveedorDAL (presumiblemente una clase o componente de acceso a datos) y le pasa el objeto pProveedorModificar como argumento.
-            // El método ModificarProveedor en el componente de acceso a datos se encarga de modificar los datos del proveedor en la base de datos y retorna un valor entero, que posiblemente representa la cantidad de registros afectados o algún código de éxito o error.
-
-            // Finalmente, el método retorna ese valor entero para que el cliente de este método (otra clase o componente) pueda saber el resultado de la operación de modificación del proveedor.
         }
 
+        // Obtiene una lista de todos los proveedores disponibles en la base de datos.
         public List<ProveedorEN> ObtenerProveedor()
         {
-            // Este método no recibe argumentos.
-
             return ObjProveedorDAL.ObtenerProveedor();
-            // Llama al método ObtenerProveedor de ObjProveedorDAL (presumiblemente una clase o componente de acceso a datos).
-            // El método ObtenerProveedor en el componente de acceso a datos se encarga de obtener una lista de proveedores desde la base de datos y retorna una lista de objetos ProveedorEN.
-
-            // Finalmente, el método retorna la lista de proveedores obtenida desde la capa de acceso a datos para que el cliente de este método (otra clase o componente) pueda obtener la lista de proveedores y trabajar con ella.
         }
 
+        // Obtiene los detalles de un proveedor específico utilizando su identificador.
         public ProveedorEN ObtenerPorId(int? pId)
         {
-            // Este método recibe un parámetro entero nullable (int?) llamado pId. Presumiblemente, este parámetro representa el ID del proveedor que se desea obtener.
-
             return ObjProveedorDAL.ObtenerProveedorPorId(pId);
-            // Llama al método ObtenerProveedorPorId de ObjProveedorDAL (presumiblemente una clase o componente de acceso a datos) y le pasa el parámetro pId.
-            // El método ObtenerProveedorPorId en el componente de acceso a datos se encarga de obtener los datos del proveedor con el ID proporcionado desde la base de datos y retorna un objeto ProveedorEN.
-
-            // Finalmente, el método retorna el objeto ProveedorEN obtenido desde la capa de acceso a datos para que el cliente de este método (otra clase o componente) pueda trabajar con la información del proveedor obtenido.
         }
 
+        // Busca proveedores que coinciden con un nombre dado.
         public List<ProveedorEN> ObtenerProveedoresLike(string pNombre)
         {
-            // Este método recibe un parámetro string llamado pNombre. Presumiblemente, este parámetro representa el nombre (o una parte del nombre) de los proveedores que se desean obtener.
-
             return ObjProveedorDAL.ObtenerProveedoresLike(pNombre);
-            // Llama al método ObtenerProveedoresLike de ObjProveedorDAL (presumiblemente una clase o componente de acceso a datos) y le pasa el parámetro pNombre.
-            // El método ObtenerProveedoresLike en el componente de acceso a datos se encarga de obtener una lista de proveedores desde la base de datos que coincidan con el nombre (o una parte del nombre) proporcionado, y retorna una lista de objetos ProveedorEN.
-
-            // Finalmente, el método retorna la lista de proveedores obtenida desde la capa de acceso a datos para que el cliente de este método (otra clase o componente) pueda trabajar con la lista de proveedores obtenida.
         }
+
     }
 }
