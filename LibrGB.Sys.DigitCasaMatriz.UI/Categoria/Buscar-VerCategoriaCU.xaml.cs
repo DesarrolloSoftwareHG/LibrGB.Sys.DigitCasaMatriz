@@ -121,28 +121,44 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 
         private void btnEliminarCategoria_Click(object sender, RoutedEventArgs e)
         {
-            // Definir el valor de la acción como byte usando el enumerado AccionEnum
             byte pAccion = (byte)AccionEnum.Eliminar;
 
-            if (dgvMostrar_Categorias.SelectedItem != null)
+            if (!categoriaFormAbierto)
             {
-                // Obtener el objeto seleccionado del DataGrid (cambia "Categoria" por el tipo correcto)
-                CategoriaEN categoriaSeleccionada = (CategoriaEN)dgvMostrar_Categorias.SelectedItem;
+                if (dgvMostrar_Categorias.SelectedItem != null)
+                {
+                    categoriaFormAbierto = true;
 
-                // Obtener el valor de Id del objeto seleccionado (ajusta esto según la estructura de tus objetos)
-                int idCategoria = categoriaSeleccionada.Id;
+                    btnAgregarCategoria.IsEnabled = false;
+                    btnModificarCategoria.IsEnabled = false;
+                    btnVerCategoria.IsEnabled = false;
 
-                // Crear una instancia de _CategoriaAgregar y pasar el Id y la acción
-                _MantenimientoCategoria ElimCategoria = new _MantenimientoCategoria(idCategoria, pAccion);
+                    CategoriaEN categoriaSeleccionada = (CategoriaEN)dgvMostrar_Categorias.SelectedItem;
+                    int idCategoria = categoriaSeleccionada.Id;
 
-                // Mostrar la ventana _CategoriaAgregar
-                ElimCategoria.Show();
+                    _MantenimientoCategoria ElimCategoria = new _MantenimientoCategoria(idCategoria, pAccion);
+
+                    ElimCategoria.Closed += (s, args) =>
+                    {
+                        categoriaFormAbierto = false;
+                        btnAgregarCategoria.IsEnabled = true;
+                        btnModificarCategoria.IsEnabled = true;
+                        btnVerCategoria.IsEnabled = true;
+                    };
+
+                    ElimCategoria.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Eliminar", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+
+                ActualizarDataGrid();
             }
             else
             {
-                MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Eliminar", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No puedes tener 2 Ventanas de Mantenimiento Categoría abiertas al mismo tiempo", "Alerta de Ventana en Ejecución", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-            ActualizarDataGrid();
         }
 
         private void btnVerCategoria_Click(object sender, RoutedEventArgs e)
