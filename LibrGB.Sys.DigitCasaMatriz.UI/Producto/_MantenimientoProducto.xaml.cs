@@ -157,7 +157,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Producto
                     txtPrecioProducto.IsEnabled = false;
 
                     cbxUnidadDeMedidaProducto.SelectedValue = producto.UDM.Id;
-                    cbxUnidadDeMedidaProducto.DisplayMemberPath = "Nombre";
+                    cbxUnidadDeMedidaProducto.DisplayMemberPath = "UDM";
                     cbxUnidadDeMedidaProducto.SelectedValuePath = "Id";
                     cbxUnidadDeMedidaProducto.IsEnabled = false;
 
@@ -207,7 +207,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Producto
                     txtPrecioProducto.IsEnabled = false;
 
                     cbxUnidadDeMedidaProducto.SelectedValue = producto.UDM.Id;
-                    cbxUnidadDeMedidaProducto.DisplayMemberPath = "Nombre";
+                    cbxUnidadDeMedidaProducto.DisplayMemberPath = "UDM";
                     cbxUnidadDeMedidaProducto.SelectedValuePath = "Id";
                     cbxUnidadDeMedidaProducto.IsEnabled = false;
 
@@ -252,7 +252,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Producto
                     txtPrecioProducto.Text = producto.Precio.ToString("0.00");
 
                     cbxUnidadDeMedidaProducto.SelectedValue = producto.UDM.Id;
-                    cbxUnidadDeMedidaProducto.DisplayMemberPath = "Nombre";
+                    cbxUnidadDeMedidaProducto.DisplayMemberPath = "UDM";
                     cbxUnidadDeMedidaProducto.SelectedValuePath = "Id";
 
                     cbxEstatusProducto.SelectedValue = producto.Estatus.Id;
