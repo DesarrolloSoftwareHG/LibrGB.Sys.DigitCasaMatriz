@@ -45,16 +45,35 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
         CategoriaBL ObjCategoriaBL = new CategoriaBL();
         // Crea una instancia de la clase CategoriaBL y la asigna a la variable ObjCategoriaBL.
 
+        private bool categoriaFormAbierto = false;
+
         private void btnAgregarCategoria_Click(object sender, RoutedEventArgs e)
         {
-            // Se define la acción que se realizará, en este caso, se establece la acción como "Crear".
-            var accion = (byte)AccionEnum.Crear;
+            if (!categoriaFormAbierto)
+            {
+                categoriaFormAbierto = true;
 
-            // Se crea una instancia del formulario _CategoriaAgregar pasando null como parámetro y la acción definida.
-            _MantenimientoCategoria AgregFormulario = new _MantenimientoCategoria(null, accion);
+                btnModificarCategoria.IsEnabled = false;
+                btnEliminarCategoria.IsEnabled = false;
+                btnVerCategoria.IsEnabled = false;
 
-            // Se muestra el formulario recién creado.
-            AgregFormulario.Show();
+                var accion = (byte)AccionEnum.Crear;
+                _MantenimientoCategoria AgregFormulario = new _MantenimientoCategoria(null, accion);
+
+                AgregFormulario.Closed += (s, args) =>
+                {
+                    categoriaFormAbierto = false; // Actualizar el estado cuando se cierre la ventana
+                    btnModificarCategoria.IsEnabled = true; // Restaurar el estado de los botones
+                    btnEliminarCategoria.IsEnabled = true;
+                    btnVerCategoria.IsEnabled = true;
+                };
+
+                AgregFormulario.Show();
+            }
+            else
+            {
+                MessageBox.Show("No puedes Tener 2 Ventanas de Mantenimiento Categoria Abiertas", "Alerta un Ventana en Ejecucion", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
 
         }
 
