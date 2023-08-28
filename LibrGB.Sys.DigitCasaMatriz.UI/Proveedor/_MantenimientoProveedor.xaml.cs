@@ -207,7 +207,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
                 FechaCreacion = DateTime.Now,
             };
 
-            if (ObjProveedor.Nombre != "" && ObjProveedor.Direccion != "" && ObjProveedor.NumeroTelefono != "" && ObjProveedor.CorreoElectronico !="" && ObjProveedor.Direccion != "")
+            if (ObjProveedor.Nombre != "" && ObjProveedor.Direccion != "" && ObjProveedor.NumeroTelefono != "" && ObjProveedor.CorreoElectronico !="" && ObjProveedor.Descripcion != "")
             {
                 if (Regex.IsMatch(ObjProveedor.Nombre, @"\d"))
                 {
