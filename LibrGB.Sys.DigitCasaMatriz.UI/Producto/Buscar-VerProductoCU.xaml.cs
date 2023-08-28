@@ -151,25 +151,44 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Producto
             }
         }
 
-            private void btnVerProducto_Click(object sender, RoutedEventArgs e)
+        private void btnVerProducto_Click(object sender, RoutedEventArgs e)
         {
             byte pAccion = (byte)AccionEnum.Ver;
 
-            if (dgvMostrar_Producto.SelectedItem != null)
+            if (!productoFormAbierto)
             {
-                ProductoEN ProductoSeleccionado = (ProductoEN)dgvMostrar_Producto.SelectedItem;
+                if (dgvMostrar_Producto.SelectedItem != null)
+                {
+                    productoFormAbierto = true;
 
-                int idProducto = ProductoSeleccionado.Id;
+                    btnAgregarProducto.IsEnabled = false;
+                    btnModificarProducto.IsEnabled = false;
+                    btnEliminarProducto.IsEnabled = false;
 
-                _MantenimientoProducto VerProducto = new _MantenimientoProducto(idProducto, pAccion);
+                    ProductoEN ProductoSeleccionado = (ProductoEN)dgvMostrar_Producto.SelectedItem;
+                    int idProducto = ProductoSeleccionado.Id;
 
-                VerProducto.Show();
+                    _MantenimientoProducto VerProducto = new _MantenimientoProducto(idProducto, pAccion);
+
+                    VerProducto.Closed += (s, args) =>
+                    {
+                        productoFormAbierto = false;
+                        btnAgregarProducto.IsEnabled = true;
+                        btnModificarProducto.IsEnabled = true;
+                        btnEliminarProducto.IsEnabled = true;
+                    };
+                    VerProducto.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error En La Previsualizacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                ActualizarDataGrid();
             }
             else
             {
-                MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error En La Previsualizacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No puedes tener 2 Ventanas de Mantenimiento Categoría abiertas al mismo tiempo", "Alerta de Ventana en Ejecución", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-            ActualizarDataGrid();
         }
 
         private void btnBuscarProducto_Click(object sender, RoutedEventArgs e)
