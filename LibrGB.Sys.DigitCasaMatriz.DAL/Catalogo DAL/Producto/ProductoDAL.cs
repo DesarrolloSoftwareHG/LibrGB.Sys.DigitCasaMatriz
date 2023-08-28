@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using LibrGB.Sys.DigitCasaMatriz.EN.Catalogo.Producto;
+using LibrGB.Sys.DigitCasaMatriz.EN;
+using LibrGB.Sys.DigitCasaMatriz.EN.Catalogo.UDM;
+using LibrGB.Sys.DigitCasaMatriz.EN.Catalogo.Categoria;
+using LibrGB.Sys.DigitCasaMatriz.EN.Catalogo.Proveedor;
 
 namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
 {
@@ -44,15 +48,15 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
 
             command.Parameters.AddWithValue("@Codigo", pProductoGuardar.Codigo); // Código del producto.
 
-            command.Parameters.AddWithValue("@IdEstatus", pProductoGuardar.Estatus); // ID del estado del producto.
+            command.Parameters.AddWithValue("@IdEstatus", pProductoGuardar.Estatus.Id); // ID del estado del producto.
 
             command.Parameters.AddWithValue("@Precio", pProductoGuardar.Precio); // Precio del producto.
 
-            command.Parameters.AddWithValue("@IdUDM", pProductoGuardar.UDM); // ID de la Unidad de Medida del producto.
+            command.Parameters.AddWithValue("@IdUDM", pProductoGuardar.UDM.Id); // ID de la Unidad de Medida del producto.
 
-            command.Parameters.AddWithValue("@IdCategoria", pProductoGuardar.Categoria); // ID de la categoría del producto.
+            command.Parameters.AddWithValue("@IdCategoria", pProductoGuardar.Categoria.Id); // ID de la categoría del producto.
 
-            command.Parameters.AddWithValue("@IdProveedor", pProductoGuardar.Proveedor); // ID del proveedor del producto.
+            command.Parameters.AddWithValue("@IdProveedor", pProductoGuardar.Proveedor.Id); // ID del proveedor del producto.
 
             command.Parameters.AddWithValue("@Descripcion", pProductoGuardar.Descripcion); // Descripción del producto.
 
@@ -81,15 +85,15 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
 
             command.Parameters.AddWithValue("@Codigo", pProductoModificar.Codigo); // Código del producto.
 
-            command.Parameters.AddWithValue("@IdEstatus", pProductoModificar.Estatus); // ID del estado del producto.
+            command.Parameters.AddWithValue("@IdEstatus", pProductoModificar.Estatus.Id); // ID del estado del producto.
 
             command.Parameters.AddWithValue("@Precio", pProductoModificar.Precio); // Precio del producto.
 
-            command.Parameters.AddWithValue("@IdUDM", pProductoModificar.UDM); // ID de la Unidad de Medida del producto.
+            command.Parameters.AddWithValue("@IdUDM", pProductoModificar.UDM.Id); // ID de la Unidad de Medida del producto.
 
-            command.Parameters.AddWithValue("@IdCategoria", pProductoModificar.Categoria); // ID de la categoría del producto.
+            command.Parameters.AddWithValue("@IdCategoria", pProductoModificar.Categoria.Id); // ID de la categoría del producto.
 
-            command.Parameters.AddWithValue("@IdProveedor", pProductoModificar.Proveedor); // ID del proveedor del producto.
+            command.Parameters.AddWithValue("@IdProveedor", pProductoModificar.Proveedor.Id); // ID del proveedor del producto.
 
             command.Parameters.AddWithValue("@Descripcion", pProductoModificar.Descripcion); // Descripción del producto.
 
@@ -152,15 +156,31 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
 
                 ObjProducto.Codigo = reader.GetString(2);
 
-                ObjProducto.Estatus.Id = reader.GetByte(3);
+                ObjProducto.Estatus = new EstatusEN
+                {
+                    Id = reader.GetInt32(11),
+                    Nombre = reader.GetString(12)
+                };
 
                 ObjProducto.Precio = reader.GetDecimal(4);
 
-                ObjProducto.UDM.Id = reader.GetByte(5);
+                ObjProducto.UDM = new UnidadDeMedidaEN
+                {
+                    Id = reader.GetInt32(13),
+                    UDM = reader.GetString(14)
+                };
 
-                ObjProducto.Categoria.Id = reader.GetByte(6);
+                ObjProducto.Categoria = new CategoriaEN
+                {
+                    Id = reader.GetInt32(15),
+                    Nombre = reader.GetString(16)
+                };
 
-                ObjProducto.Proveedor.Id = reader.GetByte(7);
+                ObjProducto.Proveedor = new ProveedorEN
+                {
+                    Id = reader.GetInt32(17),
+                    Nombre = reader.GetString(18)
+                };
 
                 ObjProducto.Descripcion = reader.GetString(8);
 
@@ -206,21 +226,37 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
 
                 producto.Codigo = reader.GetString(2);
 
-                producto.Estatus.Id = reader.GetByte(3);
+                producto.Estatus = new EstatusEN
+                {
+                    Id = reader.GetInt32(3),
+                    Nombre = reader.GetString(4)
+                };
 
-                producto.Precio = reader.GetDecimal(4);
+                producto.Precio = reader.GetDecimal(5);
 
-                producto.UDM.Id = reader.GetByte(5);
+                producto.UDM = new UnidadDeMedidaEN
+                {
+                    Id = reader.GetInt32(6),
+                    UDM = reader.GetString(7)
+                };
 
-                producto.Categoria.Id = reader.GetByte(6);
+                producto.Categoria = new CategoriaEN
+                {
+                    Id = reader.GetInt32(8),
+                    Nombre = reader.GetString(9)
+                };
 
-                producto.Proveedor.Id = reader.GetByte(7);
+                producto.Proveedor = new ProveedorEN
+                {
+                    Id = reader.GetInt32(10),
+                    Nombre = reader.GetString(11)
+                };
 
-                producto.Descripcion = reader.GetString(8);
+                producto.Descripcion = reader.GetString(12);
 
-                producto.FechaCreacion = reader.GetDateTime(9);
+                producto.FechaCreacion = reader.GetDateTime(13);
 
-                producto.FechaModificacion = reader.GetDateTime(10);
+                producto.FechaModificacion = reader.GetDateTime(14);
             }
 
             // Se devuelve el objeto "proveedor" que contiene los valores leídos del SqlDataReader.
@@ -261,21 +297,37 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
 
                 ObjProducto.Codigo = reader.GetString(2);
 
-                ObjProducto.Estatus.Id = reader.GetByte(3);
+                ObjProducto.Estatus = new EstatusEN
+                {
+                    Id = reader.GetInt32(3),
+                    Nombre = reader.GetString(4)
+                };
 
-                ObjProducto.Precio = reader.GetDecimal(4);
+                ObjProducto.Precio = reader.GetDecimal(5);
 
-                ObjProducto.UDM.Id = reader.GetByte(5);
+                ObjProducto.UDM = new UnidadDeMedidaEN
+                {
+                    Id = reader.GetInt32(6),
+                    UDM = reader.GetString(7)
+                };
 
-                ObjProducto.Categoria.Id = reader.GetByte(6);
+                ObjProducto.Categoria = new CategoriaEN
+                {
+                    Id = reader.GetInt32(8),
+                    Nombre = reader.GetString(9)
+                };
 
-                ObjProducto.Proveedor.Id = reader.GetByte(7);
+                ObjProducto.Proveedor = new ProveedorEN
+                {
+                    Id = reader.GetInt32(10),
+                    Nombre = reader.GetString(11)
+                };
 
-                ObjProducto.Descripcion = reader.GetString(8);
+                ObjProducto.Descripcion = reader.GetString(12);
 
-                ObjProducto.FechaCreacion = reader.GetDateTime(9);
+                ObjProducto.FechaCreacion = reader.GetDateTime(13);
 
-                ObjProducto.FechaModificacion = reader.GetDateTime(10);
+                ObjProducto.FechaModificacion = reader.GetDateTime(14);
 
                 // Agregar el objeto "ObjProducto" a la lista de Productos llamada "listaProducto".
                 listaProducto.Add(ObjProducto);
