@@ -46,42 +46,72 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
         ProveedorBL ObjProveedorBL = new ProveedorBL();
         // Crea una instancia de la clase CategoriaBL y la asigna a la variable ObjCategoriaBL.
 
+        private bool proveedorFormAbierto = false;
+
         private void btnAgregarProveedor_Click_1(object sender, RoutedEventArgs e)
         {
-            // Se define la acción que se realizará, en este caso, se establece la acción como "Crear".
-            var accion = (byte)AccionEnum.Crear;
+            if (!proveedorFormAbierto)
+            {
+                proveedorFormAbierto = true;
 
-            // Se crea una instancia del formulario _CategoriaAgregar pasando null como parámetro y la acción definida.
-            _MantenimientoProveedor AgregFormulario = new _MantenimientoProveedor(null, accion);
+                btnModificarProveedor.IsEnabled = false;
+                btnEliminarProveedor.IsEnabled = false;
+                btnVerProveedor.IsEnabled = false;
 
-            // Se muestra el formulario recién creado.
-            AgregFormulario.Show();
+                var accion = (byte)AccionEnum.Crear;
+                _MantenimientoProveedor AgregFormulario = new _MantenimientoProveedor(null, accion);
+
+                AgregFormulario.Closed += (s, args) =>
+                {
+                    proveedorFormAbierto = false; // Actualizar el estado cuando se cierre la ventana
+                    btnModificarProveedor.IsEnabled = true; // Restaurar el estado de los botones
+                    btnEliminarProveedor.IsEnabled = true;
+                    btnVerProveedor.IsEnabled = true;
+                };
+                AgregFormulario.Show();
+            }
+            else
+            {
+                MessageBox.Show("No puedes Tener 2 Ventanas de Mantenimiento Proveedor Abiertas", "Alerta un Ventana en Ejecucion", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
 
         private void btnModificarProveedor_Click(object sender, RoutedEventArgs e)
         {
-            if (dgvMostrar_Proveedor.SelectedItem != null)
+            if (!proveedorFormAbierto)
             {
-                // Si hay una fila seleccionada en el DataGridView (dgvMostrar_Categorias), continúa con el proceso de modificación.
+                if (dgvMostrar_Proveedor.SelectedItem != null)
+                {
+                    proveedorFormAbierto = true;
 
-                // Obtener la categoría seleccionada del enlace de datos del DataGridView.
-                ProveedorEN proveedorSeleccionado = (ProveedorEN)dgvMostrar_Proveedor.SelectedItem;
+                    btnAgregarProveedor.IsEnabled = false;
+                    btnEliminarProveedor.IsEnabled = false;
+                    btnVerProveedor.IsEnabled = false;
 
-                // Obtener el ID de la categoría seleccionada.
-                int idProveedor = proveedorSeleccionado.Id;
+                    ProveedorEN proveedorSeleccionado = (ProveedorEN)dgvMostrar_Proveedor.SelectedItem;
+                    int idProveedor = proveedorSeleccionado.Id;
 
-                // Crear una nueva instancia del formulario de modificación de categoría (_CategoriaAgregar) y pasar el ID de la categoría seleccionada.
-                _MantenimientoProveedor ModifProveedor = new _MantenimientoProveedor(idProveedor);
+                    _MantenimientoProveedor ModifProveedor = new _MantenimientoProveedor(idProveedor);
 
-                // Mostrar el formulario de modificación de categoría.
-                ModifProveedor.Show();
+                    ModifProveedor.Closed += (s, args) =>
+                    {
+                        proveedorFormAbierto = false; // Actualizar el estado cuando se cierre la ventana
+                        btnAgregarProveedor.IsEnabled = true; // Restaurar el estado de los botones
+                        btnEliminarProveedor.IsEnabled = true;
+                        btnVerProveedor.IsEnabled = true;
+                    };
+                    ModifProveedor.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Modificar", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                ActualizarDataGrid();
             }
             else
             {
-                // Si no hay ninguna fila seleccionada en el DataGridView, mostrar un mensaje de error.
-                MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Modificar", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No puedes tener 2 Ventanas de Mantenimiento Proveedor abiertas al mismo tiempo", "Alerta de Ventana en Ejecución", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-            ActualizarDataGrid();
         }
 
         private void btnEliminarProveedor_Click(object sender, RoutedEventArgs e)
@@ -89,51 +119,83 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
             // Definir el valor de la acción como byte usando el enumerado AccionEnum
             byte pAccion = (byte)AccionEnum.Eliminar;
 
-            if (dgvMostrar_Proveedor.SelectedItem != null)
+            if (!proveedorFormAbierto)
             {
-                // Obtener el objeto seleccionado del DataGrid (cambia "Categoria" por el tipo correcto)
-                ProveedorEN proveedorSeleccionado = (ProveedorEN)dgvMostrar_Proveedor.SelectedItem;
 
-                // Obtener el valor de Id del objeto seleccionado (ajusta esto según la estructura de tus objetos)
-                int idProveedor = proveedorSeleccionado.Id;
+                if (dgvMostrar_Proveedor.SelectedItem != null)
+                {
+                    proveedorFormAbierto = true;
 
-                // Crear una instancia de _CategoriaAgregar y pasar el Id y la acción
-                _MantenimientoProveedor ElimProveedor = new _MantenimientoProveedor(idProveedor, pAccion);
+                    btnAgregarProveedor.IsEnabled = false;
+                    btnModificarProveedor.IsEnabled = false;
+                    btnVerProveedor.IsEnabled = false;
 
-                // Mostrar la ventana _CategoriaAgregar
-                ElimProveedor.Show();
+                    ProveedorEN proveedorSeleccionado = (ProveedorEN)dgvMostrar_Proveedor.SelectedItem;
+                    int idProveedor = proveedorSeleccionado.Id;
+
+                    _MantenimientoProveedor ElimProveedor = new _MantenimientoProveedor(idProveedor, pAccion);
+
+                    ElimProveedor.Closed += (s, args) =>
+                    {
+                        proveedorFormAbierto = false;
+                        btnAgregarProveedor.IsEnabled = true;
+                        btnModificarProveedor.IsEnabled = true;
+                        btnVerProveedor.IsEnabled = true;
+                    };
+                    ElimProveedor.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Eliminar", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                ActualizarDataGrid();
             }
             else
             {
-                MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Eliminar", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No puedes tener 2 Ventanas de Mantenimiento Categoría abiertas al mismo tiempo", "Alerta de Ventana en Ejecución", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-            ActualizarDataGrid();
         }
+
 
         private void btnVerProveedor_Click(object sender, RoutedEventArgs e)
         {
             // Definir el valor de la acción como byte usando el enumerado AccionEnum
             byte pAccion = (byte)AccionEnum.Ver;
 
-            if (dgvMostrar_Proveedor.SelectedItem != null)
+            if (!proveedorFormAbierto)
             {
-                // Obtener el objeto seleccionado del DataGrid (cambia "Categoria" por el tipo correcto)
-                ProveedorEN proveedorSeleccionado = (ProveedorEN)dgvMostrar_Proveedor.SelectedItem;
+                if (dgvMostrar_Proveedor.SelectedItem != null)
+                {
+                    proveedorFormAbierto = true;
 
-                // Obtener el valor de Id del objeto seleccionado (ajusta esto según la estructura de tus objetos)
-                int idProveedor = proveedorSeleccionado.Id;
+                    btnAgregarProveedor.IsEnabled = false;
+                    btnModificarProveedor.IsEnabled = false;
+                    btnEliminarProveedor.IsEnabled = false;
 
-                // Crear una instancia de _CategoriaAgregar y pasar el Id y la acción
-                _MantenimientoProveedor VerProveedor = new _MantenimientoProveedor(idProveedor, pAccion);
+                    ProveedorEN proveedorSeleccionado = (ProveedorEN)dgvMostrar_Proveedor.SelectedItem;
+                    int idProveedor = proveedorSeleccionado.Id;
 
-                // Mostrar la ventana _CategoriaAgregar
-                VerProveedor.Show();
+                    _MantenimientoProveedor VerProveedor = new _MantenimientoProveedor(idProveedor, pAccion);
+
+                    VerProveedor.Closed += (s, args) =>
+                    {
+                        proveedorFormAbierto = false;
+                        btnAgregarProveedor.IsEnabled = true;
+                        btnModificarProveedor.IsEnabled = true;
+                        btnEliminarProveedor.IsEnabled = true;
+                    };
+                    VerProveedor.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error En La Previsualizacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                ActualizarDataGrid();
             }
             else
             {
-                MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error En La Previsualizacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No puedes tener 2 Ventanas de Mantenimiento Proveedor abiertas al mismo tiempo", "Alerta de Ventana en Ejecución", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-            ActualizarDataGrid();
         }
 
         private void btnBuscarProveedor_Click(object sender, RoutedEventArgs e)
@@ -154,6 +216,14 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
+            // Verificar si hay una instancia de _MantenimientoCategoria abierta
+            var mantenimientoproveedorAbierta = Application.Current.Windows.OfType<_MantenimientoProveedor>().SingleOrDefault();
+
+            if (mantenimientoproveedorAbierta != null)
+            {
+                mantenimientoproveedorAbierta.Close(); // Cerrar la ventana abierta
+            }
+
             this.Visibility = Visibility.Collapsed;
         }
 
