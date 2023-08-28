@@ -163,28 +163,44 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 
         private void btnVerCategoria_Click(object sender, RoutedEventArgs e)
         {
-            // Definir el valor de la acción como byte usando el enumerado AccionEnum
             byte pAccion = (byte)AccionEnum.Ver;
 
-            if (dgvMostrar_Categorias.SelectedItem != null)
+            if (!categoriaFormAbierto)
             {
-                // Obtener el objeto seleccionado del DataGrid (cambia "Categoria" por el tipo correcto)
-                CategoriaEN categoriaSeleccionada = (CategoriaEN)dgvMostrar_Categorias.SelectedItem;
+                if (dgvMostrar_Categorias.SelectedItem != null)
+                {
+                    categoriaFormAbierto = true;
 
-                // Obtener el valor de Id del objeto seleccionado (ajusta esto según la estructura de tus objetos)
-                int idCategoria = categoriaSeleccionada.Id;
+                    btnAgregarCategoria.IsEnabled = false;
+                    btnModificarCategoria.IsEnabled = false;
+                    btnEliminarCategoria.IsEnabled = false;
 
-                // Crear una instancia de _CategoriaAgregar y pasar el Id y la acción
-                _MantenimientoCategoria VerCategoria = new _MantenimientoCategoria(idCategoria, pAccion);
+                    CategoriaEN categoriaSeleccionada = (CategoriaEN)dgvMostrar_Categorias.SelectedItem;
+                    int idCategoria = categoriaSeleccionada.Id;
 
-                // Mostrar la ventana _CategoriaAgregar
-                VerCategoria.Show();
+                    _MantenimientoCategoria VerCategoria = new _MantenimientoCategoria(idCategoria, pAccion);
+
+                    VerCategoria.Closed += (s, args) =>
+                    {
+                        categoriaFormAbierto = false;
+                        btnAgregarCategoria.IsEnabled = true;
+                        btnModificarCategoria.IsEnabled = true;
+                        btnEliminarCategoria.IsEnabled = true;
+                    };
+
+                    VerCategoria.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error En La Previsualizacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+
+                ActualizarDataGrid();
             }
             else
             {
-                MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error En La Previsualizacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No puedes tener 2 Ventanas de Mantenimiento Categoría abiertas al mismo tiempo", "Alerta de Ventana en Ejecución", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-            ActualizarDataGrid();
         }
 
         private void btnBuscarCategoria_Click(object sender, RoutedEventArgs e)
