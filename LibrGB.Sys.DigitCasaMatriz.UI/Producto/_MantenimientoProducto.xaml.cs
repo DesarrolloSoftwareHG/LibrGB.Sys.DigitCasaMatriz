@@ -322,15 +322,6 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Producto
 
             if (ObjProducto.Nombre != "" && ObjProducto.Codigo != "" && ObjProducto.Precio != 0 && ObjProducto.Descripcion != "")
             {
-                if (Regex.IsMatch(ObjProducto.Nombre, @"\d"))
-                {
-                    MessageBox.Show("El campo 'Nombre del Producto' no debe contener números", "Error de validación", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-
-                    txtNombreProducto.Focus();
-
-                    return;
-                }
-
                 if (Regex.IsMatch(ObjProducto.Codigo, "[a-zA-Z]"))
                 {
                     MessageBox.Show("El campo 'Código' no debe contener letras", "Error de validación", MessageBoxButton.OK, MessageBoxImage.Exclamation);
@@ -414,15 +405,6 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Producto
 
                 if (productoModificado.Nombre != "" && productoModificado.Codigo != "" && productoModificado.Precio != 0 && productoModificado.Descripcion != "")
                 {
-                    if (Regex.IsMatch(productoModificado.Nombre, @"\d"))
-                    {
-                        MessageBox.Show("El campo 'Nombre del Producto' no debe contener números", "Error de validación", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-
-                        txtNombreProducto.Focus();
-
-                        return;
-                    }
-
                     if (Regex.IsMatch(productoModificado.Precio.ToString(), "[a-zA-Z]"))
                     {
                         MessageBox.Show("El campo 'Precio' no debe contener letras", "Error de validación", MessageBoxButton.OK, MessageBoxImage.Exclamation);
