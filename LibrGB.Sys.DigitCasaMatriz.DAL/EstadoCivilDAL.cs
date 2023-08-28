@@ -1,11 +1,11 @@
-﻿using LibrGB.Sys.DigitCasaMatriz.EN;
-using LibrGB.Sys.DigitCasaMatriz.EN.Catalogo;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//--------- REFERENCIAS -----------
+using System.Data.SqlClient;
+using LibrGB.Sys.DigitCasaMatriz.EN;
 
 namespace LibrGB.Sys.DigitCasaMatriz.DAL
 {
