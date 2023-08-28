@@ -1,6 +1,7 @@
 ﻿using LibrGB.Sys.DigitCasaMatriz.BL.Catalogo_BL;
 using LibrGB.Sys.DigitCasaMatriz.EN.Catalogo.Producto;
 using LibrGB.Sys.DigitCasaMatriz.EN.Catalogo.UDM;
+using LibrGB.Sys.DigitCasaMatriz.UI.Categoria;
 using LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida;
 using System;
 using System.Collections.Generic;
@@ -210,6 +211,15 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Producto
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
+            // Verificar si hay una instancia de _MantenimientoCategoria abierta
+            var mantenimientoCategoriaAbierta = Application.Current.Windows.OfType<_MantenimientoProducto>().SingleOrDefault();
+
+            if (mantenimientoCategoriaAbierta != null)
+            {
+                mantenimientoCategoriaAbierta.Close(); // Cerrar la ventana abierta
+            }
+
+
             this.Visibility = Visibility.Collapsed;
         }
 
