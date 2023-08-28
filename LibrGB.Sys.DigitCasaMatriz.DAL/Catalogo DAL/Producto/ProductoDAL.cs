@@ -202,36 +202,36 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
                 // Crea un nuevo objeto EstatusEN y asigna sus valores.
                 producto.Estatus = new EstatusEN
                 {
-                    Id = reader.GetInt32(3),
-                    Nombre = reader.GetString(4)
+                    Id = reader.GetInt32(11),
+                    Nombre = reader.GetString(12)
                 };
 
-                producto.Precio = reader.GetDecimal(5);
+                producto.Precio = reader.GetDecimal(4);
 
                 // Crea un nuevo objeto UnidadDeMedidaEN y asigna sus valores.
                 producto.UDM = new UnidadDeMedidaEN
                 {
-                    Id = reader.GetInt32(6),
-                    UDM = reader.GetString(7)
+                    Id = reader.GetInt32(13),
+                    UDM = reader.GetString(14)
                 };
 
                 // Crea un nuevo objeto CategoriaEN y asigna sus valores.
                 producto.Categoria = new CategoriaEN
                 {
-                    Id = reader.GetInt32(8),
-                    Nombre = reader.GetString(9)
+                    Id = reader.GetInt32(15),
+                    Nombre = reader.GetString(16)
                 };
 
                 // Crea un nuevo objeto ProveedorEN y asigna sus valores.
                 producto.Proveedor = new ProveedorEN
                 {
-                    Id = reader.GetInt32(10),
-                    Nombre = reader.GetString(11)
+                    Id = reader.GetInt32(17),
+                    Nombre = reader.GetString(18)
                 };
 
-                producto.Descripcion = reader.GetString(12);
-                producto.FechaCreacion = reader.GetDateTime(13);
-                producto.FechaModificacion = reader.GetDateTime(14);
+                producto.Descripcion = reader.GetString(8);
+                producto.FechaCreacion = reader.GetDateTime(9);
+                producto.FechaModificacion = reader.GetDateTime(10);
             }
 
             // Devuelve el objeto ProductoEN que contiene los datos obtenidos.
@@ -272,36 +272,36 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
                 // Crea un nuevo objeto EstatusEN y asigna sus valores.
                 ObjProducto.Estatus = new EstatusEN
                 {
-                    Id = reader.GetInt32(3),
-                    Nombre = reader.GetString(4)
+                    Id = reader.GetInt32(10),
+                    Nombre = reader.GetString(11)
                 };
 
-                ObjProducto.Precio = reader.GetDecimal(5);
+                ObjProducto.Precio = reader.GetDecimal(4);
 
                 // Crea un nuevo objeto UnidadDeMedidaEN y asigna sus valores.
                 ObjProducto.UDM = new UnidadDeMedidaEN
                 {
-                    Id = reader.GetInt32(6),
-                    UDM = reader.GetString(7)
+                    Id = reader.GetInt32(12),
+                    UDM = reader.GetString(13)
                 };
 
                 // Crea un nuevo objeto CategoriaEN y asigna sus valores.
                 ObjProducto.Categoria = new CategoriaEN
                 {
-                    Id = reader.GetInt32(8),
-                    Nombre = reader.GetString(9)
+                    Id = reader.GetInt32(14),
+                    Nombre = reader.GetString(15)
                 };
 
                 // Crea un nuevo objeto ProveedorEN y asigna sus valores.
                 ObjProducto.Proveedor = new ProveedorEN
                 {
-                    Id = reader.GetInt32(10),
-                    Nombre = reader.GetString(11)
+                    Id = reader.GetInt32(16),
+                    Nombre = reader.GetString(17)
                 };
 
-                ObjProducto.Descripcion = reader.GetString(12);
-                ObjProducto.FechaCreacion = reader.GetDateTime(13);
-                ObjProducto.FechaModificacion = reader.GetDateTime(14);
+                ObjProducto.Descripcion = reader.GetString(7);
+                ObjProducto.FechaCreacion = reader.GetDateTime(8);
+                ObjProducto.FechaModificacion = reader.GetDateTime(9);
 
                 // Agrega el objeto ProductoEN a la lista de productos.
                 listaProducto.Add(ObjProducto);
