@@ -16,7 +16,6 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.UDM
         public int GuardarUDM(UnidadDeMedidaEN pUDMGuardar)
         {
             //----------- INICIO VALIDACION CODIGO YA EXISTENTE ----------
-
             var UnidadDeMedidas = ObtenerUDM();
 
             var UDM = UnidadDeMedidas.FirstOrDefault(c => c.UDM == pUDMGuardar.UDM);
@@ -25,160 +24,147 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.UDM
             {
                 return 0;
             }
-
             //----------- FINAL VALIDACION CODIGO YA EXISTENTE ----------
 
-
+            // Crea un nuevo comando SQL utilizando la conexión de la base de datos.
             SqlCommand command = ComunBD.ObtenerComando();
-            // Obtener un SqlCommand a través del método ObtenerComando() de la clase ComunBD.
 
+            // Establece el tipo de comando como una llamada a un procedimiento almacenado.
             command.CommandType = System.Data.CommandType.StoredProcedure;
-            // Establecer el tipo de comando como un procedimiento almacenado.
 
+            // Define el nombre del procedimiento almacenado que se utilizará para guardar la Unidad de Medida.
             command.CommandText = "SPGuardarUnidadDeMedida";
-            // Establecer el nombre del procedimiento almacenado a ejecutar.
 
-            //---------------------- TRAEMOS LOS PARAMETROS Y DESPUES DEL . VA EL NOMBRE DEL ATRIBUTO DECLARADO EN LA "EN"---------------------------
-
+            // Agrega los parámetros necesarios para la creación de la Unidad de Medida.
             command.Parameters.AddWithValue("@UDM", pUDMGuardar.UDM);
-            // Agrega un parámetro llamado "@UnidadDeMedida" al objeto SqlCommand "command" y le asigna el valor de la propiedad "UnidadDeMedida" del objeto "pUDMGuardar". Este parámetro será utilizado en un comando SQL para insertar o actualizar datos en la base de datos.
-
             command.Parameters.AddWithValue("@IdEstatus", pUDMGuardar.Estatus.Id);
-            // Agrega un parámetro llamado "@FechaCreacion" al objeto SqlCommand "command" y le asigna el valor de la propiedad "FechaCreacion" del objeto "pUDMGuardar". Este parámetro también será utilizado en el comando SQL para insertar o actualizar datos.
-
             command.Parameters.AddWithValue("@Descripcion", pUDMGuardar.Descripcion);
-            // Agrega un parámetro llamado "@Descripcion" al objeto SqlCommand "command" y le asigna el valor de la propiedad "Descripcion" del objeto "pUDMGuardar". Este parámetro también será utilizado en el comando SQL para insertar o actualizar datos.
-
             command.Parameters.AddWithValue("@FechaCreacion", pUDMGuardar.FechaCreacion);
 
+            // Ejecuta el comando y devuelve el resultado.
             return ComunBD.EjecutarComando(command);
-            // Ejecutar el comando a través del método EjecutarComando() de la clase ComunBD y devolver el resultado.
-
         }
 
         public int ModificarUDM(UnidadDeMedidaEN pUDModificar)
         {
+            // Crea un nuevo comando SQL utilizando la conexión de la base de datos.
             SqlCommand command = ComunBD.ObtenerComando();
-            // Obtener un SqlCommand a través del método ObtenerComando() de la clase ComunBD.
 
+            // Establece el tipo de comando como una llamada a un procedimiento almacenado.
             command.CommandType = System.Data.CommandType.StoredProcedure;
-            // Establecer el tipo de comando como un procedimiento almacenado.
 
+            // Define el nombre del procedimiento almacenado que se utilizará para modificar la Unidad de Medida.
             command.CommandText = "SPModificarUnidadDeMedida";
-            // Establecer el nombre del procedimiento almacenado a ejecutar.
 
-            //---------------------- TRAEMOS LOS PARAMETROS Y DESPUES DEL . VA EL NOMBRE DEL ATRIBUTO DECLARADO EN LA "EN"---------------------------
-
+            // Agrega los parámetros necesarios para la modificación.
             command.Parameters.AddWithValue("@Id", pUDModificar.Id);
-            // Agrega un parámetro llamado "@Id" al objeto SqlCommand "command" y le asigna el valor de la propiedad "IdUDM" del objeto "pUDMModificar". Este parámetro será utilizado en un comando SQL para insertar o actualizar datos en la base de datos.
-
             command.Parameters.AddWithValue("@UDM", pUDModificar.UDM);
-            // Agrega un parámetro llamado "UnidadDeMedida" al objeto SqlCommand "command" y le asigna el valor de la propiedad "UnidadDeMedida" del objeto "pUDMModificar". Este parámetro será utilizado en un comando SQL para insertar o actualizar datos en la base de datos.
-
             command.Parameters.AddWithValue("@IdEstatus", pUDModificar.Estatus.Id);
-            // Agrega un parámetro llamado "@FechaModificacion" al objeto SqlCommand "command" y le asigna el valor de la propiedad "FechaModificacion" del objeto "pUDMModificar". Este parámetro será utilizado en un comando SQL para insertar o actualizar datos en la base de datos.
-
             command.Parameters.AddWithValue("@Descripcion", pUDModificar.Descripcion);
-            // Agrega un parámetro llamado "@Descripcion" al objeto SqlCommand "command" y le asigna el valor de la propiedad "Descripcion" del objeto "pUDMModificar". Este parámetro será utilizado en un comando SQL para insertar o actualizar datos en la base de datos.
-
             command.Parameters.AddWithValue("@FechaModificacion", pUDModificar.FechaModificacion);
 
+            // Ejecuta el comando y devuelve el resultado.
             return ComunBD.EjecutarComando(command);
-            // Ejecutar el comando a través del método EjecutarComando() de la clase ComunBD y devolver el resultado.
 
         }
 
         public int EliminarUDM(UnidadDeMedidaEN pUDMEliminar)
         {
+            // Crea un nuevo comando SQL utilizando la conexión de la base de datos.
             SqlCommand command = ComunBD.ObtenerComando();
-            // Obtener un SqlCommand a través del método ObtenerComando() de la clase ComunBD.
 
+            // Establece el tipo de comando como una llamada a un procedimiento almacenado.
             command.CommandType = System.Data.CommandType.StoredProcedure;
-            // Establecer el tipo de comando como un procedimiento almacenado.
 
+            // Define el nombre del procedimiento almacenado que se utilizará para eliminar la Unidad de Medida.
             command.CommandText = "SPEliminarUnidadDeMedida";
-            // Establecer el nombre del procedimiento almacenado a ejecutar.
 
-            //---------------------- TRAEMOS LOS PARAMETROS Y DESPUES DEL . VA EL NOMBRE DEL ATRIBUTO DECLARADO EN LA "EN"---------------------------
-
+            // Agrega el parámetro de ID a la consulta.
             command.Parameters.AddWithValue("@Id", pUDMEliminar.Id);
-            // Agrega un parámetro llamado "@Id" al objeto SqlCommand "command" y le asigna el valor de la propiedad "IdUDM" del objeto "pUDMEliminar". Este parámetro será utilizado en un comando SQL para insertar o actualizar datos en la base de datos.
 
+            // Ejecuta el comando y devuelve el resultado.
             return ComunBD.EjecutarComando(command);
-            // Ejecutar el comando a través del método EjecutarComando() de la clase ComunBD y devolver el resultado.
 
         }
 
         public List<UnidadDeMedidaEN> ObtenerUDM()
         {
+            // Crea una lista para almacenar las Unidades de Medida.
             List<UnidadDeMedidaEN> listaUDM = new List<UnidadDeMedidaEN>();
 
+            // Crea un nuevo comando SQL utilizando la conexión de la base de datos.
             SqlCommand command = ComunBD.ObtenerComando();
-            // Obtener un SqlCommand a través del método ObtenerComando() de la clase ComunBD.
 
+            // Establece el tipo de comando como una llamada a un procedimiento almacenado.
             command.CommandType = System.Data.CommandType.StoredProcedure;
-            // Establecer el tipo de comando como un procedimiento almacenado.
 
+            // Define el nombre del procedimiento almacenado que se utilizará para mostrar las Unidades de Medida.
             command.CommandText = "SPMostrarUnidadDeMedida";
-            // Establecer el nombre del procedimiento almacenado a ejecutar.
 
+            // Ejecuta el comando y obtiene un lector de datos para leer los resultados.
             SqlDataReader reader = ComunBD.EjecutarComandoReader(command);
-            // Ejecutar el comando y obtener un SqlDataReader a través del método EjecutarComandoReader() de la clase ComunBD.
 
+            // Lee los resultados del lector de datos.
             while (reader.Read())
             {
-                // Crea una nueva instancia del objeto UnidadDeMedidaEN para almacenar los datos de una fila leída del SqlDataReader.
+                // Crea una instancia de UnidadDeMedidaEN para almacenar los datos de cada Unidad de Medida.
                 UnidadDeMedidaEN ObjUDM = new UnidadDeMedidaEN();
 
-                // Asigna los valores de las columnas leídas del SqlDataReader a las propiedades del objeto UnidadDeMedidaEN.
+                // Asigna los valores de los campos obtenidos del lector de datos a las propiedades de la UnidadDeMedidaEN.
                 ObjUDM.Id = reader.GetInt32(0);
                 ObjUDM.UDM = reader.GetString(1);
+
+                // Crea una instancia de EstatusEN y asigna los valores correspondientes a las propiedades.
                 ObjUDM.Estatus = new EstatusEN
                 {
                     Id = reader.GetInt32(6),
                     Nombre = reader.GetString(7)
                 };
+
                 ObjUDM.Descripcion = reader.GetString(3);
                 ObjUDM.FechaCreacion = reader.GetDateTime(4);
                 ObjUDM.FechaModificacion = reader.GetDateTime(5);
 
-                // Agrega el objeto ObjUDM a la lista de unidades de medida llamada listaUDM.
+                // Agrega la Unidad de Medida a la lista.
                 listaUDM.Add(ObjUDM);
             }
 
-            // Devuelve la lista de objetos UnidadDeMedidaEN que contiene los datos leídos del SqlDataReader.
+            // Devuelve la lista de Unidades de Medida.
             return listaUDM;
 
         }
 
         public UnidadDeMedidaEN ObtenerUDMPorId(int? pId)
         {
-            // Crear un nuevo objeto SqlCommand utilizando el método ObtenerComando() que se encuentra en algún lugar del código.
+            // Crea un nuevo comando SQL utilizando la conexión de la base de datos.
             SqlCommand command = ComunBD.ObtenerComando();
 
-            // Especificar el tipo de comando como StoredProcedure para indicar que se ejecutará un procedimiento almacenado.
+            // Establece el tipo de comando como una llamada a un procedimiento almacenado.
             command.CommandType = System.Data.CommandType.StoredProcedure;
 
-            // Especificar el nombre del procedimiento almacenado a ejecutar.
+            // Define el nombre del procedimiento almacenado que se utilizará para obtener la UnidadDeMedida por su ID.
             command.CommandText = "SPObtenerUnidadDeMedidaPorId";
 
-            // Agregar un parámetro @Id al comando para pasar el valor del identificador pId.
+            // Agrega un parámetro al comando para especificar el ID de la UnidadDeMedida que se está buscando.
             command.Parameters.AddWithValue("@Id", pId);
 
-            // Crear un objeto SqlDataReader para leer los resultados del procedimiento almacenado.
+            // Ejecuta el comando y obtiene un lector de datos para leer los resultados.
             SqlDataReader reader = ComunBD.EjecutarComandoReader(command);
 
-            // Crear una nueva instancia de UnidadDeMedidaEN para almacenar los datos del resultado del procedimiento almacenado.
+            // Crea una instancia de UnidadDeMedidaEN para almacenar los datos.
             UnidadDeMedidaEN UDM = new UnidadDeMedidaEN();
 
+            // Verifica si hay resultados en el lector de datos.
             if (reader.Read())
             {
-                // Asigna los valores de las columnas leídas del SqlDataReader a las propiedades del objeto UnidadDeMedidaEN.
+                // Asigna los valores de los campos obtenidos del lector de datos a las propiedades de la UnidadDeMedidaEN.
                 UDM.Id = reader.GetInt32(0);
                 UDM.UDM = reader.GetString(1);
                 UDM.Descripcion = reader.GetString(3);
                 UDM.FechaCreacion = reader.GetDateTime(4);
                 UDM.FechaModificacion = reader.GetDateTime(5);
+
+                // Crea una instancia de EstatusEN y asigna los valores correspondientes a las propiedades.
                 UDM.Estatus = new EstatusEN
                 {
                     Id = reader.GetInt32(6),
@@ -186,56 +172,57 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.UDM
                 };
             }
 
-            // Devuelve el objeto UDM que contiene los valores leídos del SqlDataReader.
+            // Devuelve la UnidadDeMedidaEN obtenida.
             return UDM;
+
         }
 
         public List<UnidadDeMedidaEN> ObtenerUDMLike(string pNombre)
         {
+            // Crea una nueva lista para almacenar las UnidadesDeMedida obtenidas.
             List<UnidadDeMedidaEN> listaUDM = new List<UnidadDeMedidaEN>();
 
+            // Crea un nuevo comando SQL utilizando la conexión de la base de datos.
             SqlCommand command = ComunBD.ObtenerComando();
-            // Obtener un SqlCommand a través del método ObtenerComando() de la clase ComunBD.
 
+            // Establece el tipo de comando como una llamada a un procedimiento almacenado.
             command.CommandType = System.Data.CommandType.StoredProcedure;
-            // Establecer el tipo de comando como un procedimiento almacenado.
 
+            // Define el nombre del procedimiento almacenado que se utilizará para obtener las UnidadesDeMedida que coinciden con el nombre proporcionado.
             command.CommandText = "SPObtenerUnidadDeMedidaLike";
-            // Establecer el nombre del procedimiento almacenado a ejecutar.
 
+            // Agrega un parámetro al comando para especificar el nombre de la UnidadDeMedida que se está buscando.
             command.Parameters.AddWithValue("@UDM", pNombre);
 
+            // Ejecuta el comando y obtiene un lector de datos para leer los resultados.
             SqlDataReader reader = ComunBD.EjecutarComandoReader(command);
-            // Ejecutar el comando y obtener un SqlDataReader a través del método EjecutarComandoReader() de la clase ComunBD.
 
-            // Leer el resultado del SqlDataReader mientras haya más filas para leer.
+            // Itera a través de los resultados del lector de datos.
             while (reader.Read())
             {
-                // Crear una nueva instancia de UnidadDeMedidaEN para almacenar los datos de cada fila.
+                // Crea una nueva instancia de UnidadDeMedidaEN para almacenar los datos.
                 UnidadDeMedidaEN ObjUDM = new UnidadDeMedidaEN();
 
-                // Asignar los valores leídos desde el SqlDataReader a las propiedades del objeto ObjUDM.
-
-                /// Asigna los valores de las columnas leídas del SqlDataReader a las propiedades del objeto UnidadDeMedidaEN.
+                // Asigna los valores de los campos obtenidos del lector de datos a las propiedades de la UnidadDeMedidaEN.
                 ObjUDM.Id = reader.GetInt32(0);
                 ObjUDM.UDM = reader.GetString(1);
                 ObjUDM.Descripcion = reader.GetString(3);
                 ObjUDM.FechaCreacion = reader.GetDateTime(4);
                 ObjUDM.FechaModificacion = reader.GetDateTime(5);
 
+                // Crea una instancia de EstatusEN y asigna los valores correspondientes a las propiedades.
                 ObjUDM.Estatus = new EstatusEN
                 {
                     Id = reader.GetInt32(6),
                     Nombre = reader.GetString(7)
                 };
 
-                // Agregar el objeto ObjUDM a la lista listaUDM.
+                // Agrega la UnidadDeMedidaEN a la lista.
                 listaUDM.Add(ObjUDM);
             }
 
-            // Después de leer todas las filas y agregar los objetos a la lista, se devuelve la lista que contiene los datos leídos.
+            // Devuelve la lista de UnidadesDeMedida obtenidas.
             return listaUDM;
-
 
         }
     }
