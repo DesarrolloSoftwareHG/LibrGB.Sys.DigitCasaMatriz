@@ -42,13 +42,34 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Producto
 
         ProductoBL ObjProductoBL = new ProductoBL();
 
+        private bool productoFormAbierto = false;
+
         private void btnAgregarProducto_Click(object sender, RoutedEventArgs e)
         {
-            var accion = (byte)AccionEnum.Crear;
+            if (!productoFormAbierto)
+            {
+                productoFormAbierto = true;
 
-            _MantenimientoProducto AgregFormulario = new _MantenimientoProducto(null, accion);
+                btnModificarProducto.IsEnabled = false;
+                btnEliminarProducto.IsEnabled = false;
+                btnVerProducto.IsEnabled = false;
 
-            AgregFormulario.Show();
+                var accion = (byte)AccionEnum.Crear;
+                _MantenimientoProducto AgregFormulario = new _MantenimientoProducto(null, accion);
+
+                AgregFormulario.Closed += (s, args) =>
+                {
+                    productoFormAbierto = false; // Actualizar el estado cuando se cierre la ventana
+                    btnModificarProducto.IsEnabled = true; // Restaurar el estado de los botones
+                    btnEliminarProducto.IsEnabled = true;
+                    btnVerProducto.IsEnabled = true;
+                };
+                AgregFormulario.Show();
+            }
+            else
+            {
+                MessageBox.Show("No puedes Tener 2 Ventanas de Mantenimiento Producto Abiertas", "Alerta un Ventana en Ejecucion", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
 
         private void btnModificarProducto_Click(object sender, RoutedEventArgs e)
