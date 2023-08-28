@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//------- REFERENCIAS ------------
 using System.Data.SqlClient;
 using LibrGB.Sys.DigitCasaMatriz.EN.Catalogo.Producto;
 using LibrGB.Sys.DigitCasaMatriz.EN;
@@ -17,7 +18,6 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
         public int GuardarProducto(ProductoEN pProductoGuardar)
         {
             //----------- INICIO VALIDACION Nombre YA EXISTENTE ----------
-
             //Obtener todos los Productos
             var productos = ObtenerProducto();
 
@@ -29,133 +29,106 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
             {
                 return 0;
             }
-
             //----------- FINAL VALIDACION NOMBRE YA EXISTENTE ----------
 
+            // Crea un nuevo comando SQL utilizando la conexión de la base de datos.
             SqlCommand command = ComunBD.ObtenerComando();
-            // Obtener un SqlCommand a través del método ObtenerComando() de la clase ComunBD.
 
+            // Establece el tipo de comando como una llamada a un procedimiento almacenado.
             command.CommandType = System.Data.CommandType.StoredProcedure;
-            // Establecer el tipo de comando como un procedimiento almacenado.
 
+            // Define el nombre del procedimiento almacenado que se utilizará para guardar un nuevo producto.
             command.CommandText = "SPGuardarProducto";
-            // Establecer el nombre del procedimiento almacenado a ejecutar.
 
-            //---------------------- TRAEMOS LOS PARAMETROS Y DESPUES DEL . VA EL NOMBRE DEL ATRIBUTO DECLARADO EN LA "EN"---------------------------
+            // Agrega parámetros al comando con los valores del producto a guardar.
+            command.Parameters.AddWithValue("@Nombre", pProductoGuardar.Nombre);
+            command.Parameters.AddWithValue("@Codigo", pProductoGuardar.Codigo);
+            command.Parameters.AddWithValue("@IdEstatus", pProductoGuardar.Estatus.Id);
+            command.Parameters.AddWithValue("@Precio", pProductoGuardar.Precio);
+            command.Parameters.AddWithValue("@IdUDM", pProductoGuardar.UDM.Id);
+            command.Parameters.AddWithValue("@IdCategoria", pProductoGuardar.Categoria.Id);
+            command.Parameters.AddWithValue("@IdProveedor", pProductoGuardar.Proveedor.Id);
+            command.Parameters.AddWithValue("@Descripcion", pProductoGuardar.Descripcion);
+            command.Parameters.AddWithValue("@FechaCreacion", pProductoGuardar.FechaCreacion);
 
-            // Agrega los parámetros necesarios para el procedimiento almacenado, utilizando el objeto pProductoGuardar.
-            command.Parameters.AddWithValue("@Nombre", pProductoGuardar.Nombre); // Nombre del producto.
-
-            command.Parameters.AddWithValue("@Codigo", pProductoGuardar.Codigo); // Código del producto.
-
-            command.Parameters.AddWithValue("@IdEstatus", pProductoGuardar.Estatus.Id); // ID del estado del producto.
-
-            command.Parameters.AddWithValue("@Precio", pProductoGuardar.Precio); // Precio del producto.
-
-            command.Parameters.AddWithValue("@IdUDM", pProductoGuardar.UDM.Id); // ID de la Unidad de Medida del producto.
-
-            command.Parameters.AddWithValue("@IdCategoria", pProductoGuardar.Categoria.Id); // ID de la categoría del producto.
-
-            command.Parameters.AddWithValue("@IdProveedor", pProductoGuardar.Proveedor.Id); // ID del proveedor del producto.
-
-            command.Parameters.AddWithValue("@Descripcion", pProductoGuardar.Descripcion); // Descripción del producto.
-
-            command.Parameters.AddWithValue("@FechaCreacion", pProductoGuardar.FechaCreacion); // Fecha de creación del producto.
-
+            // Ejecuta el comando y devuelve el resultado de la operación de guardar el producto.
             return ComunBD.EjecutarComando(command);
-            // Ejecutar el comando a través del método EjecutarComando() de la clase ComunBD y devolver el resultado.
-
         }
 
         public int ModificarProducto(ProductoEN pProductoModificar)
         {
+            // Crea un nuevo comando SQL utilizando la conexión de la base de datos.
             SqlCommand command = ComunBD.ObtenerComando();
-            // Obtener un SqlCommand a través del método ObtenerComando() de la clase ComunBD.
 
+            // Establece el tipo de comando como una llamada a un procedimiento almacenado.
             command.CommandType = System.Data.CommandType.StoredProcedure;
-            // Establecer el tipo de comando como un procedimiento almacenado.
 
+            // Define el nombre del procedimiento almacenado que se utilizará para modificar un producto existente.
             command.CommandText = "SPModificarProducto";
-            // Establecer el nombre del procedimiento almacenado a ejecutar.
 
-            //---------------------- TRAEMOS LOS PARAMETROS Y DESPUES DEL . VA EL NOMBRE DEL ATRIBUTO DECLARADO EN LA "EN"---------------------------
+            // Agrega parámetros al comando con los valores del producto a modificar.
+            command.Parameters.AddWithValue("@Nombre", pProductoModificar.Nombre);
+            command.Parameters.AddWithValue("@Codigo", pProductoModificar.Codigo);
+            command.Parameters.AddWithValue("@IdEstatus", pProductoModificar.Estatus.Id);
+            command.Parameters.AddWithValue("@Precio", pProductoModificar.Precio);
+            command.Parameters.AddWithValue("@IdUDM", pProductoModificar.UDM.Id);
+            command.Parameters.AddWithValue("@IdCategoria", pProductoModificar.Categoria.Id);
+            command.Parameters.AddWithValue("@IdProveedor", pProductoModificar.Proveedor.Id);
+            command.Parameters.AddWithValue("@Descripcion", pProductoModificar.Descripcion);
+            command.Parameters.AddWithValue("@FechaModificacion", pProductoModificar.FechaModificacion);
 
-            // Agrega los parámetros necesarios para el procedimiento almacenado, utilizando el objeto pProductoGuardar.
-            command.Parameters.AddWithValue("@Nombre", pProductoModificar.Nombre); // Nombre del producto.
-
-            command.Parameters.AddWithValue("@Codigo", pProductoModificar.Codigo); // Código del producto.
-
-            command.Parameters.AddWithValue("@IdEstatus", pProductoModificar.Estatus.Id); // ID del estado del producto.
-
-            command.Parameters.AddWithValue("@Precio", pProductoModificar.Precio); // Precio del producto.
-
-            command.Parameters.AddWithValue("@IdUDM", pProductoModificar.UDM.Id); // ID de la Unidad de Medida del producto.
-
-            command.Parameters.AddWithValue("@IdCategoria", pProductoModificar.Categoria.Id); // ID de la categoría del producto.
-
-            command.Parameters.AddWithValue("@IdProveedor", pProductoModificar.Proveedor.Id); // ID del proveedor del producto.
-
-            command.Parameters.AddWithValue("@Descripcion", pProductoModificar.Descripcion); // Descripción del producto.
-
-            command.Parameters.AddWithValue("@FechaModificacion", pProductoModificar.FechaModificacion); // Fecha de modificacion del producto.
-
+            // Ejecuta el comando y devuelve el resultado de la operación de modificación del producto.
             return ComunBD.EjecutarComando(command);
-            // Ejecutar el comando a través del método EjecutarComando() de la clase ComunBD y devolver el resultado.
-
         }
 
         public int EliminarProducto(ProductoEN pProductoEliminar)
         {
+            // Crea un nuevo comando SQL utilizando la conexión de la base de datos.
             SqlCommand command = ComunBD.ObtenerComando();
-            // Obtener un SqlCommand a través del método ObtenerComando() de la clase ComunBD.
 
+            // Establece el tipo de comando como una llamada a un procedimiento almacenado.
             command.CommandType = System.Data.CommandType.StoredProcedure;
-            // Establecer el tipo de comando como un procedimiento almacenado.
 
+            // Define el nombre del procedimiento almacenado que se utilizará para eliminar un producto existente.
             command.CommandText = "SPEliminarProducto";
-            // Establecer el nombre del procedimiento almacenado a ejecutar.
 
-            //---------------------- TRAEMOS LOS PARAMETROS Y DESPUES DEL . VA EL NOMBRE DEL ATRIBUTO DECLARADO EN LA "EN"---------------------------
-
+            // Agrega un parámetro al comando con el ID del producto a eliminar.
             command.Parameters.AddWithValue("@Id", pProductoEliminar.Id);
-            // Agregar un parámetro llamado "@Id" con el valor de la propiedad Id del objeto pProductoEliminar.
 
+            // Ejecuta el comando y devuelve el resultado de la operación de eliminación del producto.
             return ComunBD.EjecutarComando(command);
-            // Ejecutar el comando a través del método EjecutarComando() de la clase ComunBD y devolver el resultado.
 
         }
 
         public List<ProductoEN> ObtenerProducto()
         {
+            // Crea una nueva lista para almacenar los objetos de productos obtenidos.
             List<ProductoEN> listaProducto = new List<ProductoEN>();
-            // Crear una nueva lista de objetos de tipo ProductoEN.
 
+            // Crea un nuevo comando SQL utilizando la conexión de la base de datos.
             SqlCommand command = ComunBD.ObtenerComando();
-            // Obtener un SqlCommand a través del método ObtenerComando() de la clase ComunBD.
 
+            // Establece el tipo de comando como una llamada a un procedimiento almacenado.
             command.CommandType = System.Data.CommandType.StoredProcedure;
-            // Establecer el tipo de comando como un procedimiento almacenado.
 
+            // Define el nombre del procedimiento almacenado que se utilizará para mostrar los productos.
             command.CommandText = "SPMostrarProducto";
-            // Establecer el nombre del procedimiento almacenado a ejecutar.
 
+            // Ejecuta el comando y obtiene un lector de datos para leer los resultados.
             SqlDataReader reader = ComunBD.EjecutarComandoReader(command);
-            // Ejecutar el comando y obtener un SqlDataReader a través del método EjecutarComandoReader() de la clase ComunBD.
 
-            // Leer los datos del SqlDataReader mientras haya registros disponibles en el resultado.
+            // Lee cada fila de resultados del lector de datos.
             while (reader.Read())
             {
-                // Crear una nueva instancia de la clase ProductoEN para almacenar los datos del Producoto actual.
+                // Crea un nuevo objeto ProductoEN para almacenar los datos del producto.
                 ProductoEN ObjProducto = new ProductoEN();
 
-                // Leer los valores de las columnas en el Data Grid (SqlDataReader) y asignarlos a las propiedades del objeto ObjProducto.
-
+                // Asigna los valores de las columnas leídas a las propiedades del objeto ProductoEN.
                 ObjProducto.Id = reader.GetInt32(0);
-
                 ObjProducto.Nombre = reader.GetString(1);
-
                 ObjProducto.Codigo = reader.GetString(2);
 
+                // Crea un nuevo objeto EstatusEN y asigna sus valores.
                 ObjProducto.Estatus = new EstatusEN
                 {
                     Id = reader.GetInt32(11),
@@ -164,18 +137,21 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
 
                 ObjProducto.Precio = reader.GetDecimal(4);
 
+                // Crea un nuevo objeto UnidadDeMedidaEN y asigna sus valores.
                 ObjProducto.UDM = new UnidadDeMedidaEN
                 {
                     Id = reader.GetInt32(13),
                     UDM = reader.GetString(14)
                 };
 
+                // Crea un nuevo objeto CategoriaEN y asigna sus valores.
                 ObjProducto.Categoria = new CategoriaEN
                 {
                     Id = reader.GetInt32(15),
                     Nombre = reader.GetString(16)
                 };
 
+                // Crea un nuevo objeto ProveedorEN y asigna sus valores.
                 ObjProducto.Proveedor = new ProveedorEN
                 {
                     Id = reader.GetInt32(17),
@@ -183,49 +159,47 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
                 };
 
                 ObjProducto.Descripcion = reader.GetString(8);
-
                 ObjProducto.FechaCreacion = reader.GetDateTime(9);
-
                 ObjProducto.FechaModificacion = reader.GetDateTime(10);
 
-                // Agregar el objeto ObjProducto a la lista de productos llamada listaProducto.
+                // Agrega el objeto ProductoEN a la lista de productos llamada listaProducto.
                 listaProducto.Add(ObjProducto);
             }
-            // Devolver la lista de Producto que contiene todos los objetos de la clase ProductoEN con los datos leídos del SqlDataReader.
+
+            // Devuelve la lista de productos obtenida de la base de datos.
             return listaProducto;
+
         }
 
         public ProductoEN ObtenerProductoPorId(int? pId)
         {
+            // Crea un nuevo comando SQL utilizando la conexión de la base de datos.
             SqlCommand command = ComunBD.ObtenerComando();
-            // Se obtiene un nuevo objeto SqlCommand utilizando el método ObtenerComando() del objeto ComunBD. Presumiblemente, esto es para obtener una instancia de SqlCommand configurada para utilizar una conexión de base de datos existente.
 
+            // Establece el tipo de comando como una llamada a un procedimiento almacenado.
             command.CommandType = System.Data.CommandType.StoredProcedure;
-            // Se establece el tipo de comando de la consulta como un stored procedure.
 
+            // Define el nombre del procedimiento almacenado que se utilizará para obtener un producto por su identificador.
             command.CommandText = "SPObtenerProductoPorId";
-            // Se establece el nombre del stored procedure a ejecutar como "SPObtenerProductoPorId".
 
+            // Agrega un parámetro al comando para especificar el ID del producto que se va a buscar.
             command.Parameters.AddWithValue("@Id", pId);
-            // Se agrega un parámetro con el nombre "@Id" y se le asigna el valor de la variable pId. Presumiblemente, este parámetro es utilizado en el stored procedure para filtrar los resultados según el ID del proveedor.
 
+            // Ejecuta el comando y obtiene un lector de datos para leer los resultados.
             SqlDataReader reader = ComunBD.EjecutarComandoReader(command);
-            // Se ejecuta el SqlCommand y se obtiene un SqlDataReader que contendrá los resultados de la consulta. Presumiblemente, el método EjecutarComandoReader se encarga de ejecutar la consulta y obtener los resultados en forma de SqlDataReader.
 
+            // Crea un nuevo objeto ProductoEN para almacenar los datos del producto.
             ProductoEN producto = new ProductoEN();
-            // Se crea una instancia del objeto ProductoEN que presumiblemente es una clase que representa a un producto con sus propiedades y métodos relacionados.
 
-            // Leer los datos del SqlDataReader. Si el SqlDataReader contiene al menos una fila, realiza lo siguiente:
+            // Lee los datos del lector de datos si hay una fila disponible.
             if (reader.Read())
             {
-                // Leer y asignar los valores de las columnas del SqlDataReader a las propiedades del objeto ProveedorEN llamado "proveedor".
-
+                // Asigna los valores de las columnas leídas a las propiedades del objeto ProductoEN.
                 producto.Id = reader.GetInt32(0);
-
                 producto.Nombre = reader.GetString(1);
-
                 producto.Codigo = reader.GetString(2);
 
+                // Crea un nuevo objeto EstatusEN y asigna sus valores.
                 producto.Estatus = new EstatusEN
                 {
                     Id = reader.GetInt32(3),
@@ -234,18 +208,21 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
 
                 producto.Precio = reader.GetDecimal(5);
 
+                // Crea un nuevo objeto UnidadDeMedidaEN y asigna sus valores.
                 producto.UDM = new UnidadDeMedidaEN
                 {
                     Id = reader.GetInt32(6),
                     UDM = reader.GetString(7)
                 };
 
+                // Crea un nuevo objeto CategoriaEN y asigna sus valores.
                 producto.Categoria = new CategoriaEN
                 {
                     Id = reader.GetInt32(8),
                     Nombre = reader.GetString(9)
                 };
 
+                // Crea un nuevo objeto ProveedorEN y asigna sus valores.
                 producto.Proveedor = new ProveedorEN
                 {
                     Id = reader.GetInt32(10),
@@ -253,50 +230,46 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
                 };
 
                 producto.Descripcion = reader.GetString(12);
-
                 producto.FechaCreacion = reader.GetDateTime(13);
-
                 producto.FechaModificacion = reader.GetDateTime(14);
             }
 
-            // Se devuelve el objeto "proveedor" que contiene los valores leídos del SqlDataReader.
+            // Devuelve el objeto ProductoEN que contiene los datos obtenidos.
             return producto;
         }
 
         public List<ProductoEN> ObtenerProductosLike(string pCodigo)
         {
+            // Crea una nueva lista de objetos ProductoEN para almacenar los productos obtenidos.
             List<ProductoEN> listaProducto = new List<ProductoEN>();
-            // Se crea una nueva lista de objetos ProductoEN llamada listaProducto. Presumiblemente, esta lista se utilizará para almacenar los resultados de la consulta.
 
+            // Crea un nuevo comando SQL utilizando la conexión de la base de datos.
             SqlCommand command = ComunBD.ObtenerComando();
-            // Se obtiene un nuevo objeto SqlCommand utilizando el método ObtenerComando() del objeto ComunBD. Presumiblemente, esto es para obtener una instancia de SqlCommand configurada para utilizar una conexión de base de datos existente.
 
+            // Establece el tipo de comando como una llamada a un procedimiento almacenado.
             command.CommandType = System.Data.CommandType.StoredProcedure;
-            // Se establece el tipo de comando de la consulta como un stored procedure.
 
+            // Define el nombre del procedimiento almacenado que se utilizará para obtener productos similares por código.
             command.CommandText = "SPObtenerProductoLike";
-            // Se establece el nombre del stored procedure a ejecutar como "SPObtenerProductoLike".
 
+            // Agrega un parámetro al comando para especificar el código por el cual se buscarán productos similares.
             command.Parameters.AddWithValue("@Codigo", pCodigo);
-            // Se agrega un parámetro con el nombre "@Codigo" y se le asigna el valor de la variable pCodigo. Presumiblemente, este parámetro se utiliza en el stored procedure para filtrar los resultados según el nombre del proveedor.
 
+            // Ejecuta el comando y obtiene un lector de datos para leer los resultados.
             SqlDataReader reader = ComunBD.EjecutarComandoReader(command);
-            // Se ejecuta el SqlCommand y se obtiene un SqlDataReader que contendrá los resultados de la consulta. Presumiblemente, el método EjecutarComandoReader se encarga de ejecutar la consulta y obtener los resultados en forma de SqlDataReader.
 
-            // Leer los datos del SqlDataReader. El bucle se repetirá para cada fila en el SqlDataReader.
+            // Lee cada fila del lector de datos si hay resultados disponibles.
             while (reader.Read())
             {
-                // Crear una nueva instancia del objeto ProveedorEN llamada "ObjProducto".
+                // Crea un nuevo objeto ProductoEN para almacenar los datos del producto.
                 ProductoEN ObjProducto = new ProductoEN();
 
-                // Leer y asignar los valores de las columnas del SqlDataReader a las propiedades del objeto "ObjProveedor".
-
+                // Asigna los valores de las columnas leídas a las propiedades del objeto ProductoEN.
                 ObjProducto.Id = reader.GetInt32(0);
-
                 ObjProducto.Nombre = reader.GetString(1);
-
                 ObjProducto.Codigo = reader.GetString(2);
 
+                // Crea un nuevo objeto EstatusEN y asigna sus valores.
                 ObjProducto.Estatus = new EstatusEN
                 {
                     Id = reader.GetInt32(3),
@@ -305,18 +278,21 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
 
                 ObjProducto.Precio = reader.GetDecimal(5);
 
+                // Crea un nuevo objeto UnidadDeMedidaEN y asigna sus valores.
                 ObjProducto.UDM = new UnidadDeMedidaEN
                 {
                     Id = reader.GetInt32(6),
                     UDM = reader.GetString(7)
                 };
 
+                // Crea un nuevo objeto CategoriaEN y asigna sus valores.
                 ObjProducto.Categoria = new CategoriaEN
                 {
                     Id = reader.GetInt32(8),
                     Nombre = reader.GetString(9)
                 };
 
+                // Crea un nuevo objeto ProveedorEN y asigna sus valores.
                 ObjProducto.Proveedor = new ProveedorEN
                 {
                     Id = reader.GetInt32(10),
@@ -324,15 +300,14 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
                 };
 
                 ObjProducto.Descripcion = reader.GetString(12);
-
                 ObjProducto.FechaCreacion = reader.GetDateTime(13);
-
                 ObjProducto.FechaModificacion = reader.GetDateTime(14);
 
-                // Agregar el objeto "ObjProducto" a la lista de Productos llamada "listaProducto".
+                // Agrega el objeto ProductoEN a la lista de productos.
                 listaProducto.Add(ObjProducto);
             }
-            // Devolver la lista de Proveedores que se ha llenado con los datos leídos del SqlDataReader.
+
+            // Devuelve la lista de productos obtenida.
             return listaProducto;
         }
     }
