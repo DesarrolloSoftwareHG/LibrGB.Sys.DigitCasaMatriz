@@ -79,29 +79,45 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Categoria
 
         private void btnModificarCategoria_Click(object sender, RoutedEventArgs e)
         {
-            if (dgvMostrar_Categorias.SelectedItem != null)
+            if (!categoriaFormAbierto)
             {
-                // Si hay una fila seleccionada en el DataGridView (dgvMostrar_Categorias), continúa con el proceso de modificación.
+                if (dgvMostrar_Categorias.SelectedItem != null)
+                {
+                    categoriaFormAbierto = true;
 
-                // Obtener la categoría seleccionada del enlace de datos del DataGridView.
-                CategoriaEN categoriaSeleccionada = (CategoriaEN)dgvMostrar_Categorias.SelectedItem;
+                    // Deshabilitar otros botones mientras se modifica una categoría
+                    btnAgregarCategoria.IsEnabled = false;
+                    btnEliminarCategoria.IsEnabled = false;
+                    btnVerCategoria.IsEnabled = false;
 
-                // Obtener el ID de la categoría seleccionada.
-                int idCategoria = categoriaSeleccionada.Id;
+                    CategoriaEN categoriaSeleccionada = (CategoriaEN)dgvMostrar_Categorias.SelectedItem;
+                    int idCategoria = categoriaSeleccionada.Id;
 
-                // Crear una nueva instancia del formulario de modificación de categoría (_CategoriaAgregar) y pasar el ID de la categoría seleccionada.
-                _MantenimientoCategoria ModifCategoria = new _MantenimientoCategoria(idCategoria);
+                    _MantenimientoCategoria ModifCategoria = new _MantenimientoCategoria(idCategoria);
 
-                // Mostrar el formulario de modificación de categoría.
-                ModifCategoria.Show();
+                    ModifCategoria.Closed += (s, args) =>
+                    {
+                        categoriaFormAbierto = false; // Actualizar el estado cuando se cierre la ventana
+                        btnAgregarCategoria.IsEnabled = true; // Restaurar el estado de los botones
+                        btnEliminarCategoria.IsEnabled = true;
+                        btnVerCategoria.IsEnabled = true;
+                    };
+
+                    ModifCategoria.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Modificar", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+
+                ActualizarDataGrid();
             }
             else
             {
-                // Si no hay ninguna fila seleccionada en el DataGridView, mostrar un mensaje de error.
-                MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Modificar", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No puedes tener 2 Ventanas de Mantenimiento Categoría abiertas al mismo tiempo", "Alerta de Ventana en Ejecución", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-            ActualizarDataGrid();
         }
+
 
         private void btnEliminarCategoria_Click(object sender, RoutedEventArgs e)
         {
