@@ -110,30 +110,48 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Producto
                 MessageBox.Show("No puedes tener 2 Ventanas de Mantenimiento Categoría abiertas al mismo tiempo", "Alerta de Ventana en Ejecución", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
-    }
 
-            private void btnEliminarProducto_Click(object sender, RoutedEventArgs e)
-            {
+        private void btnEliminarProducto_Click(object sender, RoutedEventArgs e)
+        {
             byte pAccion = (byte)AccionEnum.Eliminar;
 
-            if (dgvMostrar_Producto.SelectedItem != null)
+            if (!productoFormAbierto)
             {
-                ProductoEN ProductoSeleccionado = (ProductoEN)dgvMostrar_Producto.SelectedItem;
+                if (dgvMostrar_Producto.SelectedItem != null)
+                {
+                    productoFormAbierto = true;
 
-                int idProducto = ProductoSeleccionado.Id;
+                    btnAgregarProducto.IsEnabled = false;
+                    btnModificarProducto.IsEnabled = false;
+                    btnVerProducto.IsEnabled = false;
 
-                _MantenimientoProducto ElimFormulario = new _MantenimientoProducto(idProducto, pAccion);
+                    ProductoEN ProductoSeleccionado = (ProductoEN)dgvMostrar_Producto.SelectedItem;
+                    int idProducto = ProductoSeleccionado.Id;
 
-                ElimFormulario.Show();
+                    _MantenimientoProducto ElimFormulario = new _MantenimientoProducto(idProducto, pAccion);
+
+                    ElimFormulario.Closed += (s, args) =>
+                    {
+                        productoFormAbierto = false;
+                        btnAgregarProducto.IsEnabled = true;
+                        btnModificarProducto.IsEnabled = true;
+                        btnVerProducto.IsEnabled = true;
+                    };
+                    ElimFormulario.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Eliminar", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                ActualizarDataGrid();
             }
             else
             {
-                MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Eliminar", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No puedes tener 2 Ventanas de Mantenimiento Categoría abiertas al mismo tiempo", "Alerta de Ventana en Ejecución", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-            ActualizarDataGrid();
         }
 
-        private void btnVerProducto_Click(object sender, RoutedEventArgs e)
+            private void btnVerProducto_Click(object sender, RoutedEventArgs e)
         {
             byte pAccion = (byte)AccionEnum.Ver;
 
