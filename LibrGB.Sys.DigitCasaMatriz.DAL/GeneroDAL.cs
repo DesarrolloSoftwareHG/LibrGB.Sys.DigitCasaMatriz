@@ -1,10 +1,11 @@
-﻿using LibrGB.Sys.DigitCasaMatriz.EN;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//-------- REFERENCIAS ---------
+using System.Data.SqlClient;
+using LibrGB.Sys.DigitCasaMatriz.EN;
 
 namespace LibrGB.Sys.DigitCasaMatriz.DAL
 {
@@ -12,69 +13,71 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL
     {
         public List<GeneroEN> ObtenerGenero()
         {
+            // Crear una lista para almacenar los objetos de GeneroEN
             List<GeneroEN> listaGenero = new List<GeneroEN>();
-            // Crear una nueva lista de objetos de tipo GeneroEN.
 
+            // Crear un nuevo comando SQL utilizando el método ObtenerComando() de la clase ComunBD
             SqlCommand command = ComunBD.ObtenerComando();
-            // Obtener un SqlCommand a través del método ObtenerComando() de la clase ComunBD.
 
+            // Establecer el tipo de comando como Procedimiento Almacenado
             command.CommandType = System.Data.CommandType.StoredProcedure;
-            // Establecer el tipo de comando como un procedimiento almacenado.
 
+            // Especificar el nombre del Procedimiento Almacenado a ejecutar
             command.CommandText = "SPMostrarGenero";
-            // Establecer el nombre del procedimiento almacenado a ejecutar.
 
+            // Ejecutar el comando y obtener un lector de datos (DataReader)
             SqlDataReader reader = ComunBD.EjecutarComandoReader(command);
-            // Ejecutar el comando y obtener un SqlDataReader a través del método EjecutarComandoReader() de la clase ComunBD.
 
+            // Iterar a través de las filas del lector de datos
             while (reader.Read())
             {
+                // Crear un objeto de GeneroEN para almacenar la información de la fila actual
                 GeneroEN ObjGenero = new GeneroEN();
-                // Crear una nueva instancia de la clase CategoriaEN para almacenar los datos de la categoría.
 
-                //----- Nombres de los Campos en el Data Grid ------
-
+                // Asignar los valores de las columnas de la fila actual a las propiedades del objeto
                 ObjGenero.Id = reader.GetInt32(0);
-                // Asignar el valor entero del primer campo (índice 0) al Id de ObjCategoria.
-
                 ObjGenero.Nombre = reader.GetString(1);
-                // Asignar el valor de cadena del segundo campo (índice 1) al Nombre de ObjCategoria.
 
+                // Agregar el objeto de GeneroEN a la lista
+                listaGenero.Add(ObjGenero);
             }
+
+            // Devolver la lista de objetos de GeneroEN
             return listaGenero;
-            // Devolver la lista de categorías.
 
         }
 
         public GeneroEN ObtenerGeneroPorId(int? pId)
         {
-            // Crear un nuevo objeto SqlCommand utilizando el método ObtenerComando() que se encuentra en algún lugar del código.
+            // Crear un nuevo comando SQL utilizando el método ObtenerComando() de la clase ComunBD
             SqlCommand command = ComunBD.ObtenerComando();
 
-            // Especificar el tipo de comando como StoredProcedure para indicar que se ejecutará un procedimiento almacenado.
+            // Establecer el tipo de comando como Procedimiento Almacenado
             command.CommandType = System.Data.CommandType.StoredProcedure;
 
-            // Especificar el nombre del procedimiento almacenado a ejecutar.
+            // Especificar el nombre del Procedimiento Almacenado a ejecutar
             command.CommandText = "SPObtenerGeneroPorId";
 
-            // Agregar un parámetro @Id al comando para pasar el valor del identificador pId.
+            // Agregar el parámetro @Id al comando con el valor proporcionado (pId)
             command.Parameters.AddWithValue("@Id", pId);
 
-            // Crear un objeto SqlDataReader para leer los resultados del procedimiento almacenado.
+            // Ejecutar el comando y obtener un lector de datos (DataReader)
             SqlDataReader reader = ComunBD.EjecutarComandoReader(command);
 
-            // Crear una nueva instancia de UnidadDeMedidaEN para almacenar los datos del resultado del procedimiento almacenado.
+            // Crear un objeto de GeneroEN para almacenar la información del género encontrado
             GeneroEN Genero = new GeneroEN();
 
+            // Verificar si hay datos en el lector de datos y leer la primera fila si está disponible
             if (reader.Read())
             {
-                // Si el SqlDataReader contiene al menos una fila, asigna los valores de las columnas a las propiedades del objeto UDM.
+                // Asignar los valores de las columnas de la fila actual a las propiedades del objeto
                 Genero.Id = reader.GetInt32(0);
                 Genero.Nombre = reader.GetString(1);
-
             }
-            // Devuelve el objeto UDM que contiene los valores leídos del SqlDataReader.
+
+            // Devolver el objeto de GeneroEN con la información del género encontrado
             return Genero;
+
         }
     }
 }
