@@ -1,10 +1,11 @@
-﻿using LibrGB.Sys.DigitCasaMatriz.DAL;
-using LibrGB.Sys.DigitCasaMatriz.EN;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//------- REFERENCIAS -----------
+using LibrGB.Sys.DigitCasaMatriz.DAL;
+using LibrGB.Sys.DigitCasaMatriz.EN;
 
 namespace LibrGB.Sys.DigitCasaMatriz.BL
 {

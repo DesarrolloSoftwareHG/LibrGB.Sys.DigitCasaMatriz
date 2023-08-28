@@ -1,10 +1,11 @@
-﻿using LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto;
-using LibrGB.Sys.DigitCasaMatriz.EN.Catalogo.Producto;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//------- REFERENCIAS ----------
+using LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto;
+using LibrGB.Sys.DigitCasaMatriz.EN.Catalogo.Producto;
 
 namespace LibrGB.Sys.DigitCasaMatriz.BL.Catalogo_BL
 {
