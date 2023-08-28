@@ -13,71 +13,70 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL
     {
         public List<EstadoCivilEN> ObtenerEstadoCivil()
         {
+            // Crear una lista para almacenar los objetos de estado civil
             List<EstadoCivilEN> listaEstadoCivil = new List<EstadoCivilEN>();
-            // Crear una nueva lista de objetos de tipo EstadoCivilEN.
 
+            // Crear un comando SQL utilizando el método ObtenerComando() de la clase ComunBD
             SqlCommand command = ComunBD.ObtenerComando();
-            // Obtener un SqlCommand a través del método ObtenerComando() de la clase ComunBD.
 
+            // Establecer el tipo de comando como Procedimiento Almacenado
             command.CommandType = System.Data.CommandType.StoredProcedure;
-            // Establecer el tipo de comando como un procedimiento almacenado.
 
+            // Especificar el nombre del Procedimiento Almacenado a ejecutar
             command.CommandText = "SPMostrarEstadoCivil";
-            // Establecer el nombre del procedimiento almacenado a ejecutar.
 
+            // Ejecutar el comando y obtener un lector de datos (DataReader)
             SqlDataReader reader = ComunBD.EjecutarComandoReader(command);
-            // Ejecutar el comando y obtener un SqlDataReader a través del método EjecutarComandoReader() de la clase ComunBD.
 
+            // Iterar a través de los resultados del lector de datos
             while (reader.Read())
             {
+                // Crear un objeto de EstadoCivilEN para almacenar la información
                 EstadoCivilEN ObjEstadoCivil = new EstadoCivilEN();
-                // Crear una nueva instancia de la clase CategoriaEN para almacenar los datos de la categoría.
 
-                //----- Nombres de los Campos en el Data Grid ------
-
+                // Asignar los valores de las columnas de la fila actual a las propiedades del objeto
                 ObjEstadoCivil.Id = reader.GetInt32(0);
-                // Asignar el valor entero del primer campo (índice 0) al Id de ObjCategoria.
-
                 ObjEstadoCivil.Nombre = reader.GetString(1);
-                // Asignar el valor de cadena del segundo campo (índice 1) al Nombre de ObjCategoria.
 
+                // Agregar el objeto de estado civil a la lista
                 listaEstadoCivil.Add(ObjEstadoCivil);
-                // Agregar ObjCategoria a la lista de categorías.
             }
-            return listaEstadoCivil;
-            // Devolver la lista de categorías.
 
+            // Devolver la lista completa de estados civiles
+            return listaEstadoCivil;
         }
 
         public EstadoCivilEN ObtenerEstadoCivilPorId(int? pId)
         {
-            // Crear un nuevo objeto SqlCommand utilizando el método ObtenerComando() que se encuentra en algún lugar del código.
+            // Crear un nuevo comando SQL utilizando el método ObtenerComando() de la clase ComunBD
             SqlCommand command = ComunBD.ObtenerComando();
 
-            // Especificar el tipo de comando como StoredProcedure para indicar que se ejecutará un procedimiento almacenado.
+            // Establecer el tipo de comando como Procedimiento Almacenado
             command.CommandType = System.Data.CommandType.StoredProcedure;
 
-            // Especificar el nombre del procedimiento almacenado a ejecutar.
+            // Especificar el nombre del Procedimiento Almacenado a ejecutar
             command.CommandText = "SPObtenerEstadoCivilPorId";
 
-            // Agregar un parámetro @Id al comando para pasar el valor del identificador pId.
+            // Agregar un parámetro al comando para el Id del estado civil a buscar
             command.Parameters.AddWithValue("@Id", pId);
 
-            // Crear un objeto SqlDataReader para leer los resultados del procedimiento almacenado.
+            // Ejecutar el comando y obtener un lector de datos (DataReader)
             SqlDataReader reader = ComunBD.EjecutarComandoReader(command);
 
-            // Crear una nueva instancia de UnidadDeMedidaEN para almacenar los datos del resultado del procedimiento almacenado.
+            // Crear un objeto de EstadoCivilEN para almacenar la información
             EstadoCivilEN estadoCivil = new EstadoCivilEN();
 
+            // Verificar si el lector de datos contiene filas y leer la primera fila
             if (reader.Read())
             {
-                // Si el SqlDataReader contiene al menos una fila, asigna los valores de las columnas a las propiedades del objeto UDM.
+                // Asignar los valores de las columnas de la fila actual a las propiedades del objeto
                 estadoCivil.Id = reader.GetInt32(0);
                 estadoCivil.Nombre = reader.GetString(1);
             }
 
-            // Devuelve el objeto UDM que contiene los valores leídos del SqlDataReader.
+            // Devolver el objeto de estado civil encontrado (o un objeto vacío si no se encontró)
             return estadoCivil;
+
         }
     }
 }
