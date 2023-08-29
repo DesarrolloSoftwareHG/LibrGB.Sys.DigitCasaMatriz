@@ -22,7 +22,7 @@
 
         <!-- Panel Izquierdo Principal para la Barra de Menú Lateral -->
 
-        <StackPanel Background="#007aff" Width="200" HorizontalAlignment="Left" 
+        <StackPanel Background="#1FE02F" Width="200" HorizontalAlignment="Left" 
 	            Cursor="Hand">
 
             <!--Panel Superior Para Division del Logo Principal-->
@@ -57,16 +57,16 @@
 
             <StackPanel Height="10"/>
 
-            <Menu Background="#4ea7ff" Height="537">
+            <Menu Background="#34FC28" Height="537">
 
                 <!--Boton para retornar a la vista de Inicio-->
-                <MenuItem Background="#4ea7ff" Foreground="White"
+                <MenuItem Background="#34FC28" Foreground="White"
                         VerticalAlignment="Center" HorizontalAlignment="Left" 
                         HorizontalContentAlignment="Left" 
                         FontFamily="{DynamicResource MahApps.Fonts.Family.ToggleSwitch}" 
                         FontWeight="Bold" FontSize="22" Cursor="Hand" 
                         AutomationProperties.IsOffscreenBehavior="Offscreen" SnapsToDevicePixels="False" 
-                        BorderBrush="#FF4EA7FF" Margin="10,5,0,0" Click="LimpiarFrame">
+                        BorderBrush="#34FC28" Margin="10,5,0,0" Click="LimpiarFrame">
 
                     <MenuItem.Header>
 
@@ -85,13 +85,13 @@
                 </MenuItem>
 
                 <!--Boton para acceder al submenu de Catalogo-->
-                <MenuItem Background="#4ea7ff" Foreground="White"
+                <MenuItem Background="#34FC28" Foreground="White"
                         VerticalAlignment="Center" HorizontalAlignment="Left" 
                         HorizontalContentAlignment="Left" 
                         FontFamily="{DynamicResource MahApps.Fonts.Family.ToggleSwitch}" 
                         FontWeight="Bold" FontSize="22" Cursor="Hand" 
                         AutomationProperties.IsOffscreenBehavior="Offscreen" SnapsToDevicePixels="False" 
-                        BorderBrush="#FF4EA7FF" Margin="10,5,0,0">
+                        BorderBrush="#34FC28" Margin="10,5,0,0">
 
                     <MenuItem.Header>
 
@@ -109,7 +109,7 @@
                     </MenuItem.Header>
 
                     <!--sub-menu del MenuItem Principal de Catalogo-->
-                    <MenuItem Background="#007aff" Click="Producto_Click">
+                    <MenuItem Background="#34FC28" Click="Producto_Click">
 
                         <MenuItem.Header>
 
@@ -127,7 +127,7 @@
                         </MenuItem.Header>
 
                     </MenuItem>
-                    <MenuItem Background="#007aff" Click="Categoria_Click" Cursor="Hand">
+                    <MenuItem Background="#34FC28" Click="Categoria_Click" Cursor="Hand">
 
                         <MenuItem.Header>
 
@@ -145,7 +145,7 @@
                         </MenuItem.Header>
 
                     </MenuItem>
-                    <MenuItem Background="#007aff" Click="Proveedor_Click">
+                    <MenuItem Background="#34FC28" Click="Proveedor_Click">
 
                         <MenuItem.Header>
 
@@ -163,7 +163,7 @@
                         </MenuItem.Header>
 
                     </MenuItem>
-                    <MenuItem Background="#007aff" Click="UnidadDeMedida_Click">
+                    <MenuItem Background="#34FC28" Click="UnidadDeMedida_Click" Cursor="">
 
                         <MenuItem.Header>
 
@@ -191,7 +191,7 @@
 
         <!-- Panel Lateral Derecho que muestra el contenido -->
 
-        <StackPanel Background="#aad3ff" HorizontalAlignment="Stretch" Grid.Column="1">
+        <StackPanel Background="#22F734" HorizontalAlignment="Stretch" Grid.Column="1" Cursor="">
 
             <Frame x:Name="FramePrincipal" Margin="0,0,0,0" NavigationUIVisibility="Hidden">
 
