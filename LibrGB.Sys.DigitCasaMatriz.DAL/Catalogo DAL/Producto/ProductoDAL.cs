@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -131,8 +131,8 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
                 // Crea un nuevo objeto EstatusEN y asigna sus valores.
                 ObjProducto.Estatus = new EstatusEN
                 {
-                    Id = reader.GetInt32(11),
-                    Nombre = reader.GetString(12)
+                    Id = reader.GetInt32(17),
+                    Nombre = reader.GetString(18)
                 };
 
                 ObjProducto.Precio = reader.GetDecimal(4);
@@ -140,22 +140,22 @@ namespace LibrGB.Sys.DigitCasaMatriz.DAL.CatalogoDAL.Producto
                 // Crea un nuevo objeto UnidadDeMedidaEN y asigna sus valores.
                 ObjProducto.UDM = new UnidadDeMedidaEN
                 {
-                    Id = reader.GetInt32(13),
-                    UDM = reader.GetString(14)
+                    Id = reader.GetInt32(15),
+                    UDM = reader.GetString(16)
                 };
 
                 // Crea un nuevo objeto CategoriaEN y asigna sus valores.
                 ObjProducto.Categoria = new CategoriaEN
                 {
-                    Id = reader.GetInt32(15),
-                    Nombre = reader.GetString(16)
+                    Id = reader.GetInt32(11),
+                    Nombre = reader.GetString(12)
                 };
 
                 // Crea un nuevo objeto ProveedorEN y asigna sus valores.
                 ObjProducto.Proveedor = new ProveedorEN
                 {
-                    Id = reader.GetInt32(17),
-                    Nombre = reader.GetString(18)
+                    Id = reader.GetInt32(13),
+                    Nombre = reader.GetString(14)
                 };
 
                 ObjProducto.Descripcion = reader.GetString(8);
