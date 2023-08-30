@@ -85,9 +85,9 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
                     <DataGridTextColumn Header="Codigo" Binding="{Binding Codigo}"/>
+                    <DataGridTextColumn Header="Estatus" Binding="{Binding Estatus.Nombre}"/>
                     <DataGridTextColumn Header="Categoria" Binding="{Binding Categoria.Nombre}"/>
                     <DataGridTextColumn Header="Proveedor" Binding="{Binding Proveedor.Nombre}"/>
-                    <DataGridTextColumn Header="Estatus" Binding="{Binding Estatus.Nombre}"/>
                 </DataGrid.Columns>
             </DataGrid>
 
