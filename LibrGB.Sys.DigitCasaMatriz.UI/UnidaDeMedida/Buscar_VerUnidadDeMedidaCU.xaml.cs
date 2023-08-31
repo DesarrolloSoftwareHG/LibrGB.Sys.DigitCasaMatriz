@@ -100,7 +100,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
                 }
                 else
                 {
-                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Modificar", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Modificar", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
                 ActualizarDataGrid();
             }
@@ -140,7 +140,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
                 }
                 else
                 {
-                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Eliminar", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Eliminar", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
                 ActualizarDataGrid();
             }
@@ -180,7 +180,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
                 }
                 else
                 {
-                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error En La Previsualizacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error En La Previsualizacion", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
                 ActualizarDataGrid();
             }
