@@ -191,40 +191,38 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
             if (ObjUDM.UDM != "" && ObjUDM.Descripcion != "")
             {
 
-                if (cbxEstatusUDM != primerDato)
+                if (cbxEstatusUDM.SelectedItem != null && cbxEstatusUDM.SelectedItem.Equals(primerDato))
                 {
-                    MessageBox.Show("Debes Seleccionar un Estatus para poder Guardar la Unidad de Medida", "Estatus No Definido", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Debes Seleccionar un Estatus para poder Guardar la Unidad de Medida", "Estatus No Definido", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    return;
+                }
+
+                if (Regex.IsMatch(ObjUDM.UDM, @"\d"))
+                {
+                    MessageBox.Show("El campo 'Unidad De Medida' no debe contener números", "Error de validación", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+                    txtNombreUDM.Focus();
+
+                    return;
+                }
+
+                var ObjUdmBL = new UnidadDeMedidaBL();
+
+                var result = ObjUdmBL.GuardarUDM(ObjUDM);
+
+                if (result == 0)
+                {
+                    MessageBox.Show("Nombre de la Unidad De Medida ya existente", "Error al Guardar", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+                    txtNombreUDM.Focus();
+                    lblAlerta.Visibility = Visibility.Visible;
                     return;
                 }
                 else
                 {
-                    if (Regex.IsMatch(ObjUDM.UDM, @"\d"))
-                    {
-                        MessageBox.Show("El campo 'Unidad De Medida' no debe contener números", "Error de validación", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-
-                        txtNombreUDM.Focus();
-
-                        return;
-                    }
-
-                    var ObjUdmBL = new UnidadDeMedidaBL();
-
-                    var result = ObjUdmBL.GuardarUDM(ObjUDM);
-
-                    if (result == 0)
-                    {
-                        MessageBox.Show("Nombre de la Unidad De Medida ya existente", "Error al Guardar", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-
-                        txtNombreUDM.Focus();
-                        lblAlerta.Visibility = Visibility.Visible;
-                        return;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Unidad de Medida agregada con éxito", "Guardado Exitosamente", MessageBoxButton.OK, MessageBoxImage.Information);
-                        ActualizarDataGrid();
-                        Close();
-                    }
+                    MessageBox.Show("Unidad de Medida agregada con éxito", "Guardado Exitosamente", MessageBoxButton.OK, MessageBoxImage.Information);
+                    ActualizarDataGrid();
+                    Close();
                 }
             }
             else
@@ -254,37 +252,48 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
                     FechaModificacion = DateTime.Now
                 };
 
+                var primerDato = cbxEstatusUDM.Items[0];
+
                 if (UdmModificar.UDM != "" && UdmModificar.Descripcion != "")
                 {
-                    // Se verifica si el campo 'UDM' en ObjUDM contiene números utilizando una expresión regular.
-                    if (Regex.IsMatch(UdmModificar.UDM, @"\d"))
+                    if (cbxEstatusUDM != primerDato)
                     {
-                        // Si se encuentra algún número en el campo 'UDM', se muestra un mensaje de error al usuario.
-                        MessageBox.Show("El campo 'Unidad De Medida' no debe contener números", "Error de validación", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-
-                        // Se establece el enfoque en el cuadro de texto txtNombreUDM para que el usuario pueda corregir el error.
-                        txtNombreUDM.Focus();
-
-                        // Se detiene la ejecución del código actual.
+                        MessageBox.Show("Debes Seleccionar un Estatus Valido poder Modificar la Unidad de Medida", "Estatus No Definido", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                         return;
                     }
-
-                    if (UdmModificar != null)
+                    else
                     {
-                        var pUdnBL = new UnidadDeMedidaBL();
+                        // Se verifica si el campo 'UDM' en ObjUDM contiene números utilizando una expresión regular.
+                        if (Regex.IsMatch(UdmModificar.UDM, @"\d"))
+                        {
+                            // Si se encuentra algún número en el campo 'UDM', se muestra un mensaje de error al usuario.
+                            MessageBox.Show("El campo 'Unidad De Medida' no debe contener números", "Error de validación", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
-                        pUdnBL.ModificarUDM(UdmModificar);
+                            // Se establece el enfoque en el cuadro de texto txtNombreUDM para que el usuario pueda corregir el error.
+                            txtNombreUDM.Focus();
 
-                        var pUdmActulizada = pUdnBL.ObtenerUDM();
+                            // Se detiene la ejecución del código actual.
+                            return;
+                        }
 
-                        formUDM.dgvMostrar_UDM.ItemsSource = null;
+                        if (UdmModificar != null)
+                        {
+                            var pUdnBL = new UnidadDeMedidaBL();
 
-                        formUDM.dgvMostrar_UDM.ItemsSource = pUdmActulizada;
+                            pUdnBL.ModificarUDM(UdmModificar);
 
-                        MessageBox.Show("Unidad De Medida Modificada Con Exito", "Modificacion Unidad de Medida", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                            var pUdmActulizada = pUdnBL.ObtenerUDM();
 
-                        ActualizarDataGrid();
+                            formUDM.dgvMostrar_UDM.ItemsSource = null;
+
+                            formUDM.dgvMostrar_UDM.ItemsSource = pUdmActulizada;
+
+                            MessageBox.Show("Unidad De Medida Modificada Con Exito", "Modificacion Unidad de Medida", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+                            ActualizarDataGrid();
+                        }
                     }
+                        
                 }
                 else
                 {
