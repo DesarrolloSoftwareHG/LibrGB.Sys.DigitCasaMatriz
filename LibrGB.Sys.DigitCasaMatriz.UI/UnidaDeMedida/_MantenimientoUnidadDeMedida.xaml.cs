@@ -254,7 +254,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
 
                 var primerDato = cbxEstatusUDM.Items[0];
 
-                if (UdmModificar.UDM != "" && UdmModificar.Descripcion != "")
+                if (cbxEstatusUDM.SelectedItem != null && cbxEstatusUDM.SelectedItem.Equals(primerDato))
                 {
                     if (cbxEstatusUDM != primerDato)
                     {
