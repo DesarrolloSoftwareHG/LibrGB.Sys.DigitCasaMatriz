@@ -20,6 +20,7 @@ using LibrGB.Sys.DigitCasaMatriz.UI.Categoria;
 using MahApps.Metro.Controls;
 using static LibrGB.Sys.DigitCasaMatriz.EN.Acciones;
 using LibrGB.Sys.DigitCasaMatriz.EN;
+using System.ComponentModel.DataAnnotations;
 
 namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
 {
@@ -254,9 +255,9 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
 
                 var primerDato = cbxEstatusUDM.Items[0];
 
-                if (cbxEstatusUDM.SelectedItem != null && cbxEstatusUDM.SelectedItem.Equals(primerDato))
+                if (UdmModificar.UDM != "" && UdmModificar.Descripcion != "")
                 {
-                    if (cbxEstatusUDM != primerDato)
+                    if (cbxEstatusUDM.SelectedItem != null && cbxEstatusUDM.SelectedItem.Equals(primerDato))
                     {
                         MessageBox.Show("Debes Seleccionar un Estatus Valido poder Modificar la Unidad de Medida", "Estatus No Definido", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                         return;
