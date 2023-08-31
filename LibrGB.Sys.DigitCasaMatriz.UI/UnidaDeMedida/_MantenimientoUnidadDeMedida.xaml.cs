@@ -264,16 +264,10 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
                     }
                     else
                     {
-                        // Se verifica si el campo 'UDM' en ObjUDM contiene números utilizando una expresión regular.
                         if (Regex.IsMatch(UdmModificar.UDM, @"\d"))
                         {
-                            // Si se encuentra algún número en el campo 'UDM', se muestra un mensaje de error al usuario.
                             MessageBox.Show("El campo 'Unidad De Medida' no debe contener números", "Error de validación", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-
-                            // Se establece el enfoque en el cuadro de texto txtNombreUDM para que el usuario pueda corregir el error.
                             txtNombreUDM.Focus();
-
-                            // Se detiene la ejecución del código actual.
                             return;
                         }
 
@@ -299,13 +293,8 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
                 else
                 {
                     MessageBox.Show("Uno o más campos están vacíos", "Valores Vacíos Detectados", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                    // Se muestra un mensaje indicando que uno o más campos están vacíos si alguna de las propiedades del objeto 'ObjUDM' está vacía
-
                     ActualizarDataGrid();
-                    // Se llama a la función 'ActualizarDataGrid' para actualizar los datos en la cuadrícula
-
                     return;
-                    // Se cierra la ventana actual
                 }
 
             }
