@@ -283,7 +283,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
 
                             formUDM.dgvMostrar_UDM.ItemsSource = pUdmActulizada;
 
-                            MessageBox.Show("Unidad De Medida Modificada Con Exito", "Modificacion Unidad de Medida", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                            MessageBox.Show("Unidad De Medida Modificada Con Exito", "Modificacion Unidad de Medida", MessageBoxButton.OK, MessageBoxImage.Information);
 
                             ActualizarDataGrid();
                         }
@@ -324,7 +324,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
 
                 formUDM.dgvMostrar_UDM.ItemsSource = UdmActualizada;
 
-                MessageBox.Show("Unidad de Medida Eliminada Con Exito", "Eliminar Unidad De Medida", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show("Unidad de Medida Eliminada Con Exito", "Eliminar Unidad De Medida", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             Close();
         }
