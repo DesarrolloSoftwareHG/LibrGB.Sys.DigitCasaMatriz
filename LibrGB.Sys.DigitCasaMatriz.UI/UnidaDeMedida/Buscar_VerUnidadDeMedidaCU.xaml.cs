@@ -30,21 +30,17 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
             InitializeComponent();
 
             ActualizarDataGrid();
-            // Llamamos el Metodo ActualizarGrid para que se ejecute al nomas inicie el Control de Usuario
+
         }
 
         public void ActualizarDataGrid()
         {
-            // Se establece la fuente de datos del DataGridView (dgvMostrar_UDM) como nula para limpiar los datos actuales.
             dgvMostrar_UDM.ItemsSource = null;
-
-            // Se asigna la fuente de datos del DataGridView (dgvMostrar_UDM) con la lista de UDM obtenidas a través de ObjUdmBL.ObtenerUnidadDeMedida().
             dgvMostrar_UDM.ItemsSource = ObjUdmBL.ObtenerUDM();
 
         }
 
         UnidadDeMedidaBL ObjUdmBL = new UnidadDeMedidaBL();
-        // Crea una instancia de la clase UnidadDeMedidaBL y la asigna a la variable ObjUdmBL.
 
         private bool UDMFormAbierto = false;
 
@@ -63,8 +59,8 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
 
                 AgregFormulario.Closed += (s, args) =>
                 {
-                    UDMFormAbierto = false; // Actualizar el estado cuando se cierre la ventana
-                    btnModificarUDM.IsEnabled = true; // Restaurar el estado de los botones
+                    UDMFormAbierto = false;
+                    btnModificarUDM.IsEnabled = true;
                     btnEliminarUDM.IsEnabled = true;
                     btnVerUDM.IsEnabled = true;
                 };
@@ -84,7 +80,6 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
                 {
                     UDMFormAbierto = true;
 
-                    // Deshabilitar otros botones mientras se modifica una categoría
                     btnAgregarUDM.IsEnabled = false;
                     btnEliminarUDM.IsEnabled = false;
                     btnVerUDM.IsEnabled = false;
@@ -96,8 +91,8 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
 
                     ModifUDM.Closed += (s, args) =>
                     {
-                        UDMFormAbierto = false; // Actualizar el estado cuando se cierre la ventana
-                        btnAgregarUDM.IsEnabled = true; // Restaurar el estado de los botones
+                        UDMFormAbierto = false;
+                        btnAgregarUDM.IsEnabled = true;
                         btnEliminarUDM.IsEnabled = true;
                         btnVerUDM.IsEnabled = true;
                     };
@@ -117,7 +112,6 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
 
         private void btnEliminarUDM_Click(object sender, RoutedEventArgs e)
         {
-            // Definir el valor de la acción como byte usando el enumerado AccionEnum
             byte pAccion = (byte)AccionEnum.Eliminar;
 
             if (!UDMFormAbierto)
@@ -158,7 +152,6 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
 
         private void btnVerUDM_Click(object sender, RoutedEventArgs e)
         {
-            // Definir el valor de la acción como byte usando el enumerado AccionEnum
             byte pAccion = (byte)AccionEnum.Ver;
 
             if (!UDMFormAbierto)
@@ -215,12 +208,11 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
-            // Verificar si hay una instancia de _MantenimientoCategoria abierta
             var mantenimientoUDMAbierta = Application.Current.Windows.OfType<_MantenimientoUnidadDeMedida>().SingleOrDefault();
 
             if (mantenimientoUDMAbierta != null)
             {
-                mantenimientoUDMAbierta.Close(); // Cerrar la ventana abierta
+                mantenimientoUDMAbierta.Close();
             }
 
             this.Visibility = Visibility.Collapsed;
@@ -229,7 +221,6 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
         private void btnRecargarUDM_Click(object sender, RoutedEventArgs e)
         {
             ActualizarDataGrid();
-            //Llamamos el metodo ActualizarDataGrid para actualizar el DGV al precionarlo
         }
     }
 }
