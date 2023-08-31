@@ -188,7 +188,6 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
         public void ActualizarDataGrid()
         {
             formProveedor.dgvMostrar_Proveedor.ItemsSource = null;
-
             formProveedor.dgvMostrar_Proveedor.ItemsSource = ObjProveedorBL.ObtenerProveedor();
 
         }
@@ -321,7 +320,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
 
                         formProveedor.dgvMostrar_Proveedor.ItemsSource = pProveedorActulizado;
 
-                        MessageBox.Show("Proveedor Modificado Con Exito", "Modificacion Proveedor", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        MessageBox.Show("Proveedor Modificado Con Exito", "Modificacion Proveedor", MessageBoxButton.OK, MessageBoxImage.Information);
 
                         ActualizarDataGrid();
                     }
@@ -362,7 +361,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
 
                 formProveedor.dgvMostrar_Proveedor.ItemsSource = ProveedorActualizado;
 
-                MessageBox.Show("Proveedor Eliminado Con Exito", "Eliminar Proveedor", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show("Proveedor Eliminado Con Exito", "Eliminar Proveedor", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             Close();
         }
