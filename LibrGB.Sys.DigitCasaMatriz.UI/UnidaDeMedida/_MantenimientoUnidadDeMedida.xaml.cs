@@ -186,60 +186,54 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
                 FechaCreacion = DateTime.Now,
             };
 
+            var primerDato = cbxEstatusUDM.Items[0];
+
             if (ObjUDM.UDM != "" && ObjUDM.Descripcion != "")
             {
-                // Se verifica si el campo 'UDM' en ObjUDM contiene números utilizando una expresión regular.
-                if (Regex.IsMatch(ObjUDM.UDM, @"\d"))
+
+                if (cbxEstatusUDM != primerDato)
                 {
-                    // Si se encuentra algún número en el campo 'UDM', se muestra un mensaje de error al usuario.
-                    MessageBox.Show("El campo 'Unidad De Medida' no debe contener números", "Error de validación", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-
-                    // Se establece el enfoque en el cuadro de texto txtNombreUDM para que el usuario pueda corregir el error.
-                    txtNombreUDM.Focus();
-
-                    // Se detiene la ejecución del código actual.
-                    return;
-                }
-
-                var ObjUdmBL = new UnidadDeMedidaBL();
-                // Se crea una instancia del objeto 'UnidadDeMedidaBL' y se asigna a la variable 'ObjUdmBL'
-
-                var result = ObjUdmBL.GuardarUDM(ObjUDM);
-                // Se llama al método 'GuardarUDM' del objeto 'ObjUdmBL', pasando el objeto 'ObjUDM' como argumento para guardar la UDM
-
-                // Se verifica si el resultado de la operación es igual a 0, lo que podría indicar que el Nombre de UDM ya existe en la base de datos.
-                if (result == 0)
-                {
-                    // Si la condición se cumple, se muestra un mensaje de error al usuario.
-                    MessageBox.Show("Nombre de la Unidad De Medida ya existente", "Error al Guardar", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-
-                    // Se establece el enfoque en el cuadro de texto txtNombreUDM para que el usuario pueda corregir el error.
-                    txtNombreUDM.Focus();
-                    lblAlerta.Visibility = Visibility.Visible;
+                    MessageBox.Show("Debes Seleccionar un Estatus para poder Guardar la Unidad de Medida", "Estatus No Definido", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
                 else
                 {
-                    // Si la condición no se cumple, se muestra un mensaje de éxito al usuario.
-                    MessageBox.Show("Unidad de Medida agregada con éxito", "Guardado Exitosamente", MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (Regex.IsMatch(ObjUDM.UDM, @"\d"))
+                    {
+                        MessageBox.Show("El campo 'Unidad De Medida' no debe contener números", "Error de validación", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
-                    // Se llama al método ActualizarDataGrid() para actualizar los datos en la cuadrícula.
-                    ActualizarDataGrid();
+                        txtNombreUDM.Focus();
 
-                    // Se cierra la ventana actual.
-                    Close();
+                        return;
+                    }
+
+                    var ObjUdmBL = new UnidadDeMedidaBL();
+
+                    var result = ObjUdmBL.GuardarUDM(ObjUDM);
+
+                    if (result == 0)
+                    {
+                        MessageBox.Show("Nombre de la Unidad De Medida ya existente", "Error al Guardar", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+                        txtNombreUDM.Focus();
+                        lblAlerta.Visibility = Visibility.Visible;
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Unidad de Medida agregada con éxito", "Guardado Exitosamente", MessageBoxButton.OK, MessageBoxImage.Information);
+                        ActualizarDataGrid();
+                        Close();
+                    }
                 }
             }
             else
             {
                 MessageBox.Show("Uno o más campos están vacíos", "Valores Vacíos Detectados", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                // Se muestra un mensaje indicando que uno o más campos están vacíos si alguna de las propiedades del objeto 'ObjUDM' está vacía
 
                 ActualizarDataGrid();
-                // Se llama a la función 'ActualizarDataGrid' para actualizar los datos en la cuadrícula
 
                 return;
-                // Se cierra la ventana actual
             }
 
         }
