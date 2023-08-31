@@ -30,21 +30,17 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
             InitializeComponent();
 
             ActualizarDataGrid();
-            // Llamamos el Metodo ActualizarGrid para que se ejecute al nomas inicie el Control de Usuario
+
         }
 
         public void ActualizarDataGrid()
         {
-            // Se establece la fuente de datos del DataGridView (dgvMostrar_Categorias) como nula para limpiar los datos actuales.
             dgvMostrar_Proveedor.ItemsSource = null;
-
-            // Se asigna la fuente de datos del DataGridView (dgvMostrar_Categorias) con la lista de categorías obtenidas a través de ObjCategoriaBL.ObtenerCategoria().
             dgvMostrar_Proveedor.ItemsSource = ObjProveedorBL.ObtenerProveedor();
 
         }
 
         ProveedorBL ObjProveedorBL = new ProveedorBL();
-        // Crea una instancia de la clase CategoriaBL y la asigna a la variable ObjCategoriaBL.
 
         private bool proveedorFormAbierto = false;
 
@@ -63,8 +59,8 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
 
                 AgregFormulario.Closed += (s, args) =>
                 {
-                    proveedorFormAbierto = false; // Actualizar el estado cuando se cierre la ventana
-                    btnModificarProveedor.IsEnabled = true; // Restaurar el estado de los botones
+                    proveedorFormAbierto = false;
+                    btnModificarProveedor.IsEnabled = true;
                     btnEliminarProveedor.IsEnabled = true;
                     btnVerProveedor.IsEnabled = true;
                 };
@@ -95,8 +91,8 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
 
                     ModifProveedor.Closed += (s, args) =>
                     {
-                        proveedorFormAbierto = false; // Actualizar el estado cuando se cierre la ventana
-                        btnAgregarProveedor.IsEnabled = true; // Restaurar el estado de los botones
+                        proveedorFormAbierto = false;
+                        btnAgregarProveedor.IsEnabled = true;
                         btnEliminarProveedor.IsEnabled = true;
                         btnVerProveedor.IsEnabled = true;
                     };
@@ -104,7 +100,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
                 }
                 else
                 {
-                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Modificar", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Modificar", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
                 ActualizarDataGrid();
             }
@@ -116,7 +112,6 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
 
         private void btnEliminarProveedor_Click(object sender, RoutedEventArgs e)
         {
-            // Definir el valor de la acción como byte usando el enumerado AccionEnum
             byte pAccion = (byte)AccionEnum.Eliminar;
 
             if (!proveedorFormAbierto)
@@ -146,7 +141,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
                 }
                 else
                 {
-                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Eliminar", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error Al Eliminar", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
                 ActualizarDataGrid();
             }
@@ -159,7 +154,6 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
 
         private void btnVerProveedor_Click(object sender, RoutedEventArgs e)
         {
-            // Definir el valor de la acción como byte usando el enumerado AccionEnum
             byte pAccion = (byte)AccionEnum.Ver;
 
             if (!proveedorFormAbierto)
@@ -188,7 +182,7 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
                 }
                 else
                 {
-                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error En La Previsualizacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Debes Seleccionar Almenos Una Fila", "Error En La Previsualizacion", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
                 ActualizarDataGrid();
             }
@@ -216,12 +210,11 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
-            // Verificar si hay una instancia de _MantenimientoCategoria abierta
             var mantenimientoproveedorAbierta = Application.Current.Windows.OfType<_MantenimientoProveedor>().SingleOrDefault();
 
             if (mantenimientoproveedorAbierta != null)
             {
-                mantenimientoproveedorAbierta.Close(); // Cerrar la ventana abierta
+                mantenimientoproveedorAbierta.Close();
             }
 
             this.Visibility = Visibility.Collapsed;
@@ -230,7 +223,6 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.Proveedor
         private void btnRecargarProveedor_Click(object sender, RoutedEventArgs e)
         {
             ActualizarDataGrid();
-            //Llamamos el metodo ActualizarDataGrid para actualizar el DGV al precionarlo
         }
 
     }
