@@ -33,38 +33,30 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
             InitializeComponent();
 
             ActualizarDataGrid();
-            // Llamamos al Metedo para actualizar el DataGrid
 
             CargarComboEstatus();
-            // Llamamos el metodo CargarComboEstatus para que se cargen los Estatus del Cbx
 
             if (pId != null)
             {
                 SetUnidadDeMedida(pId, pAccion);
-                // Llama al método SetUnidadDeMedida para establecer la UDM según el pId y pAccion proporcionados.
             }
 
             if (pAccion == (byte)AccionEnum.Crear)
             {
-                // Si la acción es "Crear" (AccionEnum.Crear), se realiza lo siguiente:
+                txtNombreUDM.Text = "";
+                cbxEstatusUDM.SelectedItem = cbxEstatusUDM.Items[0];
+                txtDescripcionUDM.Text = "";
 
-                // Se limpian los campos de entrada de texto y selección.
-                txtNombreUDM.Text = ""; // Limpia el campo de nombre de categoría.
-                cbxEstatusUDM.SelectedItem = ""; // Limpia el campo de código de categoría.
-                txtDescripcionUDM.Text = ""; // Limpia el campo de descripción de categoría.
-
-                // Se establece la fecha de creación y modificación a la fecha y hora actual.
-                dtFechaCreacion.SelectedDate = DateTime.Now; // Establece la fecha de creación actual.
+                dtFechaCreacion.SelectedDate = DateTime.Now;
                 dtFechaCreacion.SelectedDateFormat = DatePickerFormat.Long;
                 dtFechaCreacion.IsEnabled = false;
 
-                dtFechaModificacion.SelectedDate = DateTime.Now; // Establece la fecha de modificación actual.
+                dtFechaModificacion.SelectedDate = DateTime.Now;
                 dtFechaModificacion.SelectedDateFormat = DatePickerFormat.Long;
                 dtFechaModificacion.IsEnabled = false;
 
-                // Se ocultan los botones de eliminar y modificar UDM.
-                btnEliminarUDM.Visibility = Visibility.Collapsed; // Oculta el botón de eliminar UDM.
-                btnModificarUDM.Visibility = Visibility.Collapsed; // Oculta el botón de modificar UDM.
+                btnEliminarUDM.Visibility = Visibility.Collapsed;
+                btnModificarUDM.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -82,117 +74,86 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
         public void SetUnidadDeMedida(int? pId, byte? pAccion)
         {
             var UdmBl = new UnidadDeMedidaBL();
-            // Se crea una instancia del objeto UnidadDeMedidaBL y se asigna a la variable UdmBl.
 
             var UDM = UdmBl.ObtenerPorId(pId);
-            //Obtener la UDM por Id
 
             if (UDM != null)
             {
                 if (pAccion == (byte)AccionEnum.Ver)
                 {
-                    // Si la acción es "Ver" (AccionEnum.Ver), se realiza lo siguiente:
-
-                    // Se establece el contenido de la etiqueta de título a "Visualizacion Unidad De Medida".
                     lblNameForm.Content = "Visualizacion Unidad De Medida";
 
-                    // Se muestra el identificador de la UDM en el campo de texto.
                     txtIdUDM.Text = Convert.ToString(UDM.Id);
 
-                    // Se establece el nombre de la UDM en el campo de texto y se deshabilita la edición.
                     txtNombreUDM.Text = UDM.UDM;
                     txtNombreUDM.IsEnabled = false;
 
-                    // Se establece el Estatus de la UDM en el campo del cbx y se deshabilita la edición.
-                    //cbxEstatusUDM.SelectedValue = UDM.Estatus;
                     cbxEstatusUDM.SelectedValue = UDM.Estatus.Id;
                     cbxEstatusUDM.DisplayMemberPath = "Nombre";
                     cbxEstatusUDM.SelectedValuePath = "Id";
                     cbxEstatusUDM.IsEnabled = false;
 
-                    // Se establece la descripción de la UDM en el campo de texto y se deshabilita la edición.
                     txtDescripcionUDM.Text = UDM.Descripcion;
                     txtDescripcionUDM.IsEnabled = false;
 
-                    // Se establecen las fechas de creación y modificación en los campos de fecha.
                     dtFechaCreacion.SelectedDate = UDM.FechaCreacion;
                     dtFechaCreacion.SelectedDateFormat = DatePickerFormat.Long;
 
                     dtFechaModificacion.SelectedDate = UDM.FechaModificacion;
                     dtFechaModificacion.SelectedDateFormat = DatePickerFormat.Long;
 
-                    // Se ocultan los botones de agregar , modificar y ver UDM.
-                    btnAgregarUDM.Visibility = Visibility.Collapsed; // Oculta el botón de agregar categoría.
-                    btnModificarUDM.Visibility = Visibility.Collapsed; // Oculta el botón de modificar categoría.
-                    btnEliminarUDM.Visibility = Visibility.Collapsed; // Oculta el botón de Eliminar categoría.
+                    btnAgregarUDM.Visibility = Visibility.Collapsed;
+                    btnModificarUDM.Visibility = Visibility.Collapsed;
+                    btnEliminarUDM.Visibility = Visibility.Collapsed;
                 }
                 else if (pAccion == (byte)AccionEnum.Eliminar)
                 {
-                    // Si la acción es "Eliminar" (AccionEnum.Eliminar), se realiza lo siguiente:
-
-                    // Se establece el contenido de la etiqueta de título a "Eliminar Unidad De Medida".
                     lblNameForm.Content = "Eliminar Unidad De Medida";
 
-                    // Se muestra el identificador de la UDM en el campo de texto.
                     txtIdUDM.Text = Convert.ToString(UDM.Id);
 
-                    // Se establece el nombre de la UDM en el campo de texto y se deshabilita la edición.
                     txtNombreUDM.Text = UDM.UDM;
                     txtNombreUDM.IsEnabled = false;
 
-                    // Se establece el Estatus de la UDM en el campo de texto y se deshabilita la edición.
                     cbxEstatusUDM.SelectedValue = UDM.Estatus.Id;
                     cbxEstatusUDM.DisplayMemberPath = "Nombre";
                     cbxEstatusUDM.SelectedValuePath = "Id";
                     cbxEstatusUDM.IsEnabled = false;
 
-                    // Se establece la descripción de la UDM en el campo de texto y se deshabilita la edición.
                     txtDescripcionUDM.Text = UDM.Descripcion;
                     txtDescripcionUDM.IsEnabled = false;
 
-                    // Se establecen las fechas de creación y modificación en los campos de fecha.
                     dtFechaCreacion.SelectedDate = UDM.FechaCreacion;
                     dtFechaCreacion.SelectedDateFormat = DatePickerFormat.Long;
 
                     dtFechaModificacion.SelectedDate = UDM.FechaModificacion;
                     dtFechaModificacion.SelectedDateFormat = DatePickerFormat.Long;
 
-                    // Se ocultan los botones de agregar y modificar UDM.
-                    btnAgregarUDM.Visibility = Visibility.Collapsed; // Oculta el botón de agregar UDM.
-                    btnModificarUDM.Visibility = Visibility.Collapsed; // Oculta el botón de modificar UDM.
+                    btnAgregarUDM.Visibility = Visibility.Collapsed;
+                    btnModificarUDM.Visibility = Visibility.Collapsed;
                 }
                 else
                 {
-                    // En caso contrario (acción de Modificación), se realiza lo siguiente:
-
-                    // Se establece el contenido de la etiqueta de título a "Modificar Modificar Unidad De Medida".
                     lblNameForm.Content = "Modificar Unidad De Medida";
 
-                    // Se muestra el identificador de la UDM en el campo de texto.
                     txtIdUDM.Text = Convert.ToString(UDM.Id);
 
-                    // Se establece el nombre de la UDM en el campo de texto.
                     txtNombreUDM.Text = UDM.UDM;
 
-                    // Se establece el Estatus de la UDM en el campo de texto.
                     cbxEstatusUDM.SelectedValue = UDM.Estatus.Id;
                     cbxEstatusUDM.DisplayMemberPath = "Nombre";
                     cbxEstatusUDM.SelectedValuePath = "Id";
 
-                    // Se establece la descripción de la UDM en el campo de texto.
                     txtDescripcionUDM.Text = UDM.Descripcion;
 
-                    // Se establece la fecha de creación en el campo de fecha.
                     dtFechaCreacion.SelectedDate = UDM.FechaCreacion;
                     dtFechaCreacion.SelectedDateFormat = DatePickerFormat.Long;
 
-                    // Se establece la fecha de modificación en el campo de fecha.
                     dtFechaModificacion.SelectedDate = DateTime.Now;
                     dtFechaModificacion.SelectedDateFormat = DatePickerFormat.Long;
 
-                    // Se ocultan los botones de agregar y eliminar UDM.
-                    btnAgregarUDM.Visibility = Visibility.Collapsed; // Oculta el botón de agregar UDM.
-                    btnEliminarUDM.Visibility = Visibility.Collapsed; // Oculta el botón de eliminar UDM.
+                    btnAgregarUDM.Visibility = Visibility.Collapsed;
+                    btnEliminarUDM.Visibility = Visibility.Collapsed;
                 }
 
             }
@@ -200,20 +161,14 @@ namespace LibrGB.Sys.DigitCasaMatriz.UI.UnidaDeMedida
 
 
         UnidadDeMedidaBL ObjUdmBL = new UnidadDeMedidaBL();
-        // Crea una instancia de la clase UnidadDeMedidaBL y la asigna a la variable ObjUdmBL.
-        // UnidadDeMedidaBL es una clase que se encarga de la lógica de negocio relacionada con las UnidadDeMedida.
 
         Buscar_VerUnidadDeMedidaCU formUDM = new Buscar_VerUnidadDeMedidaCU();
-        // Crea una instancia del formulario Buscar_VerUnidadDeMedidaCU y la asigna a la variable formUDM.
-        // Buscar_VerUnidadDeMedidaCU es el nombre del formulario que se está instanciando.
 
 
         public void ActualizarDataGrid()
         {
-            // Se establece la fuente de datos del control DataGrid en la vista formUDM a null para limpiar los datos actuales.
             formUDM.dgvMostrar_UDM.ItemsSource = null;
 
-            // Se establece la fuente de datos del control DataGrid en la vista formUDM con la lista de UDM obtenida desde ObjUdmBL.ObtenerUDM().
             formUDM.dgvMostrar_UDM.ItemsSource = ObjUdmBL.ObtenerUDM();
 
         }
