@@ -143,6 +143,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Img\hogar.png" />
+    <Content Include="Content\Img\LogoTipo.png" />
     <Content Include="Content\SB-ADMIN\css\sb-admin-2.css" />
     <Content Include="Content\SB-ADMIN\css\sb-admin-2.min.css" />
     <Content Include="Content\SB-ADMIN\img\undraw_posting_photo.svg" />

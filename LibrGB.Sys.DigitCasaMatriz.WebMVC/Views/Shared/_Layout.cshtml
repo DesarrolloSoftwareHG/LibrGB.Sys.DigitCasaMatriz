@@ -4,7 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <title> Libreria Green Book</title>
+
+    <link rel="icon" type="image/x-icon" href="~/Content/Img/LogoTipo.png">
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <!-- Custom fonts for this template-->
@@ -24,21 +27,24 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+                <div>
+                    <br />
+                    <img src="~/Content/Img/LogoTipo.png" width="75px" height="75px" />
+                    <br />
                 </div>
-                <div class="sidebar-brand-text mx-3">HECTOR XD</div>
             </a>
+
+            <br />
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
+                    <span>Inicio</span>
                 </a>
             </li>
 
@@ -47,21 +53,21 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Menu
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCatalogos"
                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Ventas</span>
+                    <i class="fa fa-clipboard-list"></i>
+                    <span>Catalogo</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseCatalogos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href='#'>Productos</a>
+                        <a class="collapse-item" href='#'>Categorias</a>
+                        <a class="collapse-item" href='#'>Proveedores</a>
+                        <a class="collapse-item" href='#'>Unidad de Medida</a>
                     </div>
                 </div>
             </li>
@@ -69,30 +75,30 @@
 
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+            <!--<hr class="sidebar-divider">-->
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+            <!--<div class="sidebar-heading">
                 Addons
-            </div>
+            </div>-->
 
 
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            <!--<li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span>
                 </a>
-            </li>
+            </li>-->
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            <!--<li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span>
                 </a>
-            </li>
+            </li>-->
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -138,7 +144,7 @@
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-bell fa-fw"></i>
                             <!-- Counter - Alerts -->
-                            <span class="badge badge-danger badge-counter">3+</span>
+                            <span class="badge badge-danger badge-counter">1</span>
                         </a>
                         <!-- Dropdown - Alerts -->
                         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -153,11 +159,11 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="small text-gray-500">December 12, 2019</div>
-                                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                    <div class="small text-gray-500">December 00, 2045</div>
+                                    <span class="font-weight-bold">Bienvenido al Sistema SysAdmin@host.gb.com</span>
                                 </div>
                             </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            @*<a class="dropdown-item d-flex align-items-center" href="#">
                                 <div class="mr-3">
                                     <div class="icon-circle bg-success">
                                         <i class="fas fa-donate text-white"></i>
@@ -179,20 +185,20 @@
                                     Spending Alert: We've noticed unusually high spending for your account.
                                 </div>
                             </a>
-                            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>*@
                         </div>
                     </li>
 
                     <!-- Nav Item - Messages -->
-                    <li class="nav-item dropdown no-arrow mx-1">
+                    <!--<li class="nav-item dropdown no-arrow mx-1">
                         <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-envelope fa-fw"></i>
+                            <i class="fas fa-envelope fa-fw"></i>-->
                             <!-- Counter - Messages -->
-                            <span class="badge badge-danger badge-counter">7</span>
-                        </a>
+                            <!--<span class="badge badge-danger badge-counter">7</span>
+                        </a>-->
                         <!-- Dropdown - Messages -->
-                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                        <!--<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="messagesDropdown">
                             <h6 class="dropdown-header">
                                 Message Center
@@ -255,7 +261,7 @@
                             </a>
                             <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                         </div>
-                    </li>
+                    </li>-->
 
                     <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -263,7 +269,7 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">SysAdmin@host.gb.com</span>
                             <img class="img-profile rounded-circle"
                                  src="img/undraw_profile.svg">
                         </a>
@@ -297,13 +303,10 @@
             <div class="content">
                 <div class="container-fluid">
                     @RenderBody()
-                    <hr />
                     <!-- Footer -->
-                    <footer class="sticky-footer bg-white">
-                        <div class="container my-auto">
-                            <div class="copyright text-center my-auto">
-                                <span>Copyright &copy; Your Website 2021</span>
-                            </div>
+                    <footer>
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Derechos Reservados 2023</span>
                         </div>
                     </footer>
                     <!-- End of Footer -->
