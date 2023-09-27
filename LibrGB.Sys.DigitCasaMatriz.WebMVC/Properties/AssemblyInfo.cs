@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // La información general sobre un ensamblado se controla mediante lo siguiente
 // conjunto de atributos. Cambie los valores de estos atributos para modificar la información
 // asociada a un ensamblado.
-[assembly: AssemblyTitle("LibrGB.Sys.DigitCasaMatriz.UIWebMVC")]
+[assembly: AssemblyTitle("LibrGB.Sys.DigitCasaMatriz.WebMVC")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LibrGB.Sys.DigitCasaMatriz.UIWebMVC")]
+[assembly: AssemblyProduct("LibrGB.Sys.DigitCasaMatriz.WebMVC")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID es para el ID. typelib cuando este proyecto esté expuesto a COM
-[assembly: Guid("6dbc153c-f351-4e89-9014-c1ebbe8dafdf")]
+[assembly: Guid("91bbcbee-9441-415f-bcd4-2c0870e47f32")]
 
 // La información de versión de un ensamblado consta de los siguientes cuatro valores:
 //

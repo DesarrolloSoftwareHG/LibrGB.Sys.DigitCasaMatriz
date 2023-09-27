@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace LibrGB.Sys.DigitCasaMatriz.UIWebMVC
+namespace LibrGB.Sys.DigitCasaMatriz.WebMVC
 {
     public class MvcApplication : System.Web.HttpApplication
     {

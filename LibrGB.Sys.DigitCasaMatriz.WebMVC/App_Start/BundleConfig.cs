@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace LibrGB.Sys.DigitCasaMatriz.UIWebMVC
+namespace LibrGB.Sys.DigitCasaMatriz.WebMVC
 {
     public class BundleConfig
     {

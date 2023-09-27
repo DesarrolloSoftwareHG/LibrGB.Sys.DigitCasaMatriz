@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace LibrGB.Sys.DigitCasaMatriz.UIWebMVC
+namespace LibrGB.Sys.DigitCasaMatriz.WebMVC
 {
     public class RouteConfig
     {

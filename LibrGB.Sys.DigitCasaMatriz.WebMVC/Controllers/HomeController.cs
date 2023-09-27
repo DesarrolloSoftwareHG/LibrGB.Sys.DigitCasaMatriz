@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace LibrGB.Sys.DigitCasaMatriz.UIWebMVC.Controllers
+namespace LibrGB.Sys.DigitCasaMatriz.WebMVC.Controllers
 {
     public class HomeController : Controller
     {
